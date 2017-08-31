@@ -1,0 +1,102 @@
+text{
+    font-family: MicroSoft Yahei;
+    font-size: 24rpx;
+    color: #666;
+}
+
+input{
+    font-family: MicroSoft YaHei;
+}
+
+.container {
+    background-color: #efeff4;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.form-group {
+  width: 100%;
+  background-color: white;
+  justify-content:center;
+  align-items:center;
+  display:flex;
+  flex-direction:column;
+  margin-bottom: 50rpx;
+}
+
+.form-item {
+    display:flex;
+    flex-direction: row;
+    width: 90%;
+    background-color: #fff;
+    height: 90rpx;
+    align-items: center;
+    border-bottom: 1rpx solid #d9d9d9;
+}
+
+.form-item-input{
+  width: 70%;
+}
+
+.form-item-label{
+  margin-right: 50rpx;
+  margin-bottom: 5rpx;
+  width: 120rpx;
+}
+
+.form-item-label text{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.form-item picker{
+  color:#666666
+}
+
+
+.form-item:last-child{
+  border-bottom: 0;
+}
+
+.form-input-placeholder{
+  font-size: 40rpx;
+  color: #efefef;
+}
+
+.form-item-picker:after {
+    content: " ";
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    border-width: 2px 2px 0 0;
+    border-color: #d9d9d9;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+
+.form-row-button {
+    height: 90rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: #4fc1e9;
+    align-items: center;
+}
+
+    .form-row-button text {
+        color:white;
+        font-size:40rpx;
+    }
+
+
+
+
+
+
+

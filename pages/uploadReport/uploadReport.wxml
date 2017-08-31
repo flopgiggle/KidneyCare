@@ -1,0 +1,57 @@
+<view class="container">
+  <view class="form-group">
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>报告类型</text>
+      </view>
+      <view class="form-item-input">
+        <picker bindchange="bindReportTypeChange" range="{{reportType}}">
+          <view class="picker">
+            <text class="form-input-placeholder" wx:if="{{reportTypeIndex==-1}}">请选择报告类型
+            </text> {{reportTypeIndex==-1?"":reportType[reportTypeIndex]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>报告时间</text>
+      </view>
+      <view class="form-item-input">
+        <picker mode="date" value="{{reportDate}}" start="1900-01-01" end="2017-08-30" bindchange="bindDateChange">
+          <view class="picker">
+            {{reportDate}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>报告备注</text>
+      </view>
+      <view class="form-item-input">
+        <input type='idcard' placeholder-class="form-input-placeholder" placeholder="如需备注请填写此处" auto-focus=""/>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-group">
+    <view class="form-item upload-Item">
+      <view class="form-item-label">
+        <text>报告图片</text>
+      </view>
+
+      
+      <view class="form-item-input upload-container" bindtap="chooseImage">
+        <block wx:for="{{imageList}}" wx:for-item="image">
+          <view class="upload-preview">
+            <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+          </view>
+        </block>
+        <view class="upload-preview">
+          <view class="add-icon">+</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+/* pages/uploadReport/uploadReport.wxss */
+.container {
+    align-items: center;
+}
+
+.upload-Item {
+    height: 150rpx;
+}
+
+.upload-container {
+    justify-content: flex-start;
+    display: flex;
+}
+
+.upload-preview {
+    border: solid;
+    width: 130rpx;
+    height: 130rpx;
+    border-width: 1px;
+    border-color: darkgray;
+    text-align: center;
+    vertical-align: central;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right:5rpx;
+}
+
+.form-item image {
+    width: 130rpx;
+    height: 130rpx;
+}
+
+.add-icon {
+    font-size:50rpx;
+    font-weight:100;
+}

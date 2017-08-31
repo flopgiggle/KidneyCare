@@ -1,0 +1,11 @@
+<view class="container">
+    <view class='chart-title' >今日指标</view>
+    <view class="chartView">
+        <canvas canvas-id="radarCanvas" class="canvas" ></canvas>
+    </view>
+    <view class='chart-title' >历史血压</view>
+    <view  class="chartView">
+        <canvas canvas-id="lineCanvas" class="canvas" ></canvas>
+    </view>
+    
+</view>

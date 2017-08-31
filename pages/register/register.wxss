@@ -1,0 +1,4 @@
+/* pages/register/register.wxss */
+.container {
+    align-items: center;
+}

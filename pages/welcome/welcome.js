@@ -23,6 +23,11 @@ Page({
         wx.navigateTo({
             url: "/pages/uploadReport/uploadReport"
         })
+    },
+    onInfolistTap: function (event) {
+      wx.navigateTo({
+        url: "/pages/infolist/infolist"
+      })
     }
 
 })

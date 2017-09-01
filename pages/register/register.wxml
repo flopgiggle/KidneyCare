@@ -42,7 +42,8 @@
       <view class="form-item-input">
         <picker bindchange="bindSexChange" range="{{sex}}">
           <view class="picker">
-            <text class="form-input-placeholder" wx:if="{{sexIndex==-1}}">请选择性别
+            <text class="form-input-placeholder" wx:if="{{sexIndex==-1}}">
+            请选择性别
             </text> {{sexIndex==-1?"":sex[sexIndex]}}
           </view>
         </picker>
@@ -85,7 +86,8 @@
       <view class="form-item-input">
         <picker bindchange="bindDocterChange" range="{{docter}}">
           <view class="picker">
-            <text class="form-input-placeholder" wx:if="{{docterIndex==-1}}">请选择医生
+            <text class="form-input-placeholder" wx:if="{{docterIndex==-1}}">
+            请选择医生
             </text> {{docterIndex==-1?"":docter[docterIndex]}}
           </view>
         </picker>
@@ -98,7 +100,8 @@
       <view class="form-item-input">
         <picker bindchange="bindNurseChange" range="{{nurse}}">
           <view class="picker">
-            <text class="form-input-placeholder" wx:if="{{nurseIndex==-1}}">请选择护士
+            <text class="form-input-placeholder" wx:if="{{nurseIndex==-1}}">
+            请选择护士
             </text> {{nurseIndex==-1?"":nurse[nurseIndex]}}
           </view>
         </picker>

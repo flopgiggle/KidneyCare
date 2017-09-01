@@ -7,8 +7,9 @@
       <view class="form-item-input">
         <picker bindchange="bindReportTypeChange" range="{{reportType}}">
           <view class="picker">
-            <text class="form-input-placeholder" wx:if="{{reportTypeIndex==-1}}">请选择报告类型
-            </text> {{reportTypeIndex==-1?"":reportType[reportTypeIndex]}}
+            <text class="form-input-placeholder" wx:if="{{reportTypeIndex==-1}}">
+            请选择报告类型
+            </text>{{reportTypeIndex==-1?"":reportType[reportTypeIndex]}}
           </view>
         </picker>
       </view>

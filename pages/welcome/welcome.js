@@ -25,9 +25,13 @@ Page({
         })
     },
     onInfolistTap: function (event) {
-      wx.navigateTo({
+      // wx.navigateTo({
+      //   url: "/pages/infolist/infolist"
+      // });
+
+      wx.switchTab({
         url: "/pages/infolist/infolist"
-      })
+      });
     }
 
 })

@@ -59,3 +59,32 @@
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
+
+.add-record{
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.record-button{
+  height:80rpx;
+  background: #4fc1e9;
+  flex:1;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+
+  
+}
+
+.record-button text{
+  color:#ffffff;
+  font-size: 35rpx;
+  font-weight: bold;
+}
+
+.left-button{
+  border-style:solid;
+	border-width:0 2px 0px 0px;
+  border-color: #3cb0db;
+}

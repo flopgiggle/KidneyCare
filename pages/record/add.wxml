@@ -1,0 +1,2 @@
+<!--pages/record/add.wxml-->
+<text>{{page}}.wxml</text>

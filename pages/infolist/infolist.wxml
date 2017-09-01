@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="list-group">
+    <view class="list-title">
+      2017-08-30 今天
+    </view>
+    <view class="list-item">
+      <view class="list-item-info"><text class='text-info'>25 mmol/L</text></view>
+      <view class="list-item-info"><text class='text-type'>餐后</text> <text class='text-time'>20:05</text></view>
+    </view>
+    <view class="list-item">
+      <view class="list-item-info"><text class='text-info'>咨询医生</text></view>
+      <view class="list-item-info"><text class='text-type'>消息</text> <text class='text-time'>20:05</text></view>
+    </view>
+    <view class="list-item">
+      <view class="list-item-info"><text class='text-info'>腹部彩超</text></view>
+      <view class="list-item-info"><text class='text-type'>上传报告</text> <text class='text-time'>20:05</text></view>
+    </view>
+
+  </view>
+
+
+
+    <view class="list-group">
+    <view class="list-title">
+      2017-08-31 
+    </view>
+    <view class="list-item">
+      <view class="list-item-info"><text class='text-info'>25 mmol/L</text></view>
+      <view class="list-item-info"><text class='text-type'>餐后</text> <text class='text-time'>20:05</text></view>
+    </view>
+    <view class="list-item">
+      <view class="list-item-info"><text class='text-info'>咨询医生</text></view>
+      <view class="list-item-info"><text class='text-type'>消息</text> <text class='text-time'>20:05</text></view>
+    </view>
+    <view class="list-item">
+      <view class="list-item-info"><text class='text-info'>腹部彩超</text></view>
+      <view class="list-item-info"><text class='text-type'>上传报告</text> <text class='text-time'>20:05</text></view>
+    </view>
+
+  </view>
+
+  <view class="form-group">
+    <view class="form-row-button">
+      <text>新增记录</text>
+    </view>
+  </view>
+</view>

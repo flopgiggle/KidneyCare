@@ -1,1 +1,4 @@
-/* pages/record/add.wxss */
+/* pages/register/register.wxss */
+.container {
+    align-items: center;
+}

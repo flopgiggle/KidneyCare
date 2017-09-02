@@ -1,2 +1,118 @@
-<!--pages/record/add.wxml-->
-<text>{{page}}.wxml</text>
+<view class="container">
+  <view class="form-group">
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>日期</text>
+      </view>
+      <view class="form-item-input">
+        <picker mode="date" value="{{reportDate}}" start="1900-01-01" end="2017-08-30" bindchange="bindDateChange">
+          <view class="picker">
+            {{reportDate}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-group">
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>时间</text>
+      </view>
+      <view class="form-item-input">
+        <picker mode="time" value="{{bloodPressureTime}}" start="00:00" end="23:59" bindchange="bindBloodPressureTimeChange">
+          <view class="picker">
+            {{bloodPressureTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>收缩压</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" type="number" placeholder="请填写收缩压" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>舒张压</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" type="number" placeholder="请填舒张压" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>心率</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" placeholder="请填写心率" auto-focus=""/>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-group">
+
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>空腹血糖</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" type="number" placeholder="请填写空腹血糖" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>早餐血糖</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" type="number" placeholder="请填早餐2小时后血糖" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>午餐血糖</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" placeholder="请填午餐2小时后血糖" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>晚餐血糖</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" placeholder="请填晚餐2小时后血糖" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>随机血糖</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" placeholder="请填写随机血糖与时间" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>随机时间</text>
+      </view>
+      <view class="form-item-input">
+        <picker mode="time" value="{{bloodPressureTime}}" start="00:00" end="23:59" bindchange="bindBloodPressureTimeChange">
+          <view class="picker">
+            {{bloodPressureTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="form-group">
+    <view class="form-row-button">
+      <text>保存</text>
+    </view>
+  </view>
+</view>

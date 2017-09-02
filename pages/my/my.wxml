@@ -1,2 +1,46 @@
-<!--pages/my/my.wxml-->
-<text>我的信息</text>
+<view class="container">
+  <view class="form-group">
+    <view class="form-item upload-Item ">
+      <view class="form-item-input upload-container my-avatar" bindtap="chooseImage">
+        <image wx:if="{{true}}" class="avatar" src="/images/avatar/1.png"></image>
+      </view>
+      <view class="my-name">
+        <text>王芮安 女</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-group">
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>血压上限</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" type="number" placeholder="血压预警的上限值" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>血糖上限</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" type="number" placeholder="血糖预警的下限值" auto-focus=""/>
+      </view>
+    </view>
+  </view>
+  <view class="form-group">
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>系统设置</text>
+      </view>
+      <view class="form-item-input ">
+        <input placeholder-class="form-input-placeholder" disabled="true"  auto-focus=""/>
+      </view>
+    </view>
+  </view>
+  <view class="form-group">
+    <view class="form-row-button">
+      <text>保存</text>
+    </view>
+  </view>
+</view>

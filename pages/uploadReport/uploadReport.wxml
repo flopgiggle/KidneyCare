@@ -34,15 +34,12 @@
         <input type='idcard' placeholder-class="form-input-placeholder" placeholder="如需备注请填写此处" auto-focus=""/>
       </view>
     </view>
-  </view>
-
-  <view class="form-group">
     <view class="form-item upload-Item">
       <view class="form-item-label">
         <text>报告图片</text>
       </view>
 
-      
+
       <view class="form-item-input upload-container" bindtap="chooseImage">
         <block wx:for="{{imageList}}" wx:for-item="image">
           <view class="upload-preview">
@@ -52,6 +49,49 @@
         <view class="upload-preview">
           <view class="add-icon">+</view>
         </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-group">
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>PW</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" type="number" placeholder="请填写PW" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>BW</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" type="number" placeholder="请填写BW" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>身高</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" placeholder="请填写身高单位(CM厘米)" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>腰围</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" placeholder="请填写腰围" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>其他</text>
+      </view>
+      <view class="form-item-input">
+        <input placeholder-class="form-input-placeholder" placeholder="请填写其他信息" auto-focus=""/>
       </view>
     </view>
   </view>

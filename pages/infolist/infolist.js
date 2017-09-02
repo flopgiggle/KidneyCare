@@ -14,7 +14,7 @@ Page({
   },
   onMyselfRecordTap: function (event) {
     wx.navigateTo({
-      url: "/pages/uploadReport/uploadReport"
+      url: "/pages/record/add"
     })
   },
 

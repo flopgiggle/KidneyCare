@@ -89,10 +89,11 @@ input{
     align-items: center;
 }
 
-    .form-row-button text {
-        color:white;
-        font-size:40rpx;
-    }
+
+.form-row-button text {
+    color:white;
+    font-size:40rpx;
+}
 
 
 

@@ -1,0 +1,106 @@
+<!--pages/dialogue/dialogue.wxml-->
+<view class="container">
+  <view class="message-area">
+   
+      <view class="my-message-group">
+        <view class="my-message">
+          请问刘护士，我今天吃了哈密瓜，会不会对病情造成影响
+        </view>
+        <view class="my-icon">
+          <image class="avatar" src="/images/avatar/1.png"></image>
+        </view>
+      </view>
+
+      <view class="diaogue-time-lable">2017-09-03 19:22</view>
+
+      <view class="other-message-group">
+        <view class="other-icon">
+          <image class="avatar" src="/images/avatar/2.png"></image>
+        </view>
+        <view class="other-message">
+          你好，XXX,哈密瓜含有XXX,不会对病情造成影响
+        </view>
+      </view>
+
+      <view class="other-message-group">
+        <view class="other-icon">
+          <image class="avatar" src="/images/avatar/2.png"></image>
+        </view>
+        <view class="other-message">
+          你好，测试文章单排ssssssssssssss测试文章单排测试文章单排测试文章单排测试文章单排测试文章单排测试文章单排ssssssssssssssssss
+        </view>
+      </view>
+      <view class="my-message-group">
+        <view class="my-message">
+          请问刘护士，我今天吃了哈密瓜，会不会对病情造成影响
+        </view>
+        <view class="my-icon">
+          <image class="avatar" src="/images/avatar/1.png"></image>
+        </view>
+      </view>
+      <view class="other-message-group">
+        <view class="other-icon">
+          <image class="avatar" src="/images/avatar/2.png"></image>
+        </view>
+        <view class="other-message">
+          你好，测试文章单排ssssssssssssssssssssssssssssssss
+        </view>
+      </view>
+      <view class="my-message-group">
+        <view class="my-message">
+          请问刘护士，我今天吃了哈密瓜，会不会对病情造成影响会不会对病情造成影响会不会对病情造成影响会不会对病情造成影响
+        </view>
+        <view class="my-icon">
+          <image class="avatar" src="/images/avatar/1.png"></image>
+        </view>
+      </view>
+    <view class="diaogue-time-lable">2017-09-03 20:22</view>
+      <view class="other-message-group">
+        <view class="other-icon">
+          <image class="avatar" src="/images/avatar/2.png"></image>
+        </view>
+        <view class="other-message">
+          你好，测试文章单排ssssssssssssssssssssssssssssssss
+        </view>
+      </view>
+      <view class="other-message-group">
+        <view class="other-icon">
+          <image class="avatar" src="/images/avatar/2.png"></image>
+        </view>
+        <view class="other-message">
+          你好，测试文章单排ssssssssssssssssssssssssssssssss
+        </view>
+      </view>
+      <view class="other-message-group">
+        <view class="other-icon">
+          <image class="avatar" src="/images/avatar/2.png"></image>
+        </view>
+        <view class="other-message">
+          你好，测试文章单排ssssssssssssssssssssssssssssssss
+        </view>
+      </view>
+      <view class="other-message-group">
+        <view class="other-icon">
+          <image class="avatar" src="/images/avatar/2.png"></image>
+        </view>
+        <view class="other-message">
+          你好，测试文章单排ssssssssssssssssssssssssssssssss
+        </view>
+      </view>
+      <view class="other-message-group">
+        <view class="other-icon">
+          <image class="avatar" src="/images/avatar/2.png"></image>
+        </view>
+        <view class="other-message">
+          你好，测试文章单排ssssssssssssssssssssssssssssssss
+        </view>
+      </view>
+  </view>
+  
+  
+  <view class="post-area">
+    <input class="dialogue-input"></input><view class="dialogue-send">
+      <view>发送</view>
+    </view>
+  </view>
+</view>

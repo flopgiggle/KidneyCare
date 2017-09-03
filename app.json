@@ -11,7 +11,9 @@
     "pages/uploadReport/uploadReport",
     "pages/infolist/infolist",
     "pages/my/my",
-    "pages/record/add"
+    "pages/consulting/consulting",
+    "pages/record/add",
+    "pages/dialogue/dialogue"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4fc1e9"

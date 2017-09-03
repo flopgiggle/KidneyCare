@@ -14,6 +14,11 @@ Page({
   onLoad: function (options) {
   
   },
+  onConsultingTap: function (e) {
+      wx.navigateTo({
+          url: "/pages/consulting/consulting"
+      })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

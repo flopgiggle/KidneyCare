@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="form-group">
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>咨询对象</text>
+      </view>
+      <view class="form-item-input">
+        <picker bindchange="bindConsultingTypeChange" range="{{consultingType}}">
+          <view class="picker">
+            <text class="form-input-placeholder" wx:if="{{consultingTypeIndex==-1}}">
+              请选择咨询医生或护士
+            </text>{{consultingTypeIndex==-1?"":consultingType[consultingTypeIndex]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>咨询消息</text>
+      </view>
+      <view class="form-item-input">
+        <input type='idcard' placeholder-class="form-input-placeholder" placeholder="请填写咨询消息" auto-focus=""/>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-group">
+    <view class="form-row-button">
+      <text>提交咨询</text>
+    </view>
+  </view>
+</view>

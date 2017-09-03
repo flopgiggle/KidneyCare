@@ -29,6 +29,16 @@
     </view>
   </view>
   <view class="form-group">
+    <view class="form-item form-item-picker" bindtap='onConsultingTap'>
+      <view class="form-item-label">
+        <text>发起咨询</text>
+      </view>
+      <view class="form-item-input ">
+        <input placeholder-class="form-input-placeholder" disabled="true"  auto-focus=""/>
+      </view>
+    </view>
+  </view>
+  <view class="form-group">
     <view class="form-item form-item-picker">
       <view class="form-item-label">
         <text>系统设置</text>

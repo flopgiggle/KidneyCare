@@ -1,4 +1,4 @@
-// pages/infolist/infolist.js
+// pages/dialogue/dialogue.js
 Page({
 
   /**
@@ -6,31 +6,6 @@ Page({
    */
   data: {
   
-  },
-  onAddHospitalRecordTap: function (event) {
-    wx.navigateTo({
-      url: "/pages/uploadReport/uploadReport"
-    })
-  },
-  onMyselfRecordTap: function (event) {
-    wx.navigateTo({
-      url: "/pages/record/add"
-    })
-  },
-  onReportTap: function () {
-    wx.navigateTo({
-        url: "/pages/uploadReport/uploadReport"
-    })
-  },
-  onRecordTap: function () {
-    wx.navigateTo({
-        url: "/pages/chart/chart"
-    })
-  },
-  onDialogueTap: function () {
-    wx.navigateTo({
-        url: "/pages/dialogue/dialogue"
-    })
   },
 
   /**

@@ -1,36 +1,12 @@
-// pages/infolist/infolist.js
+// pages/consulting/consulting.js
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
-  
-  },
-  onAddHospitalRecordTap: function (event) {
-    wx.navigateTo({
-      url: "/pages/uploadReport/uploadReport"
-    })
-  },
-  onMyselfRecordTap: function (event) {
-    wx.navigateTo({
-      url: "/pages/record/add"
-    })
-  },
-  onReportTap: function () {
-    wx.navigateTo({
-        url: "/pages/uploadReport/uploadReport"
-    })
-  },
-  onRecordTap: function () {
-    wx.navigateTo({
-        url: "/pages/chart/chart"
-    })
-  },
-  onDialogueTap: function () {
-    wx.navigateTo({
-        url: "/pages/dialogue/dialogue"
-    })
+    data: {
+        consultingType: ['医生', '护士'],
+        consultingTypeIndex: -1,
   },
 
   /**
@@ -38,6 +14,12 @@ Page({
    */
   onLoad: function (options) {
   
+    },
+
+  bindConsultingTypeChange: function (e) {
+      this.setData({
+          consultingTypeIndex: e.detail.value
+      })
   },
 
   /**

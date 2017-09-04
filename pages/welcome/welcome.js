@@ -30,7 +30,7 @@ Page({
       // });
 
       wx.switchTab({
-        url: "/pages/infolist/infolist"
+          url: "/pages/currentDayInfo/currentDayInfo"
       });
     }
 

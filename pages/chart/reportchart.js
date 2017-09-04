@@ -133,6 +133,27 @@ Page({
             width: windowWidth,
             height: 150
         });
+        heartRateChart = new wxCharts({
+            canvasId: 'weightCanvas',
+            type: 'line',
+            categories: ['70', '72', '71', '70', '69', '68', '67'],
+            series: [{
+                name: '体重',
+                data: [80, 70, 110, 160, 60, 80],
+                format: function (val) {
+                    return val;//return val.toFixed(2);
+                }
+            }],
+            yAxis: {
+                title: 'KG',
+                format: function (val) {
+                    return val;//return val.toFixed(2);
+                },
+                min: 0
+            },
+            width: windowWidth,
+            height: 150
+        });
     },
 
     /**

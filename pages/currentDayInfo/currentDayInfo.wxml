@@ -1,0 +1,166 @@
+<view class="container padding-list">
+  <view class="form-group">
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>查询日期</text>
+      </view>
+      <view class="form-item-input">
+        <picker mode="date" value="{{searchDate}}" start="1900-01-01" end="2017-08-30" bindchange="bindDateChange">
+          <view class="picker">
+            {{searchDate}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="list-group">
+    <view class="list-title">
+      2017-08-21 21:11
+    </view>
+    <view class="list-item" bindtap='onRecordTap'>
+      <view class="list-item-info">
+        <text class='text-info'>空腹血糖</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>4.3</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>正常</text>
+      </view>
+
+    </view>
+    <view class="list-item" bindtap='onRecordTap'>
+      <view class="list-item-info" >
+        <text class='text-info'>随机血糖</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>8.6</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type font-red'>异常</text>
+      </view>
+    </view>
+  </view>
+
+
+
+  
+    <view class="list-group">
+    <view class="list-title">
+      2017-08-21 20:11
+    </view>
+    <view class="list-item" bindtap='onRecordTap'>
+      <view class="list-item-info">
+        <text class='text-info'>空腹血糖</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>4.3</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>正常</text>
+      </view>
+
+    </view>
+    <view class="list-item" bindtap='onRecordTap'>
+      <view class="list-item-info" >
+        <text class='text-info'>随机血糖</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>8.6</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type font-red'>异常</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="list-group">
+    <view class="list-title">
+      2017-08-21 18:11
+    </view>
+    <view class="list-item" bindtap='onRecordTap'>
+      <view class="list-item-info">
+        <text class='text-info'>空腹血糖</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>4.3</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>正常</text>
+      </view>
+
+    </view>
+    <view class="list-item" bindtap='onRecordTap'>
+      <view class="list-item-info" >
+        <text class='text-info'>随机血糖</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>8.6</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type font-red'>异常</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="list-group" bindtap='onReportTap'>
+    <view class="list-title">
+      2017-08-21 16:11
+    </view>
+    <view class="list-item" >
+      <view class="list-item-info" >
+        <text class='text-info'>血常规</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'></text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>检查报告</text>
+      </view>
+    </view>
+    <view class="list-item" >
+      <view class="list-item-info">
+        <text class='text-info'>收缩压</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>120</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>正常</text>
+      </view>
+
+    </view>
+
+    <view class="list-item" >
+      <view class="list-item-info" >
+        <text class='text-info'>臀围</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>130</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>正常</text>
+      </view>
+    </view>
+    <view class="list-item" >
+      <view class="list-item-info" >
+        <text class='text-info'>腰围</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>90</text>
+      </view>
+      <view class="list-item-info">
+        <text class='text-type'>正常</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="add-record">
+    <view class="record-button right-button" bindtap="onMyselfRecordTap">
+      <text>+新增新增</text>
+    </view>
+    <view class="record-button left-button" bindtap="onAddHospitalRecordTap">
+      <text>+新增检查</text>
+    </view>
+  </view>
+</view>

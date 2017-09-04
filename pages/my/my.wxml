@@ -9,9 +9,18 @@
       </view>
     </view>
   </view>
-
   <view class="form-group">
-    <view class="form-item">
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>个人信息</text>
+      </view>
+      <view class="form-item-input ">
+        <input placeholder-class="form-input-placeholder" disabled="true"  auto-focus=""/>
+      </view>
+    </view>
+  </view>
+  <view class="form-group" wx:if="{{false}}">
+    <view class="form-item" wx:if="{{false}}">
       <view class="form-item-label">
         <text>血压上限</text>
       </view>
@@ -19,7 +28,7 @@
         <input placeholder-class="form-input-placeholder" type="number" placeholder="血压预警的上限值" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view class="form-item" wx:if="{{false}}">
       <view class="form-item-label">
         <text>血糖上限</text>
       </view>
@@ -32,6 +41,14 @@
     <view class="form-item form-item-picker" bindtap='onConsultingTap'>
       <view class="form-item-label">
         <text>发起咨询</text>
+      </view>
+      <view class="form-item-input ">
+        <input placeholder-class="form-input-placeholder" disabled="true"  auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item form-item-picker" bindtap='onMessageTap'>
+      <view class="form-item-label">
+        <text>消息记录</text>
       </view>
       <view class="form-item-input ">
         <input placeholder-class="form-input-placeholder" disabled="true"  auto-focus=""/>

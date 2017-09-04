@@ -1,0 +1,86 @@
+/* pages/chart/chart.wxss */
+
+.chartView {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    font-size: 35rpx;
+    color: #333;
+    font-family: Helvetica, Arial, "Helvetica Neue", "Droid Sans", "Microsoft YaHei", sans-serif;
+}
+
+.canvas {
+    width: 100%;
+    height: 200px;
+}
+
+.chart-title {
+    text-align: center;
+    width: '100%';
+    color: #666;
+    margin-top: 10rpx;
+    margin-bottom: 40rpx;
+}
+
+.list-group {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rpx;
+    background-color: #efeff4;
+}
+
+.list-title {
+    background-color: #efeff4;
+    width: 100%;
+    text-align: left;
+    margin-top: 5rpx;
+    margin-bottom: 5rpx;
+    color: #999;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+
+.list-item {
+    background-color: #ffffff;
+    height: 80rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #676767;
+    border-bottom: 1px solid #efefef;
+}
+
+    .list-item:last-child {
+        border: none;
+    }
+
+.text-info {
+    color: #676767;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    font-weight: bold;
+}
+
+.text-type {
+    color: #111111;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    font-weight: bold;
+}
+
+.text-time {
+    color: #676767;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}

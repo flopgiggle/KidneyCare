@@ -8,12 +8,14 @@
     "pages/posts/post-detail/post-detail",
     "pages/movies/more-movie/more-movie",
     "pages/chart/chart",
+    "pages/chart/reportchart",
     "pages/uploadReport/uploadReport",
     "pages/infolist/infolist",
     "pages/my/my",
     "pages/consulting/consulting",
     "pages/record/add",
-    "pages/dialogue/dialogue"
+    "pages/dialogue/dialogue",
+    "pages/currentDayInfo/currentDayInfo"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4fc1e9"
@@ -23,7 +25,7 @@
     "position": "bottom",
     "list": [
       {
-        "pagePath": "pages/infolist/infolist",
+        "pagePath": "pages/currentDayInfo/currentDayInfo",
         "text": "记录信息",
         "iconPath": "images/tab/addu.png",
         "selectedIconPath": "images/tab/add.png"

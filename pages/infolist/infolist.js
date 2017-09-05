@@ -1,4 +1,5 @@
 // pages/infolist/infolist.js
+var app = getApp()
 Page({
 
   /**
@@ -51,7 +52,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+      if (app.globalData.user.Status == 0) {
+          wx.showToast({
+              title: '尚未认证,将跳转到认证页面',
+              icon: 'success',
+              duration: 20000,
+              complete: () => {
+                  //wx.navigateTo({
+                  //    url: "/pages/register/register"
+                  //})
+              }
+          })
+
+      }
+     
   },
 
   /**

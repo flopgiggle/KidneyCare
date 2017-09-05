@@ -1,125 +1,129 @@
 <view class="container">
-  <view class="form-group">
-    <view class="form-item">
-      <view class="form-item-label">
-        <text>手机号</text>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="form-group">
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>手机号</text>
+        </view>
+        <view class="form-item-input">
+          <input name="phoneNum" type="number" placeholder-class="form-input-placeholder" placeholder="请填写手机号" auto-focus=""/>
+        </view>
       </view>
-      <view class="form-item-input">
-        <input type="number" placeholder-class="form-input-placeholder" placeholder="请填写手机号" auto-focus=""/>
+      <view class="form-item" wx:if="{{false}}">
+        <view class="form-item-label">
+          <text>验证码</text>
+        </view>
+        <view class="form-item-input">
+          <input type="number" placeholder-class="form-input-placeholder" placeholder="请填写验证码" auto-focus=""/>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>身份证号</text>
+        </view>
+        <view class="form-item-input">
+          <input name="idCard" type='idcard' placeholder-class="form-input-placeholder" placeholder="请填写身份证号码" auto-focus=""/>
+        </view>
       </view>
     </view>
-    <view class="form-item">
-      <view class="form-item-label">
-        <text>验证码</text>
-      </view>
-      <view class="form-item-input">
-        <input type="number" placeholder-class="form-input-placeholder" placeholder="请填写验证码" auto-focus=""/>
-      </view>
-    </view>
-    <view class="form-item">
-      <view class="form-item-label">
-        <text>身份证号</text>
-      </view>
-      <view class="form-item-input">
-        <input type='idcard' placeholder-class="form-input-placeholder" placeholder="请填写身份证号码" auto-focus=""/>
-      </view>
-    </view>
-  </view>
 
-  <view class="form-group">
-    <view class="form-item">
-      <view class="form-item-label">
-        <text>姓名</text>
+    <view class="form-group">
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>姓名</text>
+        </view>
+        <view class="form-item-input">
+          <input name="name" placeholder-class="form-input-placeholder" placeholder="请填写姓名" auto-focus=""/>
+        </view>
       </view>
-      <view class="form-item-input">
-        <input placeholder-class="form-input-placeholder" placeholder="请填写姓名" auto-focus=""/>
-      </view>
-    </view>
-    <view class="form-item form-item-picker">
-      <view class="form-item-label">
-        <text>性别</text>
-      </view>
-      <view class="form-item-input">
-        <picker bindchange="bindSexChange" range="{{sex}}">
-          <view class="picker">
-            <text class="form-input-placeholder" wx:if="{{sexIndex==-1}}">
-            请选择性别
-            </text> {{sexIndex==-1?"":sex[sexIndex]}}
-          </view>
-        </picker>
-      </view>
+      <view class="form-item form-item-picker">
+        <view class="form-item-label">
+          <text>性别</text>
+        </view>
+        <view class="form-item-input">
+          <picker bindchange="bindSexChange" value="{{sexIndex}}" range="{{sex}}" range-key="{{'UserName'}}">
+            <view class="picker">
+              <text class="form-input-placeholder" wx:if="{{sexIndex==-1}}">
+              请选择性别
+              </text> {{sexIndex==-1?"":sex[sexIndex].UserName}}
+            </view>
+          </picker>
+        </view>
 
-    </view>
-    <view class="form-item form-item-picker">
-      <view class="form-item-label">
-        <text>生日</text>
       </view>
-      <view class="form-item-input">
-        <picker mode="date" value="{{regDate}}" start="1900-01-01" end="2017-08-30" bindchange="bindDateChange">
-          <view class="picker">
-            {{regDate}}
-          </view>
-        </picker>
+      <view class="form-item form-item-picker">
+        <view class="form-item-label">
+          <text>生日</text>
+        </view>
+        <view class="form-item-input">
+          <picker mode="date" value="{{birthday}}" start="1900-01-01" end="2017-08-30" bindchange="bindDateChange">
+            <view class="picker">
+              {{birthday}}
+            </view>
+          </picker>
+        </view>
       </view>
     </view>
-  </view>
 
 
 
-  <view class="form-group">
-    <view class="form-item form-item-picker">
-      <view class="form-item-label">
-        <text>治疗医院</text>
+    <view class="form-group">
+      <view class="form-item form-item-picker">
+        <view class="form-item-label">
+          <text>治疗医院</text>
+        </view>
+        <view class="form-item-input">
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="picker">
+              {{multiArray[2][multiIndex[2]]}}
+            </view>
+          </picker>
+        </view>
       </view>
-      <view class="form-item-input">
-        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-          <view class="picker">
-            {{multiArray[2][multiIndex[2]]}}
-          </view>
-        </picker>
+      <view class="form-item form-item-picker">
+        <view class="form-item-label">
+          <text>责任医生</text>
+        </view>
+        <view class="form-item-input">
+          <picker bindchange="bindDocterChange" range="{{docter}}" range-key="{{'UserName'}}">
+            <view class="picker">
+              <text class="form-input-placeholder" wx:if="{{docterIndex==-1}}">
+              请选择医生
+              </text> {{docterIndex==-1?"":docter[docterIndex].UserName}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="form-item form-item-picker">
+        <view class="form-item-label">
+          <text>责任护士</text>
+        </view>
+        <view class="form-item-input">
+          <picker bindchange="bindNurseChange" range="{{nurse}}" range-key="{{'UserName'}}">
+            <view class="picker">
+              <text class="form-input-placeholder" wx:if="{{nurseIndex==-1}}">
+              请选择护士
+              </text> {{nurseIndex==-1?"":nurse[nurseIndex].UserName}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>疾病诊断</text>
+        </view>
+        <view class="form-item-input">
+          <input name="illInfo" placeholder-class="form-input-placeholder" placeholder="请填写疾病信息" auto-focus=""/>
+        </view>
       </view>
     </view>
-    <view class="form-item form-item-picker">
-      <view class="form-item-label">
-        <text>责任医生</text>
-      </view>
-      <view class="form-item-input">
-        <picker bindchange="bindDocterChange" range="{{docter}}">
-          <view class="picker">
-            <text class="form-input-placeholder" wx:if="{{docterIndex==-1}}">
-            请选择医生
-            </text> {{docterIndex==-1?"":docter[docterIndex]}}
-          </view>
-        </picker>
-      </view>
-    </view>
-    <view class="form-item form-item-picker">
-      <view class="form-item-label">
-        <text>责任护士</text>
-      </view>
-      <view class="form-item-input">
-        <picker bindchange="bindNurseChange" range="{{nurse}}">
-          <view class="picker">
-            <text class="form-input-placeholder" wx:if="{{nurseIndex==-1}}">
-            请选择护士
-            </text> {{nurseIndex==-1?"":nurse[nurseIndex]}}
-          </view>
-        </picker>
-      </view>
-    </view>
-    <view class="form-item">
-      <view class="form-item-label">
-        <text>疾病诊断</text>
-      </view>
-      <view class="form-item-input">
-        <input placeholder-class="form-input-placeholder" placeholder="请填写疾病信息" auto-focus=""/>
-      </view>
-    </view>
-  </view>
 
-  <view class="form-group">
-    <view class="form-row-button">
-      <text>注册</text>
+    <view class="form-group">
+      <view class="form-row-button">
+        <button class="form-row-button" formType="submit">
+          <text>注册</text>
+        </button>
+      </view>
     </view>
-  </view>
+  </form>
 </view>

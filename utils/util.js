@@ -13,19 +13,58 @@ function convertToStarsArray(stars) {
 }
 
 function http(url, callBack) {
-  wx.request({
-    url: url,
-    method: 'GET',
-    header: {
-      "Content-Type": "json"
-    },
-    success: function (res) {
-      callBack(res.data);
-    },
-    fail: function (error) {
-      console.log(error)
-    }
-  })
+    wx.showToast({
+        title: '',
+        icon: 'loading',
+        duration: 1000
+    });
+    wx.request({
+        url: url,
+        method: 'GET',
+        header: {
+            "Content-Type": "json"
+        },
+        success: function(res) {
+            callBack(res.data);
+
+        },
+        fail: function(error) {
+            wx.showToast({
+                title: '获取信息失败',
+                icon: 'loading',
+                duration: 1000
+            });
+            console.log(error);
+        }
+    });
+}
+
+function httpPost(url,data,callBack) {
+    wx.showToast({
+        title: '',
+        icon: 'loading',
+        duration: 1000
+    });
+    wx.request({
+        url: url,
+        method: 'POST',
+        data:data,
+        header: {
+            'content-type': 'application/json'
+        },
+        success: function (res) {
+            callBack(res.data);
+
+        },
+        fail: function (error) {
+            wx.showToast({
+                title: '获取信息失败',
+                icon: 'loading',
+                duration: 1000
+            });
+            console.log(error);
+        }
+    });
 }
 
 function convertToCastString(casts) {
@@ -51,6 +90,7 @@ function convertToCastInfos(casts) {
 module.exports = {
   convertToStarsArray: convertToStarsArray,
   http: http,
-  convertToCastString:convertToCastString,
-  convertToCastInfos:convertToCastInfos
+  httpPost: httpPost,
+  convertToCastString: convertToCastString,
+  convertToCastInfos: convertToCastInfos
 }

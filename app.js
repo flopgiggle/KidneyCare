@@ -13,6 +13,9 @@ App({
             },
             record: {
                 add: baseUri + "record/add"
+            },
+            addReport: {
+                add: baseUri + "record/addReport"
             }
         }
     },

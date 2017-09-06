@@ -1,7 +1,7 @@
 // pages/register/register.js
 var app = getApp();
 var util = require('../../utils/util.js');
-var baseUrl = app.globalData.baseUri;
+
 Page({
 
   /**

@@ -10,6 +10,9 @@ App({
         urls: {
             user: {
                 regist: baseUri + "user/regist"
+            },
+            record: {
+                add: baseUri + "record/add"
             }
         }
     },

@@ -1,4 +1,6 @@
 // pages/register/register.js
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
 
     /**
@@ -116,6 +118,34 @@ Page({
                 break;
         }
         this.setData(data);
+    },
+
+    formSubmit: function (e) {
+        console.log('form发生了submit事件，携带数据为：', e.detail.value);
+        var postData = {
+            RecordDate: this.data.reportDate,
+            RecordTime: this.data.bloodPressureTime,
+            SystolicPressure: e.detail.value.systolicPressure,
+            DiastolicPressure: e.detail.value.diastolicPressure,
+            HeartRate: e.detail.value.heartRate,
+            FastingBloodGlucose: e.detail.value.fastingBloodGlucose,
+            BreakfastBloodGlucose: e.detail.value.breakfastBloodGlucose,
+            LunchBloodGlucose: e.detail.value.lunchBloodGlucose,
+            DinnerBloodGlucose: e.detail.value.dinnerBloodGlucose,
+            RandomBloodGlucose: e.detail.value.randomBloodGlucose,
+            OpenId: app.globalData.openId
+        };
+
+        util.httpPost(app.globalData.urls.record.add, postData, res => {
+            debugger;
+            wx.switchTab({
+                url: "/pages/currentDayInfo/currentDayInfo"
+            });
+        });
+
+
+        //e.detail.value.name;
+        //e.detail.value.illInfo;
     },
     /**
      * 生命周期函数--监听页面加载

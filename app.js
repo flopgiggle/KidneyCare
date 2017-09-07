@@ -5,6 +5,7 @@ App({
         g_isPlayingMusic: false,
         g_currentMusicPostId: null,
         doubanBase: "https://api.douban.com",
+        picUrl: "http://localhost:11662/upload/",
         openId: "",
         user: "",
         urls: {

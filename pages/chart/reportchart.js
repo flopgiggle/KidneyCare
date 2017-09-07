@@ -14,7 +14,9 @@ Page({
      */
     data: {
         year: "2017",
-        result:[],
+        result: [],
+        report: [],
+        picurl: app.globalData.picUrl,
     },
 
     /**
@@ -41,9 +43,10 @@ Page({
         util.http(url,
         res => {
             this.setData({
-                result: res.Result
-            });
-            for (var item of res.Result) {
+                result: res.Result.ReportHistory,
+                report: res.Result.ReportItem
+        });
+            for (var item of res.Result.ReportHistory) {
                 
                     lineChart = new wxCharts({
                         canvasId: item.DataCode,
@@ -79,6 +82,14 @@ Page({
 
     },
 
+    /*查看图片*/
+    viewMoviePostImg: function (e) {
+        var src = e.currentTarget.dataset.src;
+        wx.previewImage({
+            current: src, // 当前显示图片的http链接
+            urls: [src] // 需要预览的图片http链接列表
+        });
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */

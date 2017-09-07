@@ -1,27 +1,18 @@
 <view class="container" style="background-color: #ffffff">
   <view class="list-group">
-    <view class="list-item" bindtap='onRecordTap'>
-      <view class="list-item-info">
-        <text class='text-info'>2017-06-05</text>
+    <block wx:for="{{report}}" wx:for-item="item">
+      <view class="list-item" catchtap='viewMoviePostImg' data-src="{{picurl+item.ImageUrl}}">
+        <view class="list-item-info">
+          <text class='text-info'>{{item.ReportDate}}</text>
+        </view>
+        <view class="list-item-info">
+          <text class='text-type'>{{item.ReportType}}</text>
+        </view>
+        <view class="list-item-info">
+          <text class='text-type'>点击查看图片</text>
+        </view>
       </view>
-      <view class="list-item-info">
-        <text class='text-type'>血常规</text>
-      </view>
-      <view class="list-item-info">
-        <text class='text-type'>点击查看图片</text>
-      </view>
-    </view>
-    <view class="list-item" bindtap='onRecordTap'>
-      <view class="list-item-info" >
-        <text class='text-info'>2017-05-16</text>
-      </view>
-      <view class="list-item-info">
-        <text class='text-type'>尿常规</text>
-      </view>
-      <view class="list-item-info">
-        <text class='text-type'>点击查看图片</text>
-      </view>
-    </view>
+    </block>
   </view>
   <block wx:for="{{result}}" wx:for-item="item">
     <view class='chart-title' >{{item.Name}}</view>

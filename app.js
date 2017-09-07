@@ -9,7 +9,8 @@ App({
         user: "",
         urls: {
             user: {
-                regist: baseUri + "user/regist"
+                regist: baseUri + "user/regist",
+                GetCurrentDayInfoList: baseUri + "user/getCurrentDayInfoList/"
             },
             record: {
                 add: baseUri + "record/add"
@@ -17,6 +18,7 @@ App({
             addReport: {
                 add: baseUri + "record/addReport"
             }
+
         }
     },
     onLaunch: function() {
@@ -28,7 +30,6 @@ App({
                     res.code; //"https://api.weixin.qq.com/sns/jscode2session?appid=wx941fffa48c073a0d&secret=1b71efd31775ec025045185b951e0296&js_code=" + res.code + "&grant_type=authorization_code";
                 util.http(url,
                     res => {
-                        debugger;
                         this.globalData.openId = 123456;
                         this.globalData.user = res.Result;
                         //判定用户是否已注册,未注册则不能使用该app，需要跳转到注册页面

@@ -17,7 +17,7 @@ Page({
         regDate: '2017-01-01',
         multiArray: [['四川省', '云南省'], ['成都市', '绵阳市', '德阳市', '攀枝花市', '宜宾市'], ['四川大学华西医院', '省医院']],
         multiIndex: [0, 0, 0],
-        reportDate: '2017-03-05',
+        reportDate: util.getNowFormatDate(),
         bloodPressureTime: '00:00',
     },
     bindDocterChange: function (e) {
@@ -137,7 +137,6 @@ Page({
         };
 
         util.httpPost(app.globalData.urls.record.add, postData, res => {
-            debugger;
             wx.switchTab({
                 url: "/pages/currentDayInfo/currentDayInfo"
             });

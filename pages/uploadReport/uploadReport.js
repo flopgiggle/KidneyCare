@@ -12,10 +12,10 @@ Page({
         reportType: [{ name: '血常规', Id: '1' }, { name: '尿常规', Id: '2' }, { name: '泌尿系统彩超', Id: '3' }, { name: '尿蛋白定量检查', Id: '4' }, { name: '生化', Id: '5' }, { name: '肾活检', Id: '6' }, { name: '甲状旁腺激素(PTH)', Id: '7' }, { name: '铁代谢', Id: '8' }, { name: '其他', Id: '9' }],
         reportTypeIndex: -1,
         reportTypeId: -1,
-        reportDate: '2017-03-05',
+        reportDate: util.getNowFormatDate(),
         count: [1, 2, 3],
         countIndex: 2,
-        imageList: [],
+        imageList: []
     },
     bindReportTypeChange: function (e) {
         this.setData({
@@ -24,15 +24,19 @@ Page({
         });
     },
     chooseImage: function () {
+        var that = this;
         wx.chooseImage({
             sourceType: sourceType[this.data.sourceTypeIndex],
             sizeType: sizeType[this.data.sizeTypeIndex],
             count: 2,
             success: function (res) {
-                console.log(res)
+                console.log(res);
                 that.setData({
                     imageList: res.tempFilePaths
-                })
+                });
+
+
+
             }
         })
     },
@@ -86,13 +90,66 @@ Page({
             OpenId: app.globalData.openId
         };
         util.httpPost(app.globalData.urls.addReport.add, postData, res => {
-            debugger;
+            if (res.IsSuccess) {
+                //开始上传图片
+                //
+                var reportId = res.Result;
+                this.uploadimg({
+                    url: 'http://localhost:11662/UploadHandler.ashx',//这里是你图片上传的接口
+                    path: this.data.imageList,//这里是选取的图片的地址数组,
+                    formData: {
+                        'reportId': reportId
+                    }
+                });
+            }
+            
             wx.switchTab({
                 url: "/pages/currentDayInfo/currentDayInfo"
             });
         });
         //e.detail.value.name;
         //e.detail.value.illInfo;
+    },
+
+    //多张图片上传
+    uploadimg: function (data){
+        var that= this,
+            i=data.i ? data.i : 0,
+            success=data.success ? data.success : 0,
+            fail=data.fail ? data.fail : 0;
+
+        wx.uploadFile({
+            url: data.url,
+            filePath: data.path[i],
+            name: 'fileData',
+            formData: { ...data.formData,num:i} ,
+            success: (resp) => {
+                success++;
+                console.log(resp);
+                console.log(i);
+                //这里可能有BUG，失败也会执行这里
+            },
+            fail: (res) => {
+                fail++;
+                console.log('fail:' + i + "fail:" + fail);
+            },
+            complete: () => {
+                console.log(i);
+                i++;
+                if (i === data.path.length) {   //当图片传完时，停止调用          
+                    console.log('执行完毕');
+                    console.log('成功：' + success + " 失败：" + fail);
+                } else {
+                    //若图片还没有传完，则继续调用函数
+                    console.log(i);
+                    data.i = i;
+                    data.success = success;
+                    data.fail = fail;
+                    that.uploadimg(data);
+                }
+
+            }
+        });
     },
 
     /**

@@ -30,7 +30,6 @@ Page({
       });
   },
   bindSexChange: function (e) {
-      debugger;
       this.setData({
       sexIndex: e.detail.value
     });
@@ -123,7 +122,6 @@ Page({
       console.log('form发生了submit事件，携带数据为：', e.detail.value);
       console.log(e.detail.value.phoneNum);
       //UserName Password UserType BelongToHospital Sex MobilePhone Birthday OpenId Status BelongToNurse BelongToDoctor
-      debugger;
       var postData = {
           UserName: e.detail.value.name,
           MobilePhone: e.detail.value.phoneNum,
@@ -139,7 +137,6 @@ Page({
       };
 
       util.httpPost(app.globalData.urls.user.regist, postData, res => {
-          debugger;
           wx.switchTab({
               url: "/pages/currentDayInfo/currentDayInfo"
           });

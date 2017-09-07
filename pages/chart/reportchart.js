@@ -1,8 +1,11 @@
-var wxCharts = require('../../utils/wxcharts.js')
+var wxCharts = require('../../utils/wxcharts.js');
+var app = getApp();
+var util = require('../../utils/util.js');
 var radarChart = null;
 var lineChart = null;
 var bloodSugarLineChart = null;
 var heartRateChart = null;
+var chartInstance = {};
 // pages/chart/chart.js
 Page({
 
@@ -10,7 +13,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        year: "2017",
+        result:[],
     },
 
     /**
@@ -33,126 +37,38 @@ Page({
             console.error('getSystemInfoSync failed!');
         }
 
-        radarChart = new wxCharts({
-            canvasId: 'radarCanvas',
-            type: 'radar',
-            categories: ['心率', '收缩压', '舒张压', '空腹血糖', '餐后血糖', '体重'],
-            series: [{
-                name: '当日数据',
-                data: [90, 110, 125, 95, 87, 122]
-            }],
-            width: windowWidth,
-            height: 200,
-            extra: {
-                radar: {
-                    max: 150
-                }
+        var url = app.globalData.urls.user.reportChart + this.data.year + "/" + app.globalData.openId;
+        util.http(url,
+        res => {
+            this.setData({
+                result: res.Result
+            });
+            for (var item of res.Result) {
+                
+                    lineChart = new wxCharts({
+                        canvasId: item.DataCode,
+                        type: 'line',
+                        categories: item.Xdata,//item.Values, //['25', '26', '27', '28', '29', '30', '31'],//
+                        series: [{
+                            name: item.Name,
+                            data: item.Values,//item.Xdata, //[93, 100, 120, 160, 150, 110],//
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            }
+                        }],
+                        yAxis: {
+                            title: item.UnitName,
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            },
+                            min: 0
+                        },
+                        width: windowWidth,
+                        height: 150
+                    });
+                
             }
-        });
 
-        lineChart = new wxCharts({
-            canvasId: 'lineCanvas',
-            type: 'line',
-            categories: ['25', '26', '27', '28', '29', '30', '31'],
-            series: [{
-                name: '收缩压',
-                data: [93, 100, 120, 160, 150, 110],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }, {
-                name: '舒张压',
-                data: [60, 80, 90, 120, 110, 80],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }],
-            yAxis: {
-                title: '血压mmhg',
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                },
-                min: 0
-            },
-            width: windowWidth,
-            height: 150
-        });
-
-        bloodSugarLineChart = new wxCharts({
-            canvasId: 'bloodSugarLineCanvas',
-            type: 'line',
-            categories: ['25', '26', '27', '28', '29', '30', '31'],
-            series: [{
-                name: '早餐后',
-                data: [4.3, 5.5, 6.9, 8.2, 3.5, 5.8],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }, {
-                name: '午餐后',
-                data: [2.3, 3.5, 3.9, 5.2, 9.5, 2.8],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }, {
-                name: '晚餐后',
-                data: [1.3, 6.5, 5.9, 2.2, 8.5, 3.8],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }],
-            yAxis: {
-                title: 'mol',
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                },
-                min: 0
-            },
-            width: windowWidth,
-            height: 150
-        });
-
-        heartRateChart = new wxCharts({
-            canvasId: 'heartRateCanvas',
-            type: 'line',
-            categories: ['25', '26', '27', '28', '29', '30', '31'],
-            series: [{
-                name: '早餐后',
-                data: [80, 70, 110, 160, 60, 80],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }],
-            yAxis: {
-                title: '次数',
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                },
-                min: 0
-            },
-            width: windowWidth,
-            height: 150
-        });
-        heartRateChart = new wxCharts({
-            canvasId: 'weightCanvas',
-            type: 'line',
-            categories: ['70', '72', '71', '70', '69', '68', '67'],
-            series: [{
-                name: '体重',
-                data: [80, 70, 110, 160, 60, 80],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }],
-            yAxis: {
-                title: 'KG',
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                },
-                min: 0
-            },
-            width: windowWidth,
-            height: 150
         });
     },
 

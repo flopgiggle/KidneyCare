@@ -10,7 +10,8 @@ App({
         urls: {
             user: {
                 regist: baseUri + "user/regist",
-                GetCurrentDayInfoList: baseUri + "user/getCurrentDayInfoList/"
+                GetCurrentDayInfoList: baseUri + "user/getCurrentDayInfoList/",
+                reportChart: baseUri + "user/getReportHistory/"
             },
             record: {
                 add: baseUri + "record/add"

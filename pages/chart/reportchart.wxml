@@ -10,7 +10,6 @@
       <view class="list-item-info">
         <text class='text-type'>点击查看图片</text>
       </view>
-
     </view>
     <view class="list-item" bindtap='onRecordTap'>
       <view class="list-item-info" >
@@ -24,20 +23,10 @@
       </view>
     </view>
   </view>
-  <view class='chart-title' >血压</view>
-  <view  class="chartView">
-    <canvas canvas-id="lineCanvas" class="canvas" ></canvas>
-  </view>
-  <view class='chart-title' >血糖</view>
-  <view  class="chartView">
-    <canvas canvas-id="bloodSugarLineCanvas" class="canvas" ></canvas>
-  </view>
-  <view class='chart-title'> 心率</view>
-  <view  class="chartView">
-    <canvas canvas-id="heartRateCanvas" class="canvas" ></canvas>
-  </view>
-  <view class='chart-title'> 体重</view>
-  <view  class="chartView">
-    <canvas canvas-id="weightCanvas" class="canvas" ></canvas>
-  </view>
+  <block wx:for="{{result}}" wx:for-item="item">
+    <view class='chart-title' >{{item.Name}}</view>
+    <view  class="chartView">
+      <canvas canvas-id="{{item.DataCode}}" class="canvas" ></canvas>
+    </view>
+  </block>
 </view>

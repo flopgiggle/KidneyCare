@@ -28,11 +28,11 @@ Page({
             url: "/pages/record/add"
         });
     },
-    onReportTap: function () {
-        wx.navigateTo({
-            url: "/pages/uploadReport/uploadReport"
-        });
-    },
+    //onReportTap: function () {
+    //    wx.navigateTo({
+    //        url: "/pages/uploadReport/uploadReport"
+    //    });
+    //},
     onRecordTap: function () {
         wx.navigateTo({
             url: "/pages/chart/chart"

@@ -1,4 +1,6 @@
 var wxCharts = require('../../utils/wxcharts.js')
+var app = getApp();
+var util = require('../../utils/util.js');
 var radarChart = null;
 var lineChart = null;
 var bloodSugarLineChart = null;
@@ -10,7 +12,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        windowWidthdata: 320,
     },
 
     /**
@@ -32,6 +34,9 @@ Page({
         } catch (e) {
             console.error('getSystemInfoSync failed!');
         }
+        this.setData({
+            windowWidthdata:windowWidth
+        });
 
         radarChart = new wxCharts({
             canvasId: 'radarCanvas',
@@ -50,33 +55,6 @@ Page({
             }
         });
 
-        lineChart = new wxCharts({
-            canvasId: 'lineCanvas',
-            type: 'line',
-            categories: ['25', '26', '27', '28', '29', '30', '31'],
-            series: [{
-                name: '收缩压',
-                data: [93, 100, 120, 160, 150, 110],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }, {
-                name: '舒张压',
-                data: [60, 80, 90, 120, 110, 80],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }],
-            yAxis: {
-                title: '血压mmhg',
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                },
-                min: 0
-            },
-            width: windowWidth,
-            height: 150
-        });
 
         bloodSugarLineChart = new wxCharts({
             canvasId: 'bloodSugarLineCanvas',
@@ -112,33 +90,74 @@ Page({
             height: 150
         });
 
-        heartRateChart = new wxCharts({
-            canvasId: 'heartRateCanvas',
-            type: 'line',
-            categories: ['25', '26', '27', '28', '29', '30', '31'],
-            series: [{
-                name: '早餐后',
-                data: [80, 70, 110, 160, 60, 80],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }],
-            yAxis: {
-                title: '次数',
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                },
-                min: 0
-            },
-            width: windowWidth,
-            height: 150
-        });
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        var url = app.globalData.urls.user.recordChart + "7/" + app.globalData.openId;
+        util.http(url,
+            res => {
+                debugger;
+                //this.setData({
+                //    result: res.Result.ReportHistory,
+                //    report: res.Result.ReportItem
+                //});
+                lineChart = new wxCharts({
+                    canvasId: 'lineCanvas',
+                    type: 'line',
+                    categories: ['25', '26', '27', '28', '29', '30', '31'],
+                    series: [
+                        {
+                            name: '收缩压',
+                            data: [93, 100, 120, 160, 150, 110],
+                            format: function(val) {
+                                return val; //return val.toFixed(2);
+                            }
+                        }, {
+                            name: '舒张压',
+                            data: [60, 80, 90, 120, 110, 80],
+                            format: function(val) {
+                                return val; //return val.toFixed(2);
+                            }
+                        }
+                    ],
+                    yAxis: {
+                        title: '血压mmhg',
+                        format: function(val) {
+                            return val; //return val.toFixed(2);
+                        },
+                        min: 0
+                    },
+                    width: this.data.windowWidthdata,
+                    height: 150
+                });
+
+                heartRateChart = new wxCharts({
+                    canvasId: 'heartRateCanvas',
+                    type: 'line',
+                    categories: res.Result.Date,
+                    series: [{
+                        name: '心率',
+                        data: [...res.Result.HeartRate,"4"],
+                        format: function (val) {
+                            return val;//return val.toFixed(2);
+                        }
+                    }],
+                    yAxis: {
+                        title: '次数',
+                        format: function (val) {
+                            return val;//return val.toFixed(2);
+                        },
+                        min: 0
+                    },
+                    width: this.data.windowWidthdata,
+                    height: 150
+                });
+            });
+
+
 
     },
 

@@ -18,7 +18,7 @@
       {{allData.length>0?allData[0].CreateTime:""}}
     </view>
     <block wx:for="{{allData}}" wx:for-item="item">
-      <view class="list-group" bindtap='onReportTap'>
+      <view class="list-group" bindtap='onRecordTap'>
         <view class="list-item" >
           <view class="list-item-info">
             <text class='text-info'>{{item.DataName}}</text>

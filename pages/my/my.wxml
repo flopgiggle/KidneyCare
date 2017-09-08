@@ -10,7 +10,7 @@
     </view>
   </view>
   <view class="form-group">
-    <view class="form-item form-item-picker">
+    <view class="form-item form-item-picker" wx:if="{{false}}">
       <view class="form-item-label">
         <text>个人信息</text>
       </view>

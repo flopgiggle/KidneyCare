@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/currentDayInfo/currentDayInfo",
     "pages/welcome/welcome",
     "pages/register/register",
     "pages/posts/post",
@@ -14,8 +15,7 @@
     "pages/my/my",
     "pages/consulting/consulting",
     "pages/record/add",
-    "pages/dialogue/dialogue",
-    "pages/currentDayInfo/currentDayInfo"
+    "pages/dialogue/dialogue"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4fc1e9"

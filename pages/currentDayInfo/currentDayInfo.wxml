@@ -24,10 +24,11 @@
             <text class='text-info'>{{item.DataName}}</text>
           </view>
           <view class="list-item-info">
-            <text class='text-type'>{{item.DataValue}}</text>
+            <text class='text-type'>{{item.DataValue}}({{item.Unit}})</text>
           </view>
           <view class="list-item-info">
-            <text class='text-type'>正常</text>
+            <text wx:if="{{item.IsNomoal}}" class='text-type'>正常</text>
+            <text wx:else="{{item.IsNomoal}}" style='color:red' class='text-type'>异常</text>
           </view>
         </view>
       </view>
@@ -49,7 +50,7 @@
               <text class='text-type'></text>
             </view>
             <view class="list-item-info">
-              <text class='text-type'>检查报告</text>
+              <text  class='text-type'>检查报告</text>
             </view>
           </view>
         </block>
@@ -59,10 +60,11 @@
               <text class='text-info'>{{item.DataName}}</text>
             </view>
             <view class="list-item-info">
-              <text class='text-type'>{{item.DataValue}}</text>
+              <text class='text-type'>{{item.DataValue}}({{item.Unit}})</text>
             </view>
             <view class="list-item-info">
-              <text class='text-type'>正常</text>
+              <text wx:if="{{item.IsNomoal}}" class='text-type'>正常</text>
+              <text wx:else="{{item.IsNomoal}}" style='color:red' class='text-type'>异常</text>
             </view>
           </view>
         </block>

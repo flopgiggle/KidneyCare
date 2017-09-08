@@ -32,7 +32,7 @@
         <text>报告备注</text>
       </view>
       <view class="form-item-input">
-        <input type='idcard' placeholder-class="form-input-placeholder" placeholder="如需备注请填写此处" auto-focus=""/>
+        <input type="digit" maxlength="5"  placeholder-class="form-input-placeholder" placeholder="如需备注请填写此处" auto-focus=""/>
       </view>
     </view>
     <view class="form-item upload-Item">
@@ -60,7 +60,7 @@
         <text>体重</text>
       </view>
       <view class="form-item-input">
-        <input name="Weight" placeholder-class="form-input-placeholder" type="number" placeholder="请填写体重" auto-focus=""/>
+        <input name="Weight" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写体重" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -68,7 +68,7 @@
         <text>尿蛋白定性</text>
       </view>
       <view class="form-item-input">
-        <input name="Pro" placeholder-class="form-input-placeholder" type="number" placeholder="请填写BW" auto-focus=""/>
+        <input name="Pro" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写BW" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -76,7 +76,7 @@
         <text>尿蛋白定量</text>
       </view>
       <view class="form-item-input">
-        <input name="Upr" placeholder-class="form-input-placeholder" placeholder="请填写身高单位(CM厘米)" auto-focus=""/>
+        <input name="Upr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写身高单位(CM厘米)" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -84,7 +84,7 @@
         <text>尿蛋白肌酐比</text>
       </view>
       <view class="form-item-input">
-        <input name="ProICr" placeholder-class="form-input-placeholder" placeholder="请填写腰围" auto-focus=""/>
+        <input name="ProICr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写腰围" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -92,7 +92,7 @@
         <text>尿素氮</text>
       </view>
       <view class="form-item-input">
-        <input name="BUN" placeholder-class="form-input-placeholder" placeholder="请填写其他信息" auto-focus=""/>
+        <input name="BUN" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="尿素氮" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -100,7 +100,7 @@
         <text>尿酸</text>
       </view>
       <view class="form-item-input">
-        <input name="UA" placeholder-class="form-input-placeholder" placeholder="请填写尿酸" auto-focus=""/>
+        <input name="UA" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写尿酸" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -108,7 +108,7 @@
         <text>肌酐</text>
       </view>
       <view class="form-item-input">
-        <input name="SCr" placeholder-class="form-input-placeholder" placeholder="请填写肌酐" auto-focus=""/>
+        <input name="SCr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写肌酐" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -116,7 +116,7 @@
         <text>肾小球滤过率</text>
       </view>
       <view class="form-item-input">
-        <input name="eGFR" placeholder-class="form-input-placeholder" placeholder="请填写肾小球滤过率" auto-focus=""/>
+        <input name="eGFR" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写肾小球滤过率" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -124,7 +124,7 @@
         <text>血红蛋白</text>
       </view>
       <view class="form-item-input">
-        <input name="Hb" placeholder-class="form-input-placeholder" placeholder="血红蛋白" auto-focus=""/>
+        <input name="Hb" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="血红蛋白" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -132,7 +132,7 @@
         <text>白蛋白</text>
       </view>
       <view class="form-item-input">
-        <input name="Alb" placeholder-class="form-input-placeholder" placeholder="请填写白蛋白" auto-focus=""/>
+        <input name="Alb" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写白蛋白" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -140,7 +140,7 @@
         <text>甘油三酯</text>
       </view>
       <view class="form-item-input">
-        <input name="TG" placeholder-class="form-input-placeholder" placeholder="请填写甘油三酯" auto-focus=""/>
+        <input name="TG" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写甘油三酯" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -148,7 +148,7 @@
         <text>胆固醇</text>
       </view>
       <view class="form-item-input">
-        <input name="Chol" placeholder-class="form-input-placeholder" placeholder="请填写胆固醇" auto-focus=""/>
+        <input name="Chol" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写胆固醇" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -156,7 +156,7 @@
         <text>钠</text>
       </view>
       <view class="form-item-input">
-        <input name="Na" placeholder-class="form-input-placeholder" placeholder="请填写钠" auto-focus=""/>
+        <input name="Na" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写钠" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -164,7 +164,7 @@
         <text>钾</text>
       </view>
       <view class="form-item-input">
-        <input name="K" placeholder-class="form-input-placeholder" placeholder="请填写钾" auto-focus=""/>
+        <input name="K" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写钾" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -172,7 +172,7 @@
         <text>磷</text>
       </view>
       <view class="form-item-input">
-        <input name="P" placeholder-class="form-input-placeholder" placeholder="请填写磷" auto-focus=""/>
+        <input name="P" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写磷" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -180,7 +180,7 @@
         <text>钙</text>
       </view>
       <view class="form-item-input">
-        <input name="Ca" placeholder-class="form-input-placeholder" placeholder="请填写钙" auto-focus=""/>
+        <input name="Ca" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写钙" auto-focus=""/>
       </view>
     </view>
     <view class="form-item">
@@ -188,7 +188,7 @@
         <text>甲状旁腺素</text>
       </view>
       <view class="form-item-input">
-        <input name="PTH" placeholder-class="form-input-placeholder" placeholder="请填写甲状旁腺素" auto-focus=""/>
+        <input name="PTH" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写甲状旁腺素" auto-focus=""/>
       </view>
     </view>
   </view>

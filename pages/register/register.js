@@ -122,6 +122,54 @@ Page({
       console.log('form发生了submit事件，携带数据为：', e.detail.value);
       console.log(e.detail.value.phoneNum);
       //UserName Password UserType BelongToHospital Sex MobilePhone Birthday OpenId Status BelongToNurse BelongToDoctor
+      
+
+      if (this.data.sexIndex < 0) {
+          wx.showModal({
+              title: '提示',
+              content: '请选择性别',
+              success: function (res) {
+                  if (res.confirm) {
+                      console.log('用户点击确定');
+                  } else if (res.cancel) {
+                      console.log('用户点击取消');
+                  }
+              }
+          });
+          return;
+      }
+
+      if (this.data.docterIndex < 0) {
+          wx.showModal({
+              title: '提示',
+              content: '请选择医生',
+              success: function (res) {
+                  if (res.confirm) {
+                      console.log('用户点击确定');
+                  } else if (res.cancel) {
+                      console.log('用户点击取消');
+                  }
+              }
+          });
+          return;
+      }
+
+      if (this.data.nurseIndex < 0) {
+          wx.showModal({
+              title: '提示',
+              content: '请选择护士',
+              success: function (res) {
+                  if (res.confirm) {
+                      console.log('用户点击确定');
+                  } else if (res.cancel) {
+                      console.log('用户点击取消');
+                  }
+              }
+          });
+          return;
+      }
+
+
       var postData = {
           UserName: e.detail.value.name,
           MobilePhone: e.detail.value.phoneNum,
@@ -131,10 +179,61 @@ Page({
           UserType: 1,
           BelongToNurse: this.data.nurse[this.data.nurseIndex].Id,
           BelongToDoctor: this.data.docter[this.data.docterIndex].Id,
+          IdCard: e.detail.value.idCard,
           OpenId: app.globalData.openId
           //:,
           //BelongToDoctor:,
       };
+
+
+      if (postData.MobilePhone.length !== 11) {
+          wx.showModal({
+              title: '提示',
+              content: '手机号格式不正确',
+              success: function(res) {
+                  if (res.confirm) {
+                      console.log('用户点击确定');
+                  } else if (res.cancel) {
+                      console.log('用户点击取消');
+                  }
+              }
+          });
+          return;
+      }
+
+      if (postData.IdCard.length !== 18) {
+          wx.showModal({
+              title: '提示',
+              content: '身份证号不正确',
+              success: function (res) {
+                  if (res.confirm) {
+                      console.log('用户点击确定');
+                  } else if (res.cancel) {
+                      console.log('用户点击取消');
+                  }
+              }
+          });
+          return;
+      }
+
+      if (postData.UserName.length < 2) {
+          wx.showModal({
+              title: '提示',
+              content: '用户名不正确',
+              success: function (res) {
+                  if (res.confirm) {
+                      console.log('用户点击确定');
+                  } else if (res.cancel) {
+                      console.log('用户点击取消');
+                  }
+              }
+          });
+          return;
+      }
+
+
+
+
 
       util.httpPost(app.globalData.urls.user.regist, postData, res => {
           wx.switchTab({

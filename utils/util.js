@@ -43,8 +43,8 @@ function httpPost(url,data,callBack) {
     wx.showToast({
         title: '',
         icon: 'loading',
-        duration: 1000
-    });
+        duration: 10000
+});
     wx.request({
         url: url,
         method: 'POST',
@@ -54,7 +54,7 @@ function httpPost(url,data,callBack) {
         },
         success: function (res) {
             callBack(res.data);
-
+            wx.hideToast();
         },
         fail: function (error) {
             wx.showToast({

@@ -38,57 +38,7 @@ Page({
             windowWidthdata:windowWidth
         });
 
-        radarChart = new wxCharts({
-            canvasId: 'radarCanvas',
-            type: 'radar',
-            categories: ['心率', '收缩压', '舒张压', '空腹血糖', '餐后血糖', '体重'],
-            series: [{
-                name: '当日数据',
-                data: [90, 110, 125, 95, 87, 122]
-            }],
-            width: windowWidth,
-            height: 200,
-            extra: {
-                radar: {
-                    max: 150
-                }
-            }
-        });
-
-
-        bloodSugarLineChart = new wxCharts({
-            canvasId: 'bloodSugarLineCanvas',
-            type: 'line',
-            categories: ['25', '26', '27', '28', '29', '30', '31'],
-            series: [{
-                name: '早餐后',
-                data: [4.3, 5.5, 6.9, 8.2, 3.5, 5.8],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }, {
-                name: '午餐后',
-                data: [2.3, 3.5, 3.9, 5.2, 9.5, 2.8],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }, {
-                name: '晚餐后',
-                data: [1.3, 6.5, 5.9, 2.2, 8.5, 3.8],
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                }
-            }],
-            yAxis: {
-                title: 'mol',
-                format: function (val) {
-                    return val;//return val.toFixed(2);
-                },
-                min: 0
-            },
-            width: windowWidth,
-            height: 150
-        });
+       
 
     },
 
@@ -99,7 +49,6 @@ Page({
         var url = app.globalData.urls.user.recordChart + "7/" + app.globalData.openId;
         util.http(url,
             res => {
-                debugger;
                 //this.setData({
                 //    result: res.Result.ReportHistory,
                 //    report: res.Result.ReportItem
@@ -107,17 +56,17 @@ Page({
                 lineChart = new wxCharts({
                     canvasId: 'lineCanvas',
                     type: 'line',
-                    categories: ['25', '26', '27', '28', '29', '30', '31'],
+                    categories: res.Result.Date,
                     series: [
                         {
                             name: '收缩压',
-                            data: [93, 100, 120, 160, 150, 110],
+                            data: res.Result.SystolicPressure,
                             format: function(val) {
                                 return val; //return val.toFixed(2);
                             }
                         }, {
                             name: '舒张压',
-                            data: [60, 80, 90, 120, 110, 80],
+                            data: res.Result.DiastolicPressure,
                             format: function(val) {
                                 return val; //return val.toFixed(2);
                             }
@@ -140,13 +89,60 @@ Page({
                     categories: res.Result.Date,
                     series: [{
                         name: '心率',
-                        data: [...res.Result.HeartRate,"4"],
+                        data: res.Result.HeartRate,
                         format: function (val) {
                             return val;//return val.toFixed(2);
                         }
                     }],
                     yAxis: {
                         title: '次数',
+                        format: function (val) {
+                            return val;//return val.toFixed(2);
+                        },
+                        min: 0
+                    },
+                    width: this.data.windowWidthdata,
+                    height: 150
+                });
+
+                bloodSugarLineChart = new wxCharts({
+                    canvasId: 'bloodSugarLineCanvas',
+                    type: 'line',
+                    categories: res.Result.Date,
+                    series: [
+                        {
+                            name: '空腹血糖',
+                            data: res.Result.FastingBloodGlucose,
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            }
+                        },{
+                        name: '早餐后',
+                        data: res.Result.BreakfastBloodGlucose,
+                        format: function (val) {
+                            return val;//return val.toFixed(2);
+                        }
+                    }, {
+                        name: '午餐后',
+                        data: res.Result.LunchBloodGlucose,
+                        format: function (val) {
+                            return val;//return val.toFixed(2);
+                        }
+                    }, {
+                        name: '晚餐后',
+                        data: res.Result.DinnerBloodGlucose,
+                        format: function (val) {
+                            return val;//return val.toFixed(2);
+                        }
+                    }, {
+                            name: '随机',
+                            data: res.Result.RandomBloodGlucose,
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            }
+                        }],
+                    yAxis: {
+                        title: 'mol',
                         format: function (val) {
                             return val;//return val.toFixed(2);
                         },

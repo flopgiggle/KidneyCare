@@ -44,7 +44,7 @@ Page({
     bindDateChange: function (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
-            regDate: e.detail.value
+            reportDate: e.detail.value
         })
     },
     bindBloodPressureTimeChange: function (e) {

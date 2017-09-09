@@ -1,4 +1,6 @@
 // pages/consulting/consulting.js
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
 
   /**
@@ -21,10 +23,31 @@ Page({
           consultingTypeIndex: e.detail.value
       })
   },
+  onConsutingTap: function() {
+      if (app.globalData.user.Patient.BindStatus !== app.globalData.patientAlreadyBind) {
+          wx.showModal({
+              title: '尚未绑定医患关系',
+              content: '您目前还未关联医护，请先完善您的个人档案',
+              confirmText: '马上完善',
+              cancelText: '暂不处理',
+              success: function (res) {
+                  if (res.confirm) {
+                      wx.navigateTo({
+                          url: "/pages/register/register"
+                      });
+                  } else if (res.cancel) {
+                      wx.switchTab({
+                          url: "/pages/currentDayInfo/currentDayInfo"
+                      });
+                  }
+              }
+          });
+      }  
+  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
   onReady: function () {
   
   },

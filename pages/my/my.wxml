@@ -5,14 +5,14 @@
         <image wx:if="{{true}}" class="avatar" src="/images/avatar/1.png"></image>
       </view>
       <view class="my-name">
-        <text>{{userInfo.UserName}} {{userInfo.Sex=="0"?"男":"女"}}</text>
+        <text>{{userInfo.UserName?userInfo.UserName:""}} {{userInfo.Sex=="0"?"男":"女"}}</text>
       </view>
     </view>
   </view>
   <view class="form-group">
-    <view class="form-item form-item-picker" wx:if="{{false}}">
+    <view class="form-item form-item-picker" bindtap='onPersonlTap'>
       <view class="form-item-label">
-        <text>个人信息</text>
+        <text>个人档案</text>
       </view>
       <view class="form-item-input ">
         <input placeholder-class="form-input-placeholder" disabled="true"  auto-focus=""/>
@@ -56,7 +56,7 @@
     </view>
   </view>
   <view class="form-group">
-    <view class="form-item form-item-picker">
+    <view class="form-item form-item-picker"  wx:if="{{false}}">
       <view class="form-item-label">
         <text>系统设置</text>
       </view>
@@ -64,7 +64,16 @@
         <input placeholder-class="form-input-placeholder" disabled="true"  auto-focus=""/>
       </view>
     </view>
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>联系我们</text>
+      </view>
+      <view class="form-item-input ">
+        <input placeholder-class="form-input-placeholder" disabled="true"  auto-focus=""/>
+      </view>
+    </view>
   </view>
+  
   <view class="form-group">
     <view class="form-row-button">
       <text>保存</text>

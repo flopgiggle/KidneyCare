@@ -7,14 +7,16 @@ App({
         doubanBase: "https://api.douban.com",
         picUrl: "http://localhost:11662/upload/",
         openId: "12345868889",
+        patientAlreadyBind:"111",
         user: "",
         urls: {
             user: {
                 regist: baseUri + "user/regist",
-                GetCurrentDayInfoList: baseUri + "user/getCurrentDayInfoList/",
+                update: baseUri + "user/updateUserInfo",
+                getCurrentDayInfoList: baseUri + "user/getCurrentDayInfoList/",
                 reportChart: baseUri + "user/getReportHistory/",
                 recordChart: baseUri + "user/getMyRecordHistory/",
-                getUserInfo: baseUri + "user/getUserInfo/",
+                getUserInfo: baseUri + "user/getUserInfo/", 
             },
             record: {
                 add: baseUri + "record/add"

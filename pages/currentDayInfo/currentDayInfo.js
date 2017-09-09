@@ -77,9 +77,10 @@ Page({
                 app.globalData.user = res.Result;
                 //判定用户是否已注册,未注册则不能使用该app，需要跳转到注册页面
                 if (app.globalData.user.Status === 0 || app.globalData.user.Status == null) {
-                    wx.navigateTo({
-                        url: "/pages/register/register"
-                    });
+                    //wx.navigateTo({
+                    //    url: "/pages/register/register"
+                    //});
+                    alert("应用程序异常");
                 } else {
                     //wx.switchTab({
                     //    url: "/pages/currentDayInfo/currentDayInfo"
@@ -96,7 +97,7 @@ Page({
             console.log("openId获取失败");
             return;
         }
-        var url = app.globalData.urls.user.GetCurrentDayInfoList + this.data.searchDate + "/" + app.globalData.openId;
+        var url = app.globalData.urls.user.getCurrentDayInfoList + this.data.searchDate + "/" + app.globalData.openId;
        util.http(url,
            res => {
                //合并收缩压舒张压数据

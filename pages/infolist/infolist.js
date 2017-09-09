@@ -52,7 +52,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      if (app.globalData.user.Status == 0) {
+      if (app.globalData.user.Patient.BindStatus !== app.globalData.patientAlreadyBind) {
           wx.showToast({
               title: '尚未认证,将跳转到认证页面',
               icon: 'success',

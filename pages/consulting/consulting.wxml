@@ -25,7 +25,7 @@
   </view>
 
   <view class="form-group">
-    <view class="form-row-button">
+    <view class="form-row-button" bindtap="onConsutingTap">
       <text>提交咨询</text>
     </view>
   </view>

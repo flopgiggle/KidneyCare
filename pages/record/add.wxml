@@ -12,6 +12,7 @@
           </view>
         </picker>
       </view>
+      <view class="unit"></view>
     </view>
   </view>
 
@@ -30,19 +31,14 @@
     </view>
     <view class="form-item">
       <view class="form-item-label">
-        <text>收缩压</text>
+        <text>血压</text>
       </view>
-      <view class="form-item-input">
-        <input name="systolicPressure" type="digit" maxlength="5" placeholder-class="form-input-placeholder" type="number" placeholder="请填写收缩压" auto-focus=""/>
+      <view class="form-item-input xueya">
+        <input name="systolicPressure"  type="digit" maxlength="5" placeholder-class="form-input-placeholder" type="number" placeholder="收缩压" auto-focus=""/>
+        <input name="diastolicPressure" type="digit" maxlength="5" placeholder-class="form-input-placeholder" type="number" placeholder="舒张压" auto-focus=""/>
+        
       </view>
-    </view>
-    <view class="form-item">
-      <view class="form-item-label">
-        <text>舒张压</text>
-      </view>
-      <view class="form-item-input">
-        <input name="diastolicPressure" type="digit" maxlength="5" placeholder-class="form-input-placeholder" type="number" placeholder="请填舒张压" auto-focus=""/>
-      </view>
+      <view class="unit">mmHg</view>
     </view>
     <view class="form-item">
       <view class="form-item-label">
@@ -51,6 +47,7 @@
       <view class="form-item-input">
         <input name="heartRate" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填写心率" auto-focus=""/>
       </view>
+      <view class="unit">次/分</view>
     </view>
   </view>
 
@@ -63,6 +60,7 @@
       <view class="form-item-input">
         <input name="fastingBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" type="number" placeholder="请填写空腹血糖" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view class="form-item">
       <view class="form-item-label">
@@ -71,6 +69,7 @@
       <view class="form-item-input">
         <input name="breakfastBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" type="number" placeholder="请填早餐2小时后血糖" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view class="form-item">
       <view class="form-item-label">
@@ -79,6 +78,7 @@
       <view class="form-item-input">
         <input name="lunchBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填午餐2小时后血糖" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view class="form-item">
       <view class="form-item-label">
@@ -87,6 +87,7 @@
       <view class="form-item-input">
         <input name="dinnerBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填晚餐2小时后血糖" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view class="form-item">
       <view class="form-item-label">
@@ -95,6 +96,7 @@
       <view class="form-item-input">
         <input name="randomBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填写随机血糖与时间" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view wx:if="{{false}}" class="form-item form-item-picker">
       <view class="form-item-label">

@@ -1,5 +1,5 @@
 .padding-list {
-    padding-bottom:50rpx;
+    padding-bottom:100rpx;
 }
 
 .list-group {
@@ -110,4 +110,41 @@
 .font-red {
     color: #ff2d2d;
 }
+
+.none-data {
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    display: flex;
+    color: #666;
+    height:70vh;
+    text-align:center;
+}
+
+.currentDayInfo-bind {
+    font-weight:bold;
+}
+
+.list-item-info.name {
+    flex:4;
+}
+
+.list-item-info.value {
+    flex: 5;
+}
+
+.list-item-info.result {
+    flex: 2;
+}
+
+.list-item-info.report {
+    text-align:left;
+}
+
+.list-item.report {
+    background-color: #FFFFCC;
+}
+
+
 

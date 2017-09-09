@@ -1,4 +1,5 @@
 <view class="container">
+    <view class='chart-title' >显示最近7日的记录数据</view>
     <view class='chart-title' >血压</view>
     <view  class="chartView">
         <canvas canvas-id="lineCanvas" class="canvas" ></canvas>

@@ -136,10 +136,58 @@ Page({
             OpenId: app.globalData.openId
         };
 
-        util.httpPost(app.globalData.urls.record.add, postData, res => {
-            wx.switchTab({
-                url: "/pages/currentDayInfo/currentDayInfo"
+        if (postData.SystolicPressure.length > 0 && postData.DiastolicPressure.length <= 0) {
+            wx.showModal({
+                title: '提示',
+                content: '请填写舒张压',
+                success: function (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定');
+                    } else if (res.cancel) {
+                        console.log('用户点击取消');
+                    }
+                }
             });
+            return;
+        }
+
+        if (postData.SystolicPressure.length <= 0 && postData.DiastolicPressure.length > 0) {
+            wx.showModal({
+                title: '提示',
+                content: '请填写收缩压',
+                success: function (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定');
+                    } else if (res.cancel) {
+                        console.log('用户点击取消');
+                    }
+                }
+            });
+            return;
+        }
+
+        util.httpPost(app.globalData.urls.record.add, postData, res => {
+            if (app.globalData.user.Status < 2) {
+                wx.showModal({
+                    title: '尚未绑定医患关系',
+                    content: '您的记录已保存，完善个人档案有助于医护随时了解您的健康状况，马上去完善？',
+                    confirmText:'马上完善',
+                    cancelText:'暂不绑定',
+                    success: function (res) {
+                        if (res.confirm) {
+                            wx.navigateTo({
+                                url: "/pages/register/register"
+                            });
+                        } else if (res.cancel) {
+                            wx.switchTab({
+                                url: "/pages/currentDayInfo/currentDayInfo"
+                            });
+                        }
+                    }
+                });
+            }
+
+            
         });
 
 

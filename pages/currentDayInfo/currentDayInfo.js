@@ -9,8 +9,8 @@ Page({
      */
     data: {
         searchDate: util.getNowFormatDate(),
-        myRecord: {},
-        myReport: {}
+        myRecord: [],
+        myReport: [],
     },
     bindDateChange: function (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value);
@@ -99,6 +99,8 @@ Page({
         var url = app.globalData.urls.user.GetCurrentDayInfoList + this.data.searchDate + "/" + app.globalData.openId;
        util.http(url,
            res => {
+               //合并收缩压舒张压数据
+               //var recordListGroup = res.Result.MyRecord;
                this.setData({
                    myRecord: res.Result.MyRecord,
                    myReport: res.Result.MyReport

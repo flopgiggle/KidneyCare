@@ -55,7 +55,7 @@
   </view>
 
   <view class="form-group">
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==0}}" class="form-item">
       <view class="form-item-label">
         <text>体重</text>
       </view>
@@ -63,7 +63,7 @@
         <input name="Weight" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写体重" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==1}}" class="form-item">
       <view class="form-item-label">
         <text>尿蛋白定性</text>
       </view>
@@ -71,7 +71,7 @@
         <input name="Pro" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写BW" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==2}}" class="form-item">
       <view class="form-item-label">
         <text>尿蛋白定量</text>
       </view>
@@ -79,7 +79,7 @@
         <input name="Upr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写身高单位(CM厘米)" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==2}}" class="form-item">
       <view class="form-item-label">
         <text>尿蛋白肌酐比</text>
       </view>
@@ -87,7 +87,7 @@
         <input name="ProICr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写腰围" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==2}}" class="form-item">
       <view class="form-item-label">
         <text>尿素氮</text>
       </view>
@@ -95,7 +95,7 @@
         <input name="BUN" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="尿素氮" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
         <text>尿酸</text>
       </view>
@@ -103,7 +103,7 @@
         <input name="UA" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写尿酸" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
         <text>肌酐</text>
       </view>
@@ -111,7 +111,7 @@
         <input name="SCr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写肌酐" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
         <text>肾小球滤过率</text>
       </view>
@@ -119,7 +119,7 @@
         <input name="eGFR" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写肾小球滤过率" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==4}}" class="form-item">
       <view class="form-item-label">
         <text>血红蛋白</text>
       </view>
@@ -127,7 +127,7 @@
         <input name="Hb" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="血红蛋白" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==4}}" class="form-item">
       <view class="form-item-label">
         <text>白蛋白</text>
       </view>
@@ -135,7 +135,7 @@
         <input name="Alb" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写白蛋白" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==4}}" class="form-item">
       <view class="form-item-label">
         <text>甘油三酯</text>
       </view>
@@ -143,7 +143,7 @@
         <input name="TG" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写甘油三酯" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==5}}" class="form-item">
       <view class="form-item-label">
         <text>胆固醇</text>
       </view>
@@ -151,7 +151,7 @@
         <input name="Chol" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写胆固醇" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==5}}" class="form-item">
       <view class="form-item-label">
         <text>钠</text>
       </view>
@@ -159,7 +159,7 @@
         <input name="Na" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写钠" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==6}}" class="form-item">
       <view class="form-item-label">
         <text>钾</text>
       </view>
@@ -167,7 +167,7 @@
         <input name="K" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写钾" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==6}}" class="form-item">
       <view class="form-item-label">
         <text>磷</text>
       </view>
@@ -175,7 +175,7 @@
         <input name="P" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写磷" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==6}}" class="form-item">
       <view class="form-item-label">
         <text>钙</text>
       </view>
@@ -183,7 +183,7 @@
         <input name="Ca" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写钙" auto-focus=""/>
       </view>
     </view>
-    <view class="form-item">
+    <view wx:if="{{reportTypeIndex==7}}" class="form-item">
       <view class="form-item-label">
         <text>甲状旁腺素</text>
       </view>

@@ -47,10 +47,10 @@ Page({
         //根据选择的类型，获取发送消息的医生或护士的Id
         var touser = "";
         if (this.data.consultingTypeIndex == 0) {
-            touser = app.globalData.user.Patient.BelongToDoctor;
+            touser = app.globalData.user.BelongToDoctorId;
         }
         if (this.data.consultingTypeIndex == 1) {
-            touser = app.globalData.user.Patient.BelongToNurse;
+            touser = app.globalData.user.BelongToNurseId;
         }
 
         var postData = {

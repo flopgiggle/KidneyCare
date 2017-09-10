@@ -14,7 +14,8 @@
     border: solid 1px #c1c1c1;
     padding: 20rpx;
     background-color: #d3f39c;
-    border-radius:5px;
+    border-radius: 5px;
+    min-height:68rpx;
 }
 
 .my-icon {
@@ -36,6 +37,7 @@
     padding: 20rpx;
     background-color: #f5f5f5;
     border-radius: 5px;
+    min-height: 68rpx;
 }
 
 .other-icon {

@@ -19,10 +19,14 @@ App({
                 getUserInfo: baseUri + "user/getUserInfo/", 
             },
             record: {
-                add: baseUri + "record/add"
+                add: baseUri + "record/add",
             },
             addReport: {
-                add: baseUri + "record/addReport"
+                add: baseUri + "record/addReport",
+            },
+            message: {
+                sendMessage: baseUri + "message/sendMessage",
+                getMessage: baseUri + "message/getMessage",
             }
 
         }

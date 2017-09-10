@@ -1,18 +1,21 @@
 // pages/dialogue/dialogue.js
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        allData: [],
+        user:{},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
 
   /**
@@ -26,7 +29,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+      this.loadList();
+  },
+  loadList: function () {
+      debugger;
+      //if (app.globalData.openId === "") {
+      //    console.log("openId获取失败");
+      //    return;
+      //}
+      var url = app.globalData.urls.message.getMessage;
+
+      var postData = {
+          Index: 1,
+          PageSize: 1000,
+          UserId: app.globalData.user.Id
+      }
+
+      util.httpPost(url, postData, res => {
+          this.setData({
+              allData:res.Result,
+              user:app.globalData.user,
+          });
+          
+      });
   },
 
   /**

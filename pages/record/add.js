@@ -167,13 +167,14 @@ Page({
         }
 
         util.httpPost(app.globalData.urls.record.add, postData, res => {
+            debugger;
             if (app.globalData.user.Patient.BindStatus !== app.globalData.patientAlreadyBind) {
                 wx.showModal({
                     title: '尚未绑定医患关系',
                     content: '您的记录已保存，完善个人档案有助于医护随时了解您的健康状况，马上去完善？',
-                    confirmText:'马上完善',
-                    cancelText:'暂不绑定',
-                    success: function (res) {
+                    confirmText: '马上完善',
+                    cancelText: '暂不绑定',
+                    success: function(res) {
                         if (res.confirm) {
                             wx.navigateTo({
                                 url: "/pages/register/register"
@@ -185,9 +186,13 @@ Page({
                         }
                     }
                 });
+            } else {
+                wx.switchTab({
+                    url: "/pages/currentDayInfo/currentDayInfo"
+                });
             }
 
-            
+
         });
 
 

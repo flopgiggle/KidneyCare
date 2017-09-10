@@ -1,4 +1,5 @@
 <view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="form-group">
     <view class="form-item form-item-picker">
       <view class="form-item-label">
@@ -19,14 +20,17 @@
         <text>咨询消息</text>
       </view>
       <view class="form-item-input">
-        <input type='idcard' placeholder-class="form-input-placeholder" placeholder="请填写咨询消息" auto-focus=""/>
+        <input type='idcard' name='message' placeholder-class="form-input-placeholder" placeholder="请填写咨询消息" auto-focus=""/>
       </view>
     </view>
   </view>
 
   <view class="form-group">
-    <view class="form-row-button" bindtap="onConsutingTap">
-      <text>提交咨询</text>
+    <view class="form-row-button">
+      <button class="form-row-button" formType="submit">
+        <text>提交咨询</text>
+      </button>
     </view>
   </view>
+  </form>
 </view>

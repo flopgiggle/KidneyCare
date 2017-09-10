@@ -74,7 +74,7 @@
     </view>
   </view>
   
-  <view class="form-group">
+  <view class="form-group" wx:if="{{false}}">
     <view class="form-row-button">
       <text>保存</text>
     </view>

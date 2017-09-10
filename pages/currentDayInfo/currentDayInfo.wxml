@@ -5,7 +5,7 @@
         <text>查询日期</text>
       </view>
       <view class="form-item-input">
-        <picker mode="date" value="{{searchDate}}" start="1900-01-01" end="2017-08-30" bindchange="bindDateChange">
+        <picker mode="date" value="{{searchDate}}" start="1900-01-01" end="2020-08-30" bindchange="bindDateChange">
           <view class="picker">
             {{searchDate}}
           </view>

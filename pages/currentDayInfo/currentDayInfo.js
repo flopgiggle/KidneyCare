@@ -90,10 +90,15 @@ Page({
 
     wxLoginProcess: function(res) {
         //var url = baseUri + "user/getUserInfo/" +res.code; 
-        var url = app.globalData.urls.user.getUserInfo + res.code + "/" + app.globalData.openId;
-        util.http(url,
+        var url = app.globalData.urls.user.getUserInfo;
+        var postData= {
+            Code: res.code,
+            OpenId: app.globalData.openId
+        }
+        util.httpPost(url,postData,
             res => {
                 app.globalData.user = res.Result;
+                app.globalData.openId = res.Result.OpenId;
                 this.setData({
                     app: app,
                 });

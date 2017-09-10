@@ -8,7 +8,7 @@ App({
         doubanBase: "https://api.douban.com",
         host: host,
         picUrl: host + "/upload/",
-        openId: "12345868889",
+        openId: "",//12345868889
         patientAlreadyBind:"111",
         user: "",
         urls: {

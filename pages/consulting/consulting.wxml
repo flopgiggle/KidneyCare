@@ -20,7 +20,7 @@
         <text>咨询消息</text>
       </view>
       <view class="form-item-input">
-        <input type='idcard' name='message' placeholder-class="form-input-placeholder" placeholder="请填写咨询消息" auto-focus=""/>
+        <input type='text' name='message' placeholder-class="form-input-placeholder" placeholder="请填写咨询消息" auto-focus=""/>
       </view>
     </view>
   </view>

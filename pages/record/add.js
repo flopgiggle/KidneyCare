@@ -167,7 +167,6 @@ Page({
         }
 
         util.httpPost(app.globalData.urls.record.add, postData, res => {
-            debugger;
             if (app.globalData.user.Patient.BindStatus !== app.globalData.patientAlreadyBind) {
                 wx.showModal({
                     title: '尚未绑定医患关系',

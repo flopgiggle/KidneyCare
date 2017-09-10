@@ -32,7 +32,6 @@ Page({
       this.loadList();
   },
   loadList: function () {
-      debugger;
       //if (app.globalData.openId === "") {
       //    console.log("openId获取失败");
       //    return;

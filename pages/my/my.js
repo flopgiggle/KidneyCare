@@ -31,7 +31,11 @@ Page({
           url: "/pages/register/register"
       })
   },
-
+  onContactUsTap: function (e) {
+      wx.navigateTo({
+          url: "/pages/contactUs/contactUs"
+      })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

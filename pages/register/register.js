@@ -48,7 +48,6 @@ Page({
         });
     },
     bindCKDChange: function (e) {
-        debugger;
         this.setData({
             CKDIndex: e.detail.value
         });

@@ -16,7 +16,7 @@ function http(url, callBack) {
     wx.showToast({
         title: '',
         icon: 'loading',
-        duration: 1000
+        duration: 100000
     });
     wx.request({
         url: url,
@@ -26,7 +26,7 @@ function http(url, callBack) {
         },
         success: function(res) {
             callBack(res.data);
-
+            wx.hideToast();
         },
         fail: function(error) {
             wx.showToast({

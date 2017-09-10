@@ -92,15 +92,16 @@ Page({
         util.httpPost(app.globalData.urls.addReport.add, postData, res => {
             if (res.IsSuccess) {
                 //开始上传图片
-                //
-                var reportId = res.Result;
-                this.uploadimg({
-                    url: 'http://localhost:11662/UploadHandler.ashx',//这里是你图片上传的接口
-                    path: this.data.imageList,//这里是选取的图片的地址数组,
-                    formData: {
-                        'reportId': reportId
-                    }
-                });
+                if (this.data.imageList && this.data.imageList.length > 0) {
+                    var reportId = res.Result;
+                    this.uploadimg({
+                        url: 'http://localhost:11662/UploadHandler.ashx',//这里是你图片上传的接口
+                        path: this.data.imageList,//这里是选取的图片的地址数组,
+                        formData: {
+                            'reportId': reportId
+                        }
+                    });
+                }
             }
             
             wx.switchTab({

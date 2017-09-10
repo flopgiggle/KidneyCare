@@ -24,7 +24,7 @@
   </view>
   
   
-  <view class="post-area">
+  <view wx:if="{{false}}" class="post-area">
     <input class="dialogue-input"></input><view class="dialogue-send">
       <view>发送</view>
     </view>

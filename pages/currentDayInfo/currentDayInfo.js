@@ -11,6 +11,12 @@ Page({
         searchDate: util.getNowFormatDate(),
         myRecord: [],
         myReport: [],
+        app: {},
+    },
+    onGoToBindTap: function(e) {
+        wx.navigateTo({
+            url: "/pages/register/register"
+        });
     },
     bindDateChange: function (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value);
@@ -68,13 +74,17 @@ Page({
      */
     onShow: function () {
         this.setData({
-            searchDate: util.getNowFormatDate()
+            searchDate: util.getNowFormatDate(),
+            app: app,
         });
 
         var url = app.globalData.urls.user.getUserInfo + "05/" + app.globalData.openId;
         util.http(url,
             res => {
                 app.globalData.user = res.Result;
+                this.setData({
+                    app: app,
+                });
                 //判定用户是否已注册,未注册则不能使用该app，需要跳转到注册页面
                 if (app.globalData.user.Status === 0 || app.globalData.user.Status == null) {
                     //wx.navigateTo({

@@ -95,7 +95,7 @@ Page({
                 if (this.data.imageList && this.data.imageList.length > 0) {
                     var reportId = res.Result;
                     this.uploadimg({
-                        url: 'http://localhost:11662/UploadHandler.ashx',//这里是你图片上传的接口
+                        url: app.globalData.host+"/UploadHandler.ashx",
                         path: this.data.imageList,//这里是选取的图片的地址数组,
                         formData: {
                             'reportId': reportId

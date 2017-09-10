@@ -59,7 +59,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        
+        this.wxLoginProcess.bind(this);
     },
 
     /**
@@ -75,10 +75,22 @@ Page({
     onShow: function () {
         this.setData({
             searchDate: util.getNowFormatDate(),
-            app: app,
+        });
+        var theApp = app;
+        
+        wx.login({
+            success: this.wxLoginProcess
         });
 
-        var url = app.globalData.urls.user.getUserInfo + "05/" + app.globalData.openId;
+
+
+        //this.loadList();
+
+    },
+
+    wxLoginProcess: function(res) {
+        //var url = baseUri + "user/getUserInfo/" +res.code; 
+        var url = app.globalData.urls.user.getUserInfo + res.code + "/" + app.globalData.openId;
         util.http(url,
             res => {
                 app.globalData.user = res.Result;
@@ -98,8 +110,6 @@ Page({
                     this.loadList();
                 }
             });
-        //this.loadList();
-
     },
 
     loadList: function () {

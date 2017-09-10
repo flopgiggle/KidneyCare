@@ -39,6 +39,10 @@ function http(url, callBack) {
     });
 }
 
+function app() {
+    return getApp();
+}
+
 function httpPost(url,data,callBack) {
     wx.showToast({
         title: '',
@@ -111,5 +115,6 @@ module.exports = {
   httpPost: httpPost,
   convertToCastString: convertToCastString,
   convertToCastInfos: convertToCastInfos,
-  getNowFormatDate: getNowFormatDate
+  getNowFormatDate: getNowFormatDate,
+  app:app,
 }

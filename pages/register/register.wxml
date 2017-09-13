@@ -70,9 +70,9 @@
           <text>治疗医院</text>
         </view>
         <view class="form-item-input">
-          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" range-key="Name" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
             <view class="picker">
-              {{multiArray[2][multiIndex[2]]}}
+              {{multiArray[2][multiIndex[2]].Name}}
             </view>
           </picker>
         </view>

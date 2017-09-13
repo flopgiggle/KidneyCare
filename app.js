@@ -9,7 +9,7 @@ App({
         doubanBase: "https://api.douban.com",
         host: host,
         picUrl: host + "/upload/",
-        openId: "12345868889",//
+        openId: "1234586888912",//
         patientAlreadyBind:"111",
         user: "",
         urls: {
@@ -22,6 +22,7 @@ App({
                 getUserInfo: baseUri + "user/getUserInfo/", 
                 getMyRecordHistoryByPatientId: baseUri + "user/getMyRecordHistoryByPatientId/",
                 getStaffsByHosptalId: baseUri + "user/getStaffsByHosptalId/",
+                getHospitalSelectInfo: baseUri + "user/getHospitalSelectInfo/",
             },
             record: {
                 add: baseUri + "record/add",

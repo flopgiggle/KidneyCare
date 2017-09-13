@@ -13,7 +13,10 @@ Page({
         docter: [{ UserName: '张医生', Id: '1' }, { UserName: '王医生', Id: '1' }, { UserName: '未收录', Id: '1' }],
         nurse: [{ UserName: '张护士', Id: '1' }, { UserName: '王护士', Id: '1' }, { UserName: '未收录', Id: '1' }],
         disease: [{ Name: '肾衰竭', Id: '1' }, { Name: '肾小球肾炎', Id: '2' }],
-        CKD: [{ Name: 'I期', Id: '1' }, { Name: 'II期', Id: '2' }, { Name: 'III期', Id: '3' }, { Name: 'IV期', Id: '4' }, { Name: 'V期', Id: '5' }],
+        CKD: [
+            { Name: 'I期', Id: '1' }, { Name: 'II期', Id: '2' }, { Name: 'III期', Id: '3' }, { Name: 'IV期', Id: '4' },
+            { Name: 'V期', Id: '5' }
+        ],
         sexIndex: -1,
         docterIndex: -1,
         nurseIndex: -1,
@@ -23,9 +26,10 @@ Page({
         multiArray: [['四川省', '云南省'], ['成都市', '绵阳市', '德阳市', '攀枝花市', '宜宾市'], ['四川大学华西医院', '省医院']],
         multiIndex: [0, 0, 0],
         userInfo: {},
+        hospital: [{ UserName: '四川大学华西医院', Id: '1' }, { UserName: '省医院', Id: '2' }]
     },
     //需要查找原始对象,id,对应的选项索引值
-    getIndexValue: function(orgValue,collect) {
+    getIndexValue: function(orgValue, collect) {
         if (orgValue) {
             var index = 0;
             for (var item of collect) {
@@ -42,46 +46,61 @@ Page({
             return -1;
         }
     },
-    bindDiseaseChange: function (e) {
+    bindDiseaseChange: function(e) {
         this.setData({
             diseaseIndex: e.detail.value
         });
     },
-    bindCKDChange: function (e) {
+    bindCKDChange: function(e) {
         this.setData({
             CKDIndex: e.detail.value
         });
     },
-    bindDocterChange: function (e) {
+    bindDocterChange: function(e) {
         this.setData({
             docterIndex: e.detail.value
         });
     },
-    bindNurseChange: function (e) {
+    bindNurseChange: function(e) {
 
         this.setData({
             nurseIndex: e.detail.value
         });
     },
-    bindSexChange: function (e) {
+    bindSexChange: function(e) {
         this.setData({
             sexIndex: e.detail.value
         });
     },
-    bindPickerChange: function (e) {
+    bindPickerChange: function(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
             index: e.detail.value
         })
     },
-    bindDateChange: function (e) {
+    bindDateChange: function(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
             birthday: e.detail.value
         })
     },
+    getStaffsByHosptalId: function (hospitalId) {
+        var url = app.globalData.urls.user.getStaffsByHosptalId + hospitalId;
+        util.http(url,
+            res => {
+                var result = JSON.parse(res.Result);
+                result.allDoctors.push({ UserName: '未收录', Id: '-100' });
+                result.allNurses.push({ UserName: '未收录', Id: '-100' });
+                this.setData({
+                    docter: result.allDoctors,
+                    nurse: result.allNurses,
+                });
+            });
+    },
     bindMultiPickerChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
+        console.log('picker发送选择改变，携带值为', e.detail.value);
+        var hospitalId = this.data.hospital[e.detail.value[2]].Id;
+        this.getStaffsByHosptalId(hospitalId);
         this.setData({
             multiIndex: e.detail.value
         })

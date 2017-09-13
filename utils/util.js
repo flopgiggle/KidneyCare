@@ -91,6 +91,25 @@ function convertToCastInfos(casts) {
   return castsArray;
 }
 
+//需要查找原始对象,id,对应的选项索引值
+function getIndexValue(orgValue, collect) {
+    if (orgValue) {
+        var index = 0;
+        for (var item of collect) {
+            if (item.Id == orgValue) {
+                return index;
+            }
+            index++;
+        }
+
+        //var index = lodash.findIndex(collect, [id = orgValue]);
+
+        //return index;
+    } else {
+        return -1;
+    }
+}
+
 function getNowFormatDate() {
     var date = new Date();
     var seperator1 = "-";
@@ -116,5 +135,6 @@ module.exports = {
   convertToCastString: convertToCastString,
   convertToCastInfos: convertToCastInfos,
   getNowFormatDate: getNowFormatDate,
-  app:app,
+  app: app,
+  getIndexValue: getIndexValue,
 }

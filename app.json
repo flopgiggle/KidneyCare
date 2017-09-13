@@ -1,13 +1,7 @@
 {
   "pages": [
     "pages/currentDayInfo/currentDayInfo",
-    "pages/welcome/welcome",
     "pages/register/register",
-    "pages/posts/post",
-    "pages/movies/movies",
-    "pages/movies/movie-detail/movie-detail",
-    "pages/posts/post-detail/post-detail",
-    "pages/movies/more-movie/more-movie",
     "pages/chart/chart",
     "pages/chart/reportchart",
     "pages/uploadReport/uploadReport",

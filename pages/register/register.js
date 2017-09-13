@@ -222,7 +222,7 @@ Page({
         };
 
 
-        if (postData.MobilePhone.length !== 11) {
+        if (postData.MobilePhone.length>0 && postData.MobilePhone.length !== 11) {
             wx.showModal({
                 title: '提示',
                 content: '手机号格式不正确',

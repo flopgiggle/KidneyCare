@@ -48,12 +48,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      debugger;
       this.setData({ userInfo: app.globalData.user, age: this.jsGetAge(app.globalData.user.Birthday) });
   },
 
-  jsGetAge: function (strBirthday){         
-      var returnAge;  
+  jsGetAge: function (strBirthday) {
+      if (!!!strBirthday) {
+          return "";
+      }
+
+      var returnAge;
       var strBirthdayArr= strBirthday.split("-");  
       var birthYear = strBirthdayArr[0];  
       var birthMonth = strBirthdayArr[1];  

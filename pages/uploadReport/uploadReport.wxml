@@ -229,7 +229,7 @@
         <text>白细胞</text>
       </view>
       <view class="form-item-input">
-        <input name="Alb" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
+        <input name="WBC" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
       <view class="unit">10^9/L</view>
     </view>

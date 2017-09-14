@@ -76,7 +76,7 @@ Page({
 
                 Upr: e.detail.value.Upr,
                 ProICr: e.detail.value.ProICr,
-                UAICr: e.detail.value.ProICr,
+                UAICr: e.detail.value.UAICr,
 
                 BUN: e.detail.value.BUN,
                 UA: e.detail.value.UA,

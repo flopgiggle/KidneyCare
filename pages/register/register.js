@@ -94,6 +94,8 @@ Page({
                 this.setData({
                     docter: result.allDoctors,
                     nurse: result.allNurses,
+                    docterIndex: this.getIndexValue(app.globalData.user.Patient.BelongToDoctor, result.allDoctors),
+                    nurseIndex: this.getIndexValue(app.globalData.user.Patient.BelongToNurse, result.allNurses),
                 });
             });
     },
@@ -294,11 +296,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
         this.setData({
             sexIndex: this.getIndexValue(app.globalData.user.Sex,this.data.sex),
-            docterIndex: this.getIndexValue(app.globalData.user.Patient.BelongToDoctor,this.data.docter),
-            nurseIndex: this.getIndexValue(app.globalData.user.Patient.BelongToNurse, this.data.nurse),
             CKDIndex: this.getIndexValue(app.globalData.user.Patient.CKDLeave, this.data.CKD),
             diseaseIndex: this.getIndexValue(app.globalData.user.Patient.DiseaseType, this.data.disease),
             birthday: app.globalData.user.Patient.Birthday ? app.globalData.user.Patient.Birthday : '2017-01-01',

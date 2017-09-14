@@ -127,7 +127,6 @@ Page({
            res => {
                //合并收缩压舒张压数据
                //var recordListGroup = res.Result.MyRecord;
-               debugger;
                this.setData({
                    myRecord: res.Result.MyRecord,
                    myReport: res.Result.MyReport

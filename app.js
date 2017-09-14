@@ -1,6 +1,6 @@
 var util = require('utils/util.js');
-//var host = "https://30861365.qcloud.la";
-var host = "http://localhost:11662";
+var host = "https://30861365.qcloud.la";
+//var host = "http://localhost:11662";
 var baseUri = host+"/api/";
 App({
     globalData: {
@@ -9,7 +9,7 @@ App({
         doubanBase: "https://api.douban.com",
         host: host,
         picUrl: host + "/upload/",
-        openId: "1234586888912",//
+        openId: "",//"1234586888912",
         patientAlreadyBind:"111",
         user: "",
         urls: {
@@ -19,7 +19,7 @@ App({
                 getCurrentDayInfoList: baseUri + "user/getCurrentDayInfoList/",
                 reportChart: baseUri + "user/getReportHistory/",
                 recordChart: baseUri + "user/getMyRecordHistory/",
-                getUserInfo: baseUri + "user/getUserInfo/", 
+                getUserInfo: baseUri + "user/getUserInfo", 
                 getMyRecordHistoryByPatientId: baseUri + "user/getMyRecordHistoryByPatientId/",
                 getStaffsByHosptalId: baseUri + "user/getStaffsByHosptalId/",
                 getHospitalSelectInfo: baseUri + "user/getHospitalSelectInfo/",

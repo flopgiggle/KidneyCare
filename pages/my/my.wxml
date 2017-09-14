@@ -5,7 +5,8 @@
         <image wx:if="{{true}}" class="avatar" src="/images/avatar/1.png"></image>
       </view>
       <view class="my-name">
-        <text>{{userInfo.UserName?userInfo.UserName:""}}  {{userInfo.Sex=="0"?"男":"女"}}  {{age}}岁</text>
+        <text wx:if="{{age}}">{{userInfo.UserName?userInfo.UserName:""}}  {{userInfo.Sex=="0"?"男":"女"}}  {{age}}岁</text>
+        <text wx:else="{{age}}">请完善个人档案</text>
       </view>
     </view>
   </view>

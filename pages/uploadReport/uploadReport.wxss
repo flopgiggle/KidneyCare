@@ -46,9 +46,20 @@ form {
 }
 
 .form-item-label {
-    flex: 1
+    flex: 30
 }
 
 .form-item-input {
-    flex: 2
+    flex: 40
+}
+
+.unit {
+    flex: 30;
+    text-align: right
+}
+
+.unit {
+    font-size: 30rpx;
+    color: #666;
+    vertical-align: central;
 }

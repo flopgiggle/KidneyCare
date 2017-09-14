@@ -68,15 +68,20 @@ Page({
             RecordTime: this.data.bloodPressureTime,
             ReportType: this.data.reportTypeId,
             MedicalIndicators: {
-                //BW: e.detail.value.BW,
+
+                
                 Pro: e.detail.value.Pro,
+                ERY: e.detail.value.ERY,
+                LEU: e.detail.value.LEU,
+
                 Upr: e.detail.value.Upr,
                 ProICr: e.detail.value.ProICr,
+                UAICr: e.detail.value.ProICr,
+
                 BUN: e.detail.value.BUN,
                 UA: e.detail.value.UA,
                 SCr: e.detail.value.SCr,
                 eGFR: e.detail.value.eGFR,
-                Hb: e.detail.value.Hb,
                 Alb: e.detail.value.Alb,
                 TG: e.detail.value.TG,
                 Chol: e.detail.value.Chol,
@@ -84,8 +89,13 @@ Page({
                 K: e.detail.value.K,
                 P: e.detail.value.P,
                 Ca: e.detail.value.Ca,
+
+                Hb: e.detail.value.Hb,
+                WBC: e.detail.value.WBC,
+                PLT: e.detail.value.PLT,
+
                 PTH: e.detail.value.PTH,
-                Weight: e.detail.value.Weight
+
             },
             OpenId: app.globalData.openId
         };

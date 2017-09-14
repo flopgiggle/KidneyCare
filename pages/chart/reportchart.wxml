@@ -28,7 +28,7 @@
   </view>
   <view class="list-group">
     <view class="form-item split">
-      以下为历史记录情况图表
+      以下为关键指标图表
     </view>
   </view>
   <block wx:for="{{result}}" wx:for-item="item">

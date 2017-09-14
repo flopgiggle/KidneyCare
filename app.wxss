@@ -63,8 +63,9 @@ input{
 }
 
 .form-input-placeholder{
-  font-size: 40rpx;
-  color: #efefef;
+  font-size: 30rpx;
+  color: #666;
+
 }
 
 .form-item-picker:after {

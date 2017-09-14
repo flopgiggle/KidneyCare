@@ -48,13 +48,13 @@ Page({
         })
     },
     bindBloodPressureTimeChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
+        console.log('picker发送选择改变，携带值为', e.detail.value);
         this.setData({
             bloodPressureTime: e.detail.value
         })
     },
     bindMultiPickerChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
+        console.log('picker发送选择改变，携带值为', e.detail.value);
         this.setData({
             multiIndex: e.detail.value
         })
@@ -133,6 +133,8 @@ Page({
             LunchBloodGlucose: e.detail.value.lunchBloodGlucose,
             DinnerBloodGlucose: e.detail.value.dinnerBloodGlucose,
             RandomBloodGlucose: e.detail.value.randomBloodGlucose,
+            BodyWeight: e.detail.value.bodyWeight,
+            UrineVolume: e.detail.value.urineVolume,
             OpenId: app.globalData.openId
         };
 

@@ -62,6 +62,7 @@
       <view class="form-item-input">
         <input name="Pro" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">pmol/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==0}}" class="form-item">
       <view class="form-item-label">
@@ -70,6 +71,7 @@
       <view class="form-item-input">
         <input name="ERY" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">pmol/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==0}}" class="form-item">
       <view class="form-item-label">
@@ -78,6 +80,7 @@
       <view class="form-item-input">
         <input name="LEU" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">pmol/L</view>
     </view>
 
     <view wx:if="{{reportTypeIndex==1}}" class="form-item">
@@ -85,16 +88,18 @@
         <text>尿蛋白定量</text>
       </view>
       <view class="form-item-input">
-        <input name="Upr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
+        <input name="Upr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写报告结果" auto-focus=""/>
       </view>
+      <view class="unit"></view>
     </view>
     <view wx:if="{{reportTypeIndex==1}}" class="form-item">
       <view class="form-item-label">
         <text>尿蛋白肌酐比</text>
       </view>
       <view class="form-item-input">
-        <input name="ProICr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
+        <input name="ProICr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写报告结果" auto-focus=""/>
       </view>
+      <view class="unit"></view>
     </view>
 
 
@@ -105,6 +110,7 @@
       <view class="form-item-input">
         <input name="UAICr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">mg/g</view>
     </view>
 
 
@@ -115,6 +121,7 @@
       <view class="form-item-input">
         <input name="BUN" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
@@ -123,6 +130,7 @@
       <view class="form-item-input">
         <input name="UA" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">umol/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
@@ -131,6 +139,7 @@
       <view class="form-item-input">
         <input name="SCr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">umol/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
@@ -139,6 +148,7 @@
       <view class="form-item-input">
         <input name="eGFR" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">ml/min/1.73m2</view>
     </view>
     <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
@@ -147,6 +157,7 @@
       <view class="form-item-input">
         <input name="Alb" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">g/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
@@ -155,6 +166,7 @@
       <view class="form-item-input">
         <input name="TG" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
@@ -163,6 +175,7 @@
       <view class="form-item-input">
         <input name="Chol" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
@@ -171,6 +184,7 @@
       <view class="form-item-input">
         <input name="Na" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
@@ -179,6 +193,7 @@
       <view class="form-item-input">
         <input name="K" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
@@ -187,6 +202,7 @@
       <view class="form-item-input">
         <input name="P" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==3}}" class="form-item">
       <view class="form-item-label">
@@ -195,6 +211,7 @@
       <view class="form-item-input">
         <input name="Ca" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">mmol/L</view>
     </view>
 
 
@@ -205,6 +222,7 @@
       <view class="form-item-input">
         <input name="Hb" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">g/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==4}}" class="form-item">
       <view class="form-item-label">
@@ -213,6 +231,7 @@
       <view class="form-item-input">
         <input name="Alb" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">10^9/L</view>
     </view>
     <view wx:if="{{reportTypeIndex==4}}" class="form-item">
       <view class="form-item-label">
@@ -221,6 +240,7 @@
       <view class="form-item-input">
         <input name="PLT" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">10^9/L</view>
     </view>
 
     <view wx:if="{{reportTypeIndex==5}}" class="form-item">
@@ -230,6 +250,7 @@
       <view class="form-item-input">
         <input name="PTH" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
+      <view class="unit">pmol/L</view>
     </view>
   </view>
   <view class="form-group">

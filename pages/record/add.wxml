@@ -45,9 +45,27 @@
         <text>心率</text>
       </view>
       <view class="form-item-input">
-        <input name="heartRate" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填写心率" auto-focus=""/>
+        <input name="heartRate" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填写数值" auto-focus=""/>
       </view>
       <view class="unit">次/分</view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>尿量</text>
+      </view>
+      <view class="form-item-input">
+        <input name="urineVolume" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填写数值" auto-focus=""/>
+      </view>
+      <view class="unit">ml/24h</view>
+    </view>
+    <view class="form-item">
+      <view class="form-item-label">
+        <text>体重</text>
+      </view>
+      <view class="form-item-input">
+        <input name="bodyWeight" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填写数值" auto-focus=""/>
+      </view>
+      <view class="unit">kg</view>
     </view>
   </view>
 
@@ -58,7 +76,7 @@
         <text>空腹血糖</text>
       </view>
       <view class="form-item-input">
-        <input name="fastingBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" type="number" placeholder="请填写空腹血糖" auto-focus=""/>
+        <input name="fastingBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" type="number" placeholder="请填写数值" auto-focus=""/>
       </view>
       <view class="unit">mmol/L</view>
     </view>
@@ -94,7 +112,7 @@
         <text>随机血糖</text>
       </view>
       <view class="form-item-input">
-        <input name="randomBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填写随机血糖与时间" auto-focus=""/>
+        <input name="randomBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填写数值" auto-focus=""/>
       </view>
       <view class="unit">mmol/L</view>
     </view>

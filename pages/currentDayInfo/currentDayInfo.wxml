@@ -23,7 +23,7 @@
   </view>
   <block wx:for="{{myRecord}}" wx:for-item="allData">
     <view class="list-title">
-      {{allData.length>0?allData[0].CreateTime:""}}
+      
     </view>
     <view class="list-item report recodeTitle" >
       <view class="list-item-info titile-left" >
@@ -52,8 +52,8 @@
     </block>
   </block>
   <block wx:for="{{myReport}}" wx:for-item="allData">
-    <view class="list-title">
-      {{allData.length>0?allData[0].CreateTime:""}}
+    <view  class="list-title">
+      
     </view>
     <block wx:for="{{allData}}" wx:for-item="item">
       <view class="list-group" bindtap='onReportTap'>

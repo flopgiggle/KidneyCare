@@ -27,7 +27,7 @@ form {
 }
 
 .form-item-input {
-    flex: 40
+    flex: 50
 }
 
 .unit {

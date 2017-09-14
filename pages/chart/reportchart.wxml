@@ -1,6 +1,6 @@
 <view class="container" style="background-color: #ffffff">
   <view class="list-group">
-    <view class="list-item title" catchtap='viewMoviePostImg' data-src="{{picurl+item.ImageUrl}}">
+    <view class="list-item title" >
       <view class="list-item-info">
         <text class='text-info'>检查日期</text>
       </view>
@@ -25,6 +25,11 @@
         </view>
       </view>
     </block>
+  </view>
+  <view class="list-group">
+    <view class="form-item split">
+      以下为历史记录情况图表
+    </view>
   </view>
   <block wx:for="{{result}}" wx:for-item="item">
     <view class='chart-title' >{{item.Name}}</view>

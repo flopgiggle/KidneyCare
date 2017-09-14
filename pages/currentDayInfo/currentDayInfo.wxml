@@ -1,5 +1,6 @@
 <view class="container padding-list">
   <view class="form-group">
+
     <view class="form-item form-item-picker">
       <view class="form-item-label">
         <text>查询日期</text>
@@ -24,8 +25,17 @@
     <view class="list-title">
       {{allData.length>0?allData[0].CreateTime:""}}
     </view>
+    <view class="list-item report recodeTitle" >
+      <view class="list-item-info titile-left" >
+        <text class='text-info'>自我记录</text>
+      </view>
+      <view class="list-item-info titile-right">
+        <text class='text-type title'>{{allData[0].RecordDate}} {{allData[0].RecordTime}}</text>
+      </view>
+    </view>
     <block wx:for="{{allData}}" wx:for-item="item">
       <view class="list-group" bindtap='onRecordTap'>
+
         <view class="list-item" >
           <view class="list-item-info name">
             <text class='text-info'>{{item.DataName}}</text>
@@ -50,8 +60,11 @@
 
         <block wx:if="{{item.ReportName}}">
           <view class="list-item report" >
-            <view class="list-item-info report" >
+            <view class="list-item-info titile-left" >
               <text class='text-info'>检查报告:{{item.ReportName}}</text>
+            </view>
+            <view class="list-item-info titile-right">
+              <text class='text-type title'>{{item.RecordDate}}</text>
             </view>
           </view>
         </block>

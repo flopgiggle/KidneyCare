@@ -143,7 +143,23 @@
 
 .list-item.report {
     background-color: #FFFFCC;
+    color:#efefef;
 }
 
+.titile-left {
+    flex:55
+}
+
+.titile-right {
+    flex: 45
+}
+
+.recodeTitle {
+    background-color: #CCFFFF !important;
+}
+
+.text-type.title {
+    color:#666;
+}
 
 

@@ -9,7 +9,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        reportType: [{ name: '血常规', Id: '1' }, { name: '尿常规', Id: '2' }, { name: '泌尿系统彩超', Id: '3' }, { name: '尿蛋白定量检查', Id: '4' }, { name: '生化', Id: '5' }, { name: '肾活检', Id: '6' }, { name: '甲状旁腺激素(PTH)', Id: '7' }, { name: '铁代谢', Id: '8' }, { name: '其他', Id: '9' }],
+        reportType: [{ name: '尿常规', Id: '1' },{ name: '尿蛋白定量检查', Id: '2' },{ name: '肾病指数', Id: '10' },{ name: '生化', Id: '5' },{ name: '血常规', Id: '1' },{ name: '甲状旁腺激素(PTH)', Id: '7' } , { name: '泌尿系统彩超', Id: '3' }, { name: '肾活检', Id: '6' },  { name: '铁代谢', Id: '8' }, { name: '其他', Id: '9' }],
         reportTypeIndex: -1,
         reportTypeId: -1,
         reportDate: util.getNowFormatDate(),
@@ -68,7 +68,7 @@ Page({
             RecordTime: this.data.bloodPressureTime,
             ReportType: this.data.reportTypeId,
             MedicalIndicators: {
-                BW: e.detail.value.BW,
+                //BW: e.detail.value.BW,
                 Pro: e.detail.value.Pro,
                 Upr: e.detail.value.Upr,
                 ProICr: e.detail.value.ProICr,

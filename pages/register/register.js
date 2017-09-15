@@ -26,7 +26,8 @@ Page({
         multiArray: [['四川省', '云南省'], ['成都市', '绵阳市', '德阳市', '攀枝花市', '宜宾市'], ['四川大学华西医院', '省医院']],
         multiIndex: [0, 0, 0],
         userInfo: {},
-        hospital: [{ UserName: '四川大学华西医院', Id: '1' }, { UserName: '省医院', Id: '2' }]
+        hospital: [{ UserName: '四川大学华西医院', Id: '1' }, { UserName: '省医院', Id: '2' }],
+        showDiseaseInfo: "",
     },
     //需要查找原始对象,id,对应的选项索引值
     getIndexValue: function(orgValue, collect) {
@@ -218,8 +219,9 @@ Page({
             BelongToDoctor: this.data.docter[this.data.docterIndex].Id,
             IdCard: e.detail.value.idCard,
             OpenId: app.globalData.openId,
-            CKDLeave: this.data.CKD[this.data.CKDIndex].Id,
-            DiseaseType: this.data.disease[this.data.diseaseIndex].Id,
+            CKDLeave: app.globalData.showDiseaseInfo.CDKLeave,
+            Disease: app.globalData.showDiseaseInfo.Disease
+            //DiseaseType: this.data.disease[this.data.diseaseIndex].Id,
             //:,
             //BelongToDoctor:,
         };
@@ -291,6 +293,11 @@ Page({
     onReady: function () {
 
     },
+    onDiseaseDiagnosisTap: function (e) {
+        wx.navigateTo({
+            url: "/pages/diseaseDiagnosis/diseaseDiagnosis?patientId=" + app.globalData.user.Patient.Id
+        });
+    },
 
     /**
      * 生命周期函数--监听页面显示
@@ -300,9 +307,10 @@ Page({
             sexIndex: this.getIndexValue(app.globalData.user.Sex,this.data.sex),
             CKDIndex: this.getIndexValue(app.globalData.user.Patient.CKDLeave, this.data.CKD),
             diseaseIndex: this.getIndexValue(app.globalData.user.Patient.DiseaseType, this.data.disease),
-            birthday: app.globalData.user.Patient.Birthday ? app.globalData.user.Patient.Birthday : '2017-01-01',
-            userInfo: app.globalData.user
-    });
+            birthday: app.globalData.user.Birthday ? app.globalData.user.Birthday : '2017-01-01',
+            userInfo: app.globalData.user,
+            showDiseaseInfo: wx.getStorageSync("showDiseaseInfo")
+         });
         
     },
 

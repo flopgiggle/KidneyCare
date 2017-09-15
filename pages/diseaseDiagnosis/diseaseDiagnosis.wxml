@@ -1,0 +1,103 @@
+<view class="container">
+  <checkbox-group bindchange="yfCheckboxChange">
+  <view class="form-group">
+    <view class="form-item ckd form-item-picker">
+      <view class="form-item-label ckdfq">
+        <text>CKD分期</text>
+      </view>
+      <view class="form-item-input">
+        <picker bindchange="bindCKDChange" range="{{CKD}}" range-key="{{'Name'}}">
+          <view class="picker">
+            <text class="form-input-placeholder" wx:if="{{CKDIndex==-1}}">
+              请选择CKD分期
+            </text> {{CKDIndex==-1?"":CKD[CKDIndex].Name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="form-group">
+    <view class="form-item autoHeight" bindtap='onPersonlTap'>
+      <view class="form-item-label">
+        <text>原发病</text>
+      </view>
+      <view class="form-item-input ">
+          <block wx:for="{{disease}}" wx:for-item="item" wx:for-index="idx">
+            <view wx:if="{{ idx%2 == 0 && disease[idx].type=='protopathy' }}" class="disease-item">
+              <view class="left-disease">
+                <checkbox value="{{disease[idx].diseaseCode}}" checked="{{disease[idx].checked}}"/>{{disease[idx].name}}
+              </view>
+              <view wx:if="{{disease[idx+1]!= null}}" class="right-disease">
+                <checkbox value="{{disease[idx+1].diseaseCode}}" checked="{{disease[idx+1].checked}}"/>{{disease[idx+1].name}}
+              </view>
+            </view>
+          </block>
+      </view>
+    </view>
+  </view>
+  <view class="form-group " >
+    <view class="form-item autoHeight" >
+      <view class="form-item-label">
+        <text>并发症</text>
+      </view>
+      <view class="form-item-input">
+            <block wx:for="{{disease}}" wx:for-item="item" wx:for-index="idx">
+              <view wx:if="{{ idx%2 == 0 && disease[idx].type=='complication' }}" class="disease-item">
+                <view class="left-disease">
+                  <checkbox value="{{disease[idx].diseaseCode}}" checked="{{disease[idx].checked}}"/>{{disease[idx].name}}
+                </view>
+                <view wx:if="{{disease[idx+1]!= null}}" class="right-disease">
+                  <checkbox value="{{disease[idx+1].diseaseCode}}" checked="{{disease[idx+1].checked}}"/>{{disease[idx+1].name}}
+                </view>
+              </view>
+            </block>
+      </view>
+    </view>
+  </view>
+  <view class="form-group ">
+    <view class="form-item autoHeight" bindtap='onConsultingTap'>
+      <view class="form-item-label">
+        <text>合并症</text>
+      </view>
+      <view class="form-item-input">
+        
+          <block wx:for="{{disease}}" wx:for-item="item" wx:for-index="idx">
+            <view wx:if="{{ idx%2 == 0 && disease[idx].type=='alongDisease' }}" class="disease-item">
+              <view class="left-disease">
+                <checkbox value="{{disease[idx].diseaseCode}}" checked="{{disease[idx].checked}}"/>{{disease[idx].name}}
+              </view>
+              <view wx:if="{{disease[idx+1]!= null}}" class="right-disease">
+                <checkbox value="{{disease[idx+1].diseaseCode}}" checked="{{disease[idx+1].checked}}"/>{{disease[idx+1].name}}
+              </view>
+            </view>
+          </block>
+       
+      </view>
+    </view>
+  </view>
+  <view class="form-group ">
+    <view class="form-item autoHeight"  >
+      <view class="form-item-label">
+        <text>其他</text>
+      </view>
+      <view class="form-item-input ">
+        <block wx:for="{{disease}}" wx:for-item="item" wx:for-index="idx">
+          <view wx:if="{{ disease[idx].type=='other' }}" class="disease-item">
+            <view class="left-disease">
+              <checkbox value="{{disease[idx].diseaseCode}}" checked="{{disease[idx].checked}}"/>{{disease[idx].name}}
+            </view>
+            <view wx:if="{{disease[idx+1]!= null}}" class="right-disease">
+              <checkbox value="{{disease[idx+1].diseaseCode}}" checked="{{disease[idx+1].checked}}"/>{{disease[idx+1].name}}
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  </checkbox-group>
+  <view  class="form-group" bindtap="onSaveTap">
+    <view class="form-row-button">
+      <text>保存</text>
+    </view>
+  </view>
+</view>

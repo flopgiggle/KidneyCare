@@ -105,32 +105,12 @@
           </picker>
         </view>
       </view>
-      <view class="form-item">
-        <view class="form-item-label">
-          <text>CKD分期</text>
-        </view>
-        <view class="form-item-input">
-          <picker bindchange="bindCKDChange" range="{{CKD}}" range-key="{{'Name'}}">
-            <view class="picker">
-              <text class="form-input-placeholder" wx:if="{{CKDIndex==-1}}">
-                请选择CKD分期
-              </text> {{CKDIndex==-1?"":CKD[CKDIndex].Name}}
-            </view>
-          </picker>
-        </view>
-      </view>
-      <view class="form-item">
+      <view class="form-item autoHeight form-item-picker" bindtap='onDiseaseDiagnosisTap'>
         <view class="form-item-label">
           <text>临床诊断</text>
         </view>
-        <view class="form-item-input">
-          <picker bindchange="bindDiseaseChange" range="{{disease}}" range-key="{{'Name'}}">
-            <view class="picker">
-              <text class="form-input-placeholder" wx:if="{{diseaseIndex==-1}}">
-                请选择原发病
-              </text> {{diseaseIndex==-1?"":disease[diseaseIndex].Name}}
-            </view>
-          </picker>
+        <view class="form-item-input disease">
+          {{showDiseaseInfo}}
         </view>
       </view>
     </view>

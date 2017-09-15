@@ -1,0 +1,73 @@
+/* pages/uploadReport/uploadReport.wxss */
+.container {
+    align-items: center;
+}
+
+.upload-Item {
+    height: 150rpx;
+}
+
+.upload-container {
+    justify-content: flex-start;
+    display: flex;
+}
+
+
+
+.form-item image {
+    width: 130rpx;
+    height: 130rpx;
+}
+
+.add-icon {
+    font-size: 50rpx;
+    font-weight: 100;
+}
+
+.my-avatar {
+    width: 30%;
+}
+
+.my-name text {
+    color: #666;
+    font-size: 40rpx;
+}
+
+.form-item {
+    margin:10rpx 0 10rpx 0;
+    flex-direction:column;
+}
+
+    .form-item.ckd {
+        flex-direction: row;
+    } 
+    
+    checkbox {
+    margin: 10rpx 0 20rpx 0;
+}
+
+.form-item-input {
+    width: 100%;
+    font-size: 33rpx;
+}
+
+.disease-item {
+    flex-direction: row;
+    display: flex;
+}
+
+.left-disease {
+    flex:1
+}
+
+.right-disease {
+    flex: 1
+}
+
+checkbox-group {
+    width:100%
+}
+
+.ckdfq {
+    width:180rpx;
+}

@@ -63,6 +63,22 @@ Page({
     },
     formSubmit: function (e) {
         console.log('form发生了submit事件，携带数据为：', e.detail.value);
+
+        if (this.data.reportTypeId == -1) {
+            wx.showModal({
+                title: '提示',
+                content: '请选择报告类型',
+                success: function (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定');
+                    } else if (res.cancel) {
+                        console.log('用户点击取消');
+                    }
+                }
+            });
+            return;
+        }
+
         var postData = {
             ReportDate: this.data.reportDate,
             RecordTime: this.data.bloodPressureTime,

@@ -6,7 +6,7 @@
           <text>反馈信息</text>
         </view>
         <view class="form-item-input">
-          <input type='text' name='Message' placeholder-class="form-input-placeholder" placeholder="请填写咨询消息" auto-focus=""/>
+          <input type='text' name='Message' placeholder-class="form-input-placeholder" placeholder="欢迎反馈问题，并留下联系方式" auto-focus=""/>
         </view>
       </view>
     </view>

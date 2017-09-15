@@ -121,7 +121,7 @@
       </view>
       <view class="form-item">
         <view class="form-item-label">
-          <text>原发病</text>
+          <text>临床诊断</text>
         </view>
         <view class="form-item-input">
           <picker bindchange="bindDiseaseChange" range="{{disease}}" range-key="{{'Name'}}">

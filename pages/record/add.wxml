@@ -76,7 +76,7 @@
         <text>空腹血糖</text>
       </view>
       <view class="form-item-input">
-        <input name="fastingBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" type="number" placeholder="请填写数值" auto-focus=""/>
+        <input name="fastingBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder"  placeholder="请填写数值" auto-focus=""/>
       </view>
       <view class="unit">mmol/L</view>
     </view>
@@ -85,7 +85,7 @@
         <text>早餐血糖</text>
       </view>
       <view class="form-item-input">
-        <input name="breakfastBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" type="number" placeholder="请填早餐2小时后血糖" auto-focus=""/>
+        <input name="breakfastBloodGlucose" type="digit" maxlength="5" placeholder-class="form-input-placeholder" placeholder="请填早餐2小时后血糖" auto-focus=""/>
       </view>
       <view class="unit">mmol/L</view>
     </view>

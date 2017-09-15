@@ -62,7 +62,7 @@
       <view class="form-item-input">
         <input name="Pro" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
-      <view class="unit">pmol/L</view>
+      <view class="unit"></view>
     </view>
     <view wx:if="{{reportTypeIndex==0}}" class="form-item">
       <view class="form-item-label">
@@ -71,7 +71,7 @@
       <view class="form-item-input">
         <input name="ERY" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
-      <view class="unit">pmol/L</view>
+      <view class="unit"></view>
     </view>
     <view wx:if="{{reportTypeIndex==0}}" class="form-item">
       <view class="form-item-label">
@@ -80,7 +80,7 @@
       <view class="form-item-input">
         <input name="LEU" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
-      <view class="unit">pmol/L</view>
+      <view class="unit"></view>
     </view>
 
     <view wx:if="{{reportTypeIndex==1}}" class="form-item">

@@ -90,7 +90,7 @@
       <view class="form-item-input">
         <input name="Upr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写报告结果" auto-focus=""/>
       </view>
-      <view class="unit"></view>
+      <view class="unit">g/24h</view>
     </view>
     <view wx:if="{{reportTypeIndex==1}}" class="form-item">
       <view class="form-item-label">
@@ -99,7 +99,7 @@
       <view class="form-item-input">
         <input name="ProICr" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写报告结果" auto-focus=""/>
       </view>
-      <view class="unit"></view>
+      <view class="unit">g/mmol</view>
     </view>
 
 

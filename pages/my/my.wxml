@@ -2,7 +2,8 @@
   <view class="form-group">
     <view class="form-item upload-Item ">
       <view class="form-item-input upload-container my-avatar" bindtap="chooseImage">
-        <image wx:if="{{true}}" class="avatar" src="/images/avatar/1.png"></image>
+        <image wx:if="{{wxUserInfo!=''}}" class="avatar" src="{{wxUserInfo.avatarUrl}}"></image>
+        <image wx:else="{{wxUserInfo!=''}}" class="avatar" src="/images/avatar/1.png"></image>
       </view>
       <view class="my-name">
         <text wx:if="{{userInfo.UserName}}">{{userInfo.UserName?userInfo.UserName:""}}  {{userInfo.Sex=="0"?"男":"女"}}  {{age}}岁</text>

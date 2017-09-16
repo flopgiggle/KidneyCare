@@ -8,7 +8,8 @@ Page({
    */
   data: {
       userInfo: {},
-      age:"",
+      age: "",
+      wxUserInfo:"",
   },
 
   /**
@@ -53,7 +54,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      this.setData({ userInfo: app.globalData.user, age: this.jsGetAge(app.globalData.user.Birthday) });
+      this.setData({
+          userInfo: app.globalData.user,
+          age: this.jsGetAge(app.globalData.user.Birthday),
+          wxUserInfo: app.globalData.wxUserInfo,
+      });
   },
 
   jsGetAge: function (strBirthday) {

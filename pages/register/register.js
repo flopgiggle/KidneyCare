@@ -10,8 +10,8 @@ Page({
      */
     data: {
         sex: [{ UserName: '男', Id: '0' }, { UserName: '女', Id: '1' }],
-        docter: [{ UserName: '张医生', Id: '1' }, { UserName: '王医生', Id: '1' }, { UserName: '未收录', Id: '1' }],
-        nurse: [{ UserName: '张护士', Id: '1' }, { UserName: '王护士', Id: '1' }, { UserName: '未收录', Id: '1' }],
+        docter: [{ UserName: '张医生', Id: '1' }, { UserName: '王医生', Id: '1' }, { UserName: '未收录', Id: '-100' }],
+        nurse: [{ UserName: '张护士', Id: '1' }, { UserName: '王护士', Id: '1' }, { UserName: '未收录', Id: '-100' }],
         disease: [{ Name: '肾衰竭', Id: '1' }, { Name: '肾小球肾炎', Id: '2' }],
         CKD: [
             { Name: 'I期', Id: '1' }, { Name: 'II期', Id: '2' }, { Name: 'III期', Id: '3' }, { Name: 'IV期', Id: '4' },
@@ -58,11 +58,17 @@ Page({
         });
     },
     bindDocterChange: function(e) {
+        if (this.data.docter[e.detail.value].Id == -100) {
+            this.gotoContact()
+        }
         this.setData({
             docterIndex: e.detail.value
         });
     },
     bindNurseChange: function(e) {
+        if (this.data.nurse[e.detail.value].Id == -100) {
+            this.gotoContact()
+        }
 
         this.setData({
             nurseIndex: e.detail.value
@@ -156,16 +162,76 @@ Page({
         //默认查询华西的医生
         this.getStaffsByHosptalId("1");
     },
+    gotoContact: function() {
+        wx.showModal({
+            title: '提示',
+            content: '尚未收录此信息请联系我们',
+            success: function (res) {
+                if (res.confirm) {
+                    wx.redirectTo({
+                        url: "/pages/contactUs/contactUs"
+                    })
+                } else if (res.cancel) {
+                    console.log('用户点击取消');
+                }
+            }
+        });
+       
+    },
     formSubmit: function (e) {
         console.log('form发生了submit事件，携带数据为：', e.detail.value);
         console.log(e.detail.value.phoneNum);
         //UserName Password UserType BelongToHospital Sex MobilePhone Birthday OpenId Status BelongToNurse BelongToDoctor
 
+        if (e.detail.value.name.length < 2) {
+            wx.showModal({
+                title: '提示',
+                content: '用户名不正确',
+                success: function (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定');
+                    } else if (res.cancel) {
+                        console.log('用户点击取消');
+                    }
+                }
+            });
+            return;
+        }
 
         if (this.data.sexIndex < 0) {
             wx.showModal({
                 title: '提示',
                 content: '请选择性别',
+                success: function (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定');
+                    } else if (res.cancel) {
+                        console.log('用户点击取消');
+                    }
+                }
+            });
+            return;
+        }
+
+        if (e.detail.value.phoneNum.length > 0 && e.detail.value.phoneNum.length !== 11) {
+            wx.showModal({
+                title: '提示',
+                content: '手机号格式不正确',
+                success: function (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定');
+                    } else if (res.cancel) {
+                        console.log('用户点击取消');
+                    }
+                }
+            });
+            return;
+        }
+
+        if (e.detail.value.idCard.length !== 18) {
+            wx.showModal({
+                title: '提示',
+                content: '身份证号不正确',
                 success: function (res) {
                     if (res.confirm) {
                         console.log('用户点击确定');
@@ -208,6 +274,8 @@ Page({
         }
 
 
+
+
         var postData = {
             UserName: e.detail.value.name,
             MobilePhone: e.detail.value.phoneNum,
@@ -220,57 +288,21 @@ Page({
             IdCard: e.detail.value.idCard,
             OpenId: app.globalData.openId,
             CKDLeave: app.globalData.showDiseaseInfo.CDKLeave,
-            Disease: app.globalData.showDiseaseInfo.Disease
+            Disease: app.globalData.showDiseaseInfo.Disease,
+            WxAvatarUrl: app.globalData.wxUserInfo.avatarUrl,
             //DiseaseType: this.data.disease[this.data.diseaseIndex].Id,
             //:,
             //BelongToDoctor:,
         };
 
-
-        if (postData.MobilePhone.length>0 && postData.MobilePhone.length !== 11) {
-            wx.showModal({
-                title: '提示',
-                content: '手机号格式不正确',
-                success: function (res) {
-                    if (res.confirm) {
-                        console.log('用户点击确定');
-                    } else if (res.cancel) {
-                        console.log('用户点击取消');
-                    }
-                }
-            });
-            return;
+        if (postData.BelongToNurse == -100 || postData.BelongToDoctor == -100) {
+            this.gotoContact();
         }
 
-        if (postData.IdCard.length !== 18) {
-            wx.showModal({
-                title: '提示',
-                content: '身份证号不正确',
-                success: function (res) {
-                    if (res.confirm) {
-                        console.log('用户点击确定');
-                    } else if (res.cancel) {
-                        console.log('用户点击取消');
-                    }
-                }
-            });
-            return;
-        }
 
-        if (postData.UserName.length < 2) {
-            wx.showModal({
-                title: '提示',
-                content: '用户名不正确',
-                success: function (res) {
-                    if (res.confirm) {
-                        console.log('用户点击确定');
-                    } else if (res.cancel) {
-                        console.log('用户点击取消');
-                    }
-                }
-            });
-            return;
-        }
+
+
+
 
 
 

@@ -177,7 +177,7 @@ Page({
                     cancelText: '暂不绑定',
                     success: function(res) {
                         if (res.confirm) {
-                            wx.navigateTo({
+                            wx.redirectTo({
                                 url: "/pages/register/register"
                             });
                         } else if (res.cancel) {

@@ -1,19 +1,4 @@
 <view class="container padding-list">
-  <view class="form-group">
-
-    <view class="form-item form-item-picker">
-      <view class="form-item-label">
-        <text>查询日期</text>
-      </view>
-      <view class="form-item-input">
-        <picker mode="date" value="{{searchDate}}" start="1900-01-01" end="2020-08-30" bindchange="bindDateChange">
-          <view class="picker">
-            {{searchDate}}
-          </view>
-        </picker>
-      </view>
-    </view>
-  </view>
   <view wx:if="{{ myReport.length==0 && myRecord.length==0}}" class="none-data">
     <view>尚无任何记录信息，您可以点击新增记录</view>
     <view wx:if="{{app.globalData.user.Patient.BindStatus != app.globalData.patientAlreadyBind}}">
@@ -85,12 +70,4 @@
       </view>
     </block>
   </block>
-  <view class="add-record">
-    <view class="record-button right-button" bindtap="onMyselfRecordTap">
-      <text>+新增记录</text>
-    </view>
-    <view class="record-button left-button" bindtap="onAddHospitalRecordTap">
-      <text>+新增检查</text>
-    </view>
-  </view>
 </view>

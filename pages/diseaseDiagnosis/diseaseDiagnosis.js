@@ -81,7 +81,6 @@ Page({
                 }
             }
         }
-        debugger;
         this.setData({
             patientId: options.patientId,
             //patientInfo: patientInfo,

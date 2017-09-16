@@ -84,7 +84,6 @@ Page({
 
         wx.getUserInfo({
             success: res => {
-                debugger;
                 // 可以将 res 发送给后台解码出 unionId
                 theApp.globalData.wxUserInfo = res.userInfo;
 

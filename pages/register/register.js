@@ -337,6 +337,21 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        var showDiseaseInfo = "";
+        if (app.globalData.user && app.globalData.user.Disease && app.globalData.user.Disease.length>0) {
+            showDiseaseInfo = "CKD" + app.globalData.user.Patient.CKDLeave + "期;";
+            for (var item of app.globalData.user.Disease) {
+                showDiseaseInfo += item.DiseaseName + ";";
+            };
+        }
+
+        if (app.globalData.showDiseaseInfo) {
+            showDiseaseInfo = "CKD" + app.globalData.showDiseaseInfo.CDKLeave + "期;";
+            for (var item of app.globalData.showDiseaseInfo.Disease) {
+                showDiseaseInfo += item.DiseaseName+";";
+            };
+        }
+
         if (app.globalData.user.Sex) {
             this.setData({
                 sexIndex: this.getIndexValue(app.globalData.user.Sex, this.data.sex),
@@ -344,11 +359,10 @@ Page({
                 diseaseIndex: this.getIndexValue(app.globalData.user.Patient.DiseaseType, this.data.disease),
                 birthday: app.globalData.user.Birthday ? app.globalData.user.Birthday : '2017-01-01',
                 userInfo: app.globalData.user,
-                showDiseaseInfo: wx.getStorageSync("showDiseaseInfo")
             });
         }
         this.setData({
-            showDiseaseInfo: wx.getStorageSync("showDiseaseInfo")
+            showDiseaseInfo: showDiseaseInfo
         });
     },
 

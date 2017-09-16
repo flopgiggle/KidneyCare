@@ -100,7 +100,6 @@ Page({
         });
     },
     onSaveTap: function(e) {
-        debugger;
         var diseaseList = [];
 
        
@@ -133,7 +132,6 @@ Page({
                 }
             }
         }
-        debugger;
         wx.setStorageSync("showDiseaseInfo", showDiseaseInfo);
         if (diseaseList.length <= 0) {
             wx.showModal({

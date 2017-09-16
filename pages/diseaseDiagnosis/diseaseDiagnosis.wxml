@@ -66,7 +66,7 @@
               <view class="left-disease">
                 <checkbox value="{{disease[idx].diseaseCode}}" checked="{{disease[idx].checked}}"/>{{disease[idx].name}}
               </view>
-              <view wx:if="{{disease[idx+1]!= null}}" class="right-disease">
+              <view wx:if="{{disease[idx+1]!= null && disease[idx+1]!= null && disease[idx+1].type!='other'}}" class="right-disease">
                 <checkbox value="{{disease[idx+1].diseaseCode}}" checked="{{disease[idx+1].checked}}"/>{{disease[idx+1].name}}
               </view>
             </view>
@@ -85,9 +85,6 @@
           <view wx:if="{{ disease[idx].type=='other' }}" class="disease-item">
             <view class="left-disease">
               <checkbox value="{{disease[idx].diseaseCode}}" checked="{{disease[idx].checked}}"/>{{disease[idx].name}}
-            </view>
-            <view wx:if="{{disease[idx+1]!= null}}" class="right-disease">
-              <checkbox value="{{disease[idx+1].diseaseCode}}" checked="{{disease[idx+1].checked}}"/>{{disease[idx+1].name}}
             </view>
           </view>
         </block>

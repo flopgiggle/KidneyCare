@@ -98,12 +98,14 @@ Page({
                 var result = JSON.parse(res.Result);
                 result.allDoctors.push({ UserName: '未收录', Id: '-100' });
                 result.allNurses.push({ UserName: '未收录', Id: '-100' });
-                this.setData({
-                    docter: result.allDoctors,
-                    nurse: result.allNurses,
-                    docterIndex: this.getIndexValue(app.globalData.user.Patient.BelongToDoctor, result.allDoctors),
-                    nurseIndex: this.getIndexValue(app.globalData.user.Patient.BelongToNurse, result.allNurses),
-                });
+                if (app.globalData.user) {
+                    this.setData({
+                        docter: result.allDoctors,
+                        nurse: result.allNurses,
+                        docterIndex: this.getIndexValue(app.globalData.user.Patient.BelongToDoctor, result.allDoctors),
+                        nurseIndex: this.getIndexValue(app.globalData.user.Patient.BelongToNurse, result.allNurses),
+                    });
+                }
             });
     },
     getHospitalSelectInfo: function (province, city) {
@@ -280,7 +282,7 @@ Page({
             UserName: e.detail.value.name,
             MobilePhone: e.detail.value.phoneNum,
             Birthday: this.data.birthday,
-            BelongToHospital: 1,
+            BelongToHospital: this.data.multiArray[2][this.data.multiIndex[2]].Id,
             Sex: this.data.sex[this.data.sexIndex].Id,
             UserType: 1,
             BelongToNurse: this.data.nurse[this.data.nurseIndex].Id,
@@ -327,7 +329,7 @@ Page({
     },
     onDiseaseDiagnosisTap: function (e) {
         wx.navigateTo({
-            url: "/pages/diseaseDiagnosis/diseaseDiagnosis?patientId=" + app.globalData.user.Patient.Id
+            url: "/pages/diseaseDiagnosis/diseaseDiagnosis"
         });
     },
 
@@ -335,15 +337,19 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        if (app.globalData.user.Sex) {
+            this.setData({
+                sexIndex: this.getIndexValue(app.globalData.user.Sex, this.data.sex),
+                CKDIndex: this.getIndexValue(app.globalData.user.Patient.CKDLeave, this.data.CKD),
+                diseaseIndex: this.getIndexValue(app.globalData.user.Patient.DiseaseType, this.data.disease),
+                birthday: app.globalData.user.Birthday ? app.globalData.user.Birthday : '2017-01-01',
+                userInfo: app.globalData.user,
+                showDiseaseInfo: wx.getStorageSync("showDiseaseInfo")
+            });
+        }
         this.setData({
-            sexIndex: this.getIndexValue(app.globalData.user.Sex,this.data.sex),
-            CKDIndex: this.getIndexValue(app.globalData.user.Patient.CKDLeave, this.data.CKD),
-            diseaseIndex: this.getIndexValue(app.globalData.user.Patient.DiseaseType, this.data.disease),
-            birthday: app.globalData.user.Birthday ? app.globalData.user.Birthday : '2017-01-01',
-            userInfo: app.globalData.user,
             showDiseaseInfo: wx.getStorageSync("showDiseaseInfo")
-         });
-        
+        });
     },
 
     /**

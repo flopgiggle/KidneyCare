@@ -69,8 +69,20 @@ Page({
         var allDiease = this.data.disease;
         var appData = getApp().globalData;
         var disease = appData.user.Disease;
+        var selectedDisease = app.globalData.showDiseaseInfo;
+        var ckd = appData.user.Patient.CKDLeave;
+
         //设置选中的疾病
+        if ((!!!disease || disease.length==0 )&& !!!selectedDisease) {
+            return;
+        }
+        if (selectedDisease) {
+            disease = selectedDisease.Disease;
+            ckd = selectedDisease.CDKLeave;
+        }
         
+
+
         for (var dataItem of allDiease) {
             for (var item of disease) {
                 if (item.DiseaseCode == dataItem.diseaseCode) {
@@ -82,14 +94,13 @@ Page({
             }
         }
         this.setData({
-            patientId: options.patientId,
             //patientInfo: patientInfo,
             disease: allDiease,
-            CKDIndex: util.getIndexValue(appData.user.Patient.CKDLeave, this.data.CKD),
+            CKDIndex: util.getIndexValue(ckd, this.data.CKD),
         });
     },
     onSaveTap: function(e) {
-        var url = app.globalData.urls.user.updatePatientDisease ;
+        debugger;
         var diseaseList = [];
 
        
@@ -122,6 +133,7 @@ Page({
                 }
             }
         }
+        debugger;
         wx.setStorageSync("showDiseaseInfo", showDiseaseInfo);
         if (diseaseList.length <= 0) {
             wx.showModal({
@@ -141,7 +153,6 @@ Page({
         
 
         var postData = {
-            patientId : this.data.patientId,
             CDKLeave : this.data.CKD[this.data.CKDIndex].Id,
             Disease: diseaseList,
             Profile:showDiseaseInfo

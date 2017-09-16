@@ -67,11 +67,12 @@ Page({
     onLoad: function (options) {
         
         var allDiease = this.data.disease;
-        var patientInfo = wx.getStorageSync("patientInfo" + options.patientId);
+        var appData = getApp().globalData;
+        var disease = appData.user.Disease;
         //设置选中的疾病
-
+        
         for (var dataItem of allDiease) {
-            for (var item of patientInfo.disease) {
+            for (var item of disease) {
                 if (item.DiseaseCode == dataItem.diseaseCode) {
                     dataItem.checked = true;
                     break;;
@@ -80,12 +81,12 @@ Page({
                 }
             }
         }
-
+        debugger;
         this.setData({
             patientId: options.patientId,
-            patientInfo: patientInfo,
+            //patientInfo: patientInfo,
             disease: allDiease,
-            CKDIndex: util.getIndexValue(patientInfo.patientBaseInfo.CKDLeave, this.data.CKD),
+            CKDIndex: util.getIndexValue(appData.user.Patient.CKDLeave, this.data.CKD),
         });
     },
     onSaveTap: function(e) {

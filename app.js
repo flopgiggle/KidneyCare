@@ -13,6 +13,7 @@ App({
         openId: "1234586888912",//"1234586888912",
         patientAlreadyBind:"111",
         user: "",
+        showDiseaseInfo:"",
         urls: {
             user: {
                 regist: baseUri + "user/regist",
@@ -21,9 +22,11 @@ App({
                 reportChart: baseUri + "user/getReportHistory/",
                 recordChart: baseUri + "user/getMyRecordHistory/",
                 getUserInfo: baseUri + "user/getUserInfo", 
+                updatePatientDisease: baseUri + "user/updatePatientDisease",
                 getMyRecordHistoryByPatientId: baseUri + "user/getMyRecordHistoryByPatientId/",
                 getStaffsByHosptalId: baseUri + "user/getStaffsByHosptalId/",
                 getHospitalSelectInfo: baseUri + "user/getHospitalSelectInfo/",
+                getExcpetRecordInfoList: baseUri + "user/getExcpetRecordInfoList/", 
             },
             record: {
                 add: baseUri + "record/add",

@@ -96,6 +96,11 @@ input{
     font-size:40rpx;
 }
 
+.autoHeight {
+    height: auto;
+    min-height: 90rpx;
+}
+
 
 
 

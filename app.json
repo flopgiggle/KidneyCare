@@ -10,7 +10,9 @@
     "pages/consulting/consulting",
     "pages/record/add",
     "pages/dialogue/dialogue",
-    "pages/contactUs/contactUs"
+    "pages/contactUs/contactUs",
+    "pages/diseaseDiagnosis/diseaseDiagnosis",
+    "pages/exceptInfo/exceptInfo"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4fc1e9"

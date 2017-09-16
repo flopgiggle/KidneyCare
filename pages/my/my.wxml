@@ -19,6 +19,13 @@
         <input placeholder-class="form-input-placeholder" disabled="true"  auto-focus=""/>
       </view>
     </view>
+    <view class="form-item form-item-picker" bindtap='onExceptTap'>
+      <view class="form-item-label">
+        <text>异常记录</text>
+      </view>
+      <view class="form-item-input">
+      </view>
+    </view>
   </view>
   <view class="form-group" wx:if="{{false}}">
     <view class="form-item" wx:if="{{false}}">

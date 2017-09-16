@@ -27,6 +27,11 @@ Page({
           url: "/pages/dialogue/dialogue"
       })
   },
+  onExceptTap: function () {
+      wx.navigateTo({
+          url: "/pages/exceptInfo/exceptInfo"
+      });
+  },
   onPersonlTap: function (e) {
       wx.navigateTo({
           url: "/pages/register/register"

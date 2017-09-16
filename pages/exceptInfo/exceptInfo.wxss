@@ -1,0 +1,166 @@
+.padding-list {
+    padding-bottom: 100rpx;
+}
+
+.list-group {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rpx;
+    background-color: #efeff4;
+}
+
+.list-title {
+    background-color: #efeff4;
+    width: 100%;
+    text-align: left;
+    margin-top: 30rpx;
+    margin-bottom: 5rpx;
+    color: #999;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+
+.list-item {
+    background-color: #ffffff;
+    height: 80rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #676767;
+    border-bottom: 1px solid #efefef;
+}
+
+    .list-item:last-child {
+        border: none;
+    }
+
+.text-info {
+    color: #676767;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    font-weight: bold;
+}
+
+.text-type {
+    color: #111111;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    font-weight: bold;
+}
+
+.text-time {
+    color: #676767;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+
+.list-item-info {
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    flex: 1;
+}
+
+    .list-item-info:nth-child(2) {
+        text-align: center;
+    }
+
+    .list-item-info:last-child {
+        text-align: right;
+    }
+
+.add-record {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: -1rpx;
+    right: -1rpx;
+    width: 100%;
+}
+
+.record-button {
+    height: 80rpx;
+    background: #4fc1e9;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .record-button text {
+        color: #ffffff;
+        font-size: 35rpx;
+    }
+
+.right-button {
+    border-style: solid;
+    border-width: 0 2px 0px 0px;
+    border-color: #3cb0db;
+}
+
+.font-red {
+    color: #ff2d2d;
+}
+
+.none-data {
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    display: flex;
+    color: #666;
+    height: 70vh;
+    text-align: center;
+}
+
+.currentDayInfo-bind {
+    font-weight: bold;
+}
+
+.list-item-info.name {
+    flex: 4;
+}
+
+.list-item-info.value {
+    flex: 5;
+}
+
+.list-item-info.result {
+    flex: 2;
+}
+
+.list-item-info.report {
+    text-align: left;
+}
+
+.list-item.report {
+    background-color: #FFFFCC;
+    color: #efefef;
+}
+
+.titile-left {
+    flex: 55
+}
+
+.titile-right {
+    flex: 45
+}
+
+.recodeTitle {
+    background-color: #CCFFFF !important;
+}
+
+.text-type.title {
+    color: #666;
+}
+
+.form-group {
+    margin-bottom: 0rpx;
+}

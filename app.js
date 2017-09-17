@@ -9,11 +9,12 @@ App({
         doubanBase: "https://api.douban.com",
         host: host,
         picUrl: host + "/upload/",
-        //openId: "",//"1234586888912",
-        openId: "1234586888912",//"1234586888912",
+        //openId: "",
+        openId: "o8_AP0RGpMa0czU1-gwndOD7H58U",//"1234586888912",
         patientAlreadyBind:"111",
         user: "",
-        showDiseaseInfo:"",
+        showDiseaseInfo: "",
+        wxUserInfo:"",
         urls: {
             user: {
                 regist: baseUri + "user/regist",

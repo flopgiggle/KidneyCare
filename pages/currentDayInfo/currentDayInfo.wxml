@@ -60,7 +60,7 @@
 
         <block wx:if="{{item.ReportName}}">
           <view class="list-item report" >
-            <view class="list-item-info titile-left" >
+            <view class="list-item-info titile-leftReport" >
               <text class='text-info'>检查报告:{{item.ReportName}}</text>
             </view>
             <view class="list-item-info titile-right">

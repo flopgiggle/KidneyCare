@@ -215,7 +215,7 @@ Page({
             return;
         }
 
-        if (e.detail.value.phoneNum.length > 0 && e.detail.value.phoneNum.length !== 11) {
+        if (e.detail.value.phoneNum.length !== 11) {
             wx.showModal({
                 title: '提示',
                 content: '手机号格式不正确',

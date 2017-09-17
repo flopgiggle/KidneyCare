@@ -8,7 +8,7 @@ App({
         g_currentMusicPostId: null,
         doubanBase: "https://api.douban.com",
         host: host,
-        //picUrl: host + "/upload/",
+        picUrl: host + "/upload/",
         openId: "",
         //openId: "o8_AP0RGpMa0czU1-gwndOD7H58U",//"1234586888912",
         patientAlreadyBind:"111",

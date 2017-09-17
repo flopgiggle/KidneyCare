@@ -149,6 +149,10 @@
     flex: 55
 }
 
+.titile-leftReport {
+    flex: 70
+}
+
 .titile-right {
     flex: 45
 }

@@ -126,15 +126,15 @@
 }
 
 .list-item-info.name {
-    flex:4;
+    flex:45;
 }
 
 .list-item-info.value {
-    flex: 5;
+    flex: 50;
 }
 
 .list-item-info.result {
-    flex: 2;
+    flex:18;
 }
 
 .list-item-info.report {

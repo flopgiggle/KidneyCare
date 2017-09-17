@@ -46,7 +46,7 @@ form {
 }
 
 .form-item-label {
-    flex: 30
+    flex: 35
 }
 
 .form-item-input {

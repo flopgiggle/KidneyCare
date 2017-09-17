@@ -18,7 +18,7 @@ Page({
         multiArray: [['四川省', '云南省'], ['成都市', '绵阳市', '德阳市', '攀枝花市', '宜宾市'], ['四川大学华西医院', '省医院']],
         multiIndex: [0, 0, 0],
         reportDate: util.getNowFormatDate(),
-        bloodPressureTime: '00:00',
+        bloodPressureTime: util.getNowFormatTime(),
     },
     bindDocterChange: function (e) {
         this.setData({

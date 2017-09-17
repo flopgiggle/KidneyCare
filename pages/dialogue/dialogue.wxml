@@ -8,7 +8,8 @@
             {{item.Messge}}
           </view>
           <view class="my-icon">
-            <image class="avatar" src="/images/avatar/1.png"></image>
+            <image wx:if="{{wxUserInfo.avatarUrl!=''&& wxUserInfo.avatarUrl!=null}}" class="avatar" src="{{wxUserInfo.avatarUrl}}"></image>
+            <image wx:else="{{wxUserInfo.avatarUrl==''|| wxUserInfo.avatarUrl==null}}" class="avatar" src="/images/avatar/1.png"></image>
           </view>
         </view>
         <view wx:else="{{item.FromUser == app.globalData.user.Id}}" class="other-message-group">

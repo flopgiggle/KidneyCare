@@ -172,13 +172,19 @@ Page({
         //var allDisease = e.detail.value;
         ////设置选中的疾病
         var allDiease = this.data.disease;
-        for (var dataItem of allDiease) {
-            for (var item of e.detail.value) {
-                if (item == dataItem.diseaseCode) {
-                    dataItem.checked = true;
-                    break;;
-                } else {
-                    dataItem.checked = false;
+        if (e.detail.value.length == 0) {
+            for (var dataItem of allDiease) {
+                dataItem.checked = false;
+            }
+        } else {
+            for (var dataItem of allDiease) {
+                for (var item of e.detail.value) {
+                    if (item == dataItem.diseaseCode) {
+                        dataItem.checked = true;
+                        break;;
+                    } else {
+                        dataItem.checked = false;
+                    }
                 }
             }
         }

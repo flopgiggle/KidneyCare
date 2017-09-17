@@ -8,7 +8,8 @@ Page({
      */
     data: {
         allData: [],
-        user:{},
+        user: {},
+        wxUserInfo: "",
   },
 
   /**
@@ -47,7 +48,8 @@ Page({
       util.httpPost(url, postData, res => {
           this.setData({
               allData:res.Result,
-              user:app.globalData.user,
+              user: app.globalData.user,
+              wxUserInfo: app.globalData.wxUserInfo,
           });
           
       });

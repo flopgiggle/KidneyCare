@@ -19,7 +19,10 @@
 }
 
 .my-icon {
-    flex: 2
+    flex: 2;
+    width:100rx;
+    height:100rpx;
+    
 }
 
 .other-message-group {
@@ -45,8 +48,11 @@
 }
 
 .avatar {
-    width: 120rpx;
-    height: 120rpx;
+    width: 100rpx;
+    height: 100rpx;
+    margin-left: 10rpx;
+    margin-top: 5rpx;
+    margin-right: 10rpx;
 }
 
 .message-area {

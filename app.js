@@ -1,6 +1,6 @@
 var util = require('utils/util.js');
-var host = "https://30861365.qcloud.la";
-//var host = "http://localhost:11662";
+//var host = "https://30861365.qcloud.la";
+var host = "http://localhost:11662";
 var baseUri = host+"/api/";
 App({
     globalData: {
@@ -9,8 +9,8 @@ App({
         doubanBase: "https://api.douban.com",
         host: host,
         picUrl: host + "/upload/",
-        openId: "",
-        //openId: "o8_AP0RGpMa0czU1-gwndOD7H58U",//"1234586888912",
+        //openId: "",
+        openId: "o8_AP0RGpMa0czU1-gwndOD7H58U",//"1234586888912",
         patientAlreadyBind:"111",
         user: "",
         showDiseaseInfo: "",

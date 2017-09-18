@@ -1,15 +1,23 @@
 <view class="container">
-    <view class='chart-title' >显示最近7日的记录数据</view>
-    <view class='chart-title' >血压</view>
-    <view  class="chartView">
-        <canvas canvas-id="lineCanvas" class="canvas" ></canvas>
-    </view>
-    <view class='chart-title' >血糖</view>
-    <view  class="chartView">
-      <canvas canvas-id="bloodSugarLineCanvas" class="canvas" ></canvas>
-    </view>
-    <view class='chart-title' >心率</view>
-    <view  class="chartView">
-      <canvas canvas-id="heartRateCanvas" class="canvas" ></canvas>
-    </view>
+  <view class='chart-title' >显示最近7日的记录数据</view>
+  <view class='chart-title' >血压</view>
+  <view  class="chartView">
+    <canvas canvas-id="lineCanvas" class="canvas" ></canvas>
+  </view>
+  <view class='chart-title' >血糖</view>
+  <view  class="chartView">
+    <canvas canvas-id="bloodSugarLineCanvas" class="canvas" ></canvas>
+  </view>
+  <view class='chart-title' >心率</view>
+  <view  class="chartView">
+    <canvas canvas-id="heartRateCanvas" class="canvas" ></canvas>
+  </view>
+  <view class='chart-title' >尿量</view>
+  <view  class="chartView">
+    <canvas canvas-id="urineVolumeCanvas" class="canvas" ></canvas>
+  </view>
+  <view class='chart-title' >体重</view>
+  <view  class="chartView">
+    <canvas canvas-id="weightCanvas" class="canvas" ></canvas>
+  </view>
 </view>

@@ -56,11 +56,13 @@
       </view>
     </view>
     <view class="form-item form-item-picker" bindtap='onMessageTap'>
-      <view class="form-item-label">
-        <text>消息记录</text>
+      <view class="form-item-label row">
+        <view class="messageTitle"><text>消息记录</text></view>
+        <view wx:if="{{userInfo.IsRead==false}}" class="message">·</view>
       </view>
       <view class="form-item-input ">
         <input placeholder-class="form-input-placeholder" disabled="true"  auto-focus=""/>
+        
       </view>
     </view>
   </view>

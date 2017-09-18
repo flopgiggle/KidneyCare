@@ -141,7 +141,7 @@
       </view>
       <view class="unit">umol/L</view>
     </view>
-    <view wx:if="{{reportTypeIndex==3}}" class="form-item">
+    <view wx:if="{{false}}" class="form-item">
       <view class="form-item-label">
         <text>肾小球滤过率</text>
       </view>

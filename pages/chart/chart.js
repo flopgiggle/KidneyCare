@@ -5,6 +5,8 @@ var radarChart = null;
 var lineChart = null;
 var bloodSugarLineChart = null;
 var heartRateChart = null;
+var urineChart = null;
+var weightChart = null;
 // pages/chart/chart.js
 Page({
 
@@ -151,7 +153,53 @@ Page({
                     width: this.data.windowWidthdata,
                     height: 150
                 });
+
+                urineChart = new wxCharts({
+                    canvasId: 'urineVolumeCanvas',
+                    type: 'line',
+                    categories: res.Result.Date,
+                    series: [{
+                        name: '尿量',
+                        data: res.Result.UrineVolume,
+                        format: function (val) {
+                            return val;//return val.toFixed(2);
+                        }
+                    }],
+                    yAxis: {
+                        title: 'ml/24h',
+                        format: function (val) {
+                            return val;//return val.toFixed(2);
+                        },
+                        min: 0
+                    },
+                    width: this.data.windowWidthdata,
+                    height: 150
+                });
+
+                weightChart = new wxCharts({
+                    canvasId: 'weightCanvas',
+                    type: 'line',
+                    categories: res.Result.Date,
+                    series: [{
+                        name: '体重',
+                        data: res.Result.Weight,
+                        format: function (val) {
+                            return val;//return val.toFixed(2);
+                        }
+                    }],
+                    yAxis: {
+                        title: 'kg',
+                        format: function (val) {
+                            return val;//return val.toFixed(2);
+                        },
+                        min: 0
+                    },
+                    width: this.data.windowWidthdata,
+                    height: 150
+                });
             });
+
+       
 
 
 

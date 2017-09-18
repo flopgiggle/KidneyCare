@@ -32,3 +32,22 @@
     color: #666;
     font-size: 40rpx;
 }
+
+.form-item-label {
+    width: 140rpx;
+}
+.message {
+    flex:1;
+    color:red;
+    font-size:100rpx;
+}
+.messageTitle {
+    flex:5
+}
+.row {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}

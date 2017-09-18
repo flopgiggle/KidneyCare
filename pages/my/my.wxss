@@ -51,3 +51,18 @@
     align-content:center;
     align-items:center;
 }
+
+.red-point {
+    position: relative;
+}
+
+.red-point::before {
+    content: " ";
+    border: 8rpx solid red;
+    border-radius: 20rpx;
+    position: absolute;
+    z-index: 1000;
+    right: 0%;
+    margin-right: -5px;
+    margin-top: 3rpx;
+}

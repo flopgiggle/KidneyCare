@@ -133,20 +133,20 @@ Page({
             }
         }
         wx.setStorageSync("showDiseaseInfo", showDiseaseInfo);
-        if (diseaseList.length <= 0) {
-            wx.showModal({
-                title: '提示',
-                content: '请选择疾病类型',
-                success: function (res) {
-                    if (res.confirm) {
-                        console.log('用户点击确定');
-                    } else if (res.cancel) {
-                        console.log('用户点击取消');
-                    }
-                }
-            });
-            return;
-        }
+        //if (diseaseList.length <= 0) {
+        //    wx.showModal({
+        //        title: '提示',
+        //        content: '请选择疾病类型',
+        //        success: function (res) {
+        //            if (res.confirm) {
+        //                console.log('用户点击确定');
+        //            } else if (res.cancel) {
+        //                console.log('用户点击取消');
+        //            }
+        //        }
+        //    });
+        //    return;
+        //}
 
         
 

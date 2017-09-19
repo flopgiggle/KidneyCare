@@ -168,3 +168,9 @@
 .form-group {
     margin-bottom: 0rpx;
 }
+
+.top-title {
+    text-align:center;
+    vertical-align:central;
+    margin-top:35rpx;
+}

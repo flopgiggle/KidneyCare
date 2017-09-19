@@ -6,6 +6,9 @@
       <view bindtap='onGoToBindTap' class="currentDayInfo-bind">点击去绑定</view>
     </view>
   </view>
+  <view wx:else="{{ myReport.length==0 && myRecord.length==0}}" class="top-title">
+    <view>30日内异常记录</view>
+  </view>
   <block wx:for="{{myRecord}}" wx:for-item="allData">
     <view class="list-title">
 

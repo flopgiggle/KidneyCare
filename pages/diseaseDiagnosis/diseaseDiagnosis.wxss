@@ -1,6 +1,7 @@
 /* pages/uploadReport/uploadReport.wxss */
 .container {
     align-items: center;
+    padding-bottom: 30rpx;
 }
 
 .upload-Item {
@@ -70,4 +71,14 @@ checkbox-group {
 
 .ckdfq {
     width:180rpx;
+}
+
+.fix-buttom {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: -1rpx;
+    right: 0rpx;
+    width: 101%;
+    margin-bottom: 0rpx;
 }

@@ -359,14 +359,16 @@ Page({
     onShow: function () {
         var showDiseaseInfo = "";
         if (app.globalData.user && app.globalData.user.Disease && app.globalData.user.Disease.length>0) {
-            showDiseaseInfo = "CKD" + app.globalData.user.Patient.CKDLeave + "期;";
+            debugger;
+            showDiseaseInfo = util.getLeave(app.globalData.user.Patient.CKDLeave);
             for (var item of app.globalData.user.Disease) {
                 showDiseaseInfo += item.DiseaseName + ";";
             };
         }
 
         if (app.globalData.showDiseaseInfo) {
-            showDiseaseInfo = "CKD" + app.globalData.showDiseaseInfo.CDKLeave + "期;";
+            debugger;
+            showDiseaseInfo = util.getLeave(app.globalData.showDiseaseInfo.CDKLeave);
             for (var item of app.globalData.showDiseaseInfo.Disease) {
                 showDiseaseInfo += item.DiseaseName+";";
             };

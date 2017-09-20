@@ -201,7 +201,32 @@ function getNextMonth(date) {
 
     var t2 = year2 + '-' + month2 + '-' + day2;
     return t2;
-} 
+}
+
+function getLeave(ckdleave) {
+    var leave = ckdleave+"";
+    var message = "";
+    switch (leave) {
+    case "1":
+        message = "CKD I期;";
+        break;
+    case "2":
+        message = "CKD II期;";
+        break;
+        case "3":
+        message = "CKD III期;";
+        break;
+        case "4":
+        message = "CKD IV期;";
+        break;
+        case "5":
+        message = "CKD V期;";
+        break;
+    default:
+        message = "";
+    }
+    return message;
+}
 
 module.exports = {
   convertToStarsArray: convertToStarsArray,
@@ -213,5 +238,6 @@ module.exports = {
   app: app,
   getIndexValue: getIndexValue,
   getPreMonth: getPreMonth,
-  getNowFormatTime: getNowFormatTime
+  getNowFormatTime: getNowFormatTime,
+  getLeave: getLeave
 }

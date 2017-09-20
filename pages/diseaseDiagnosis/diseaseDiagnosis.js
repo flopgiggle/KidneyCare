@@ -8,15 +8,15 @@ Page({
      */
     data: {
         patientId: "",
-        checkedList:[],
+        checkedList: [],
         patientInfo: {},
         items: [
-          { name: 'USA', value: '美国23232' },
-          { name: 'CHN', value: '中国sdfsdfsdf', checked: 'true' },
-          { name: 'BRA', value: '巴西ffffffffffffffffffffff' },
-          { name: 'JPN', value: '日本ssdf' },
-          { name: 'ENG', value: '英国asddddddd' },
-          { name: 'TUR', value: '法国dddddddddddddd' },
+            { name: 'USA', value: '美国23232' },
+            { name: 'CHN', value: '中国sdfsdfsdf', checked: 'true' },
+            { name: 'BRA', value: '巴西ffffffffffffffffffffff' },
+            { name: 'JPN', value: '日本ssdf' },
+            { name: 'ENG', value: '英国asddddddd' },
+            { name: 'TUR', value: '法国dddddddddddddd' },
         ],
         disease: [
             { diseaseCode: '1', checked: false, type: 'protopathy', name: '慢性肾小球肾炎' },
@@ -55,17 +55,19 @@ Page({
             { diseaseCode: '34', checked: false, type: 'alongDisease', name: '传染性疾病' },
             { diseaseCode: '35', checked: false, type: 'alongDisease', name: '高脂血症' },
             { diseaseCode: '36', checked: false, type: 'other', name: '其他' },
-
         ],
-        CKD: [{ Name: 'I期', Id: '1' }, { Name: 'II期', Id: '2' }, { Name: 'III期', Id: '3' }, { Name: 'IV期', Id: '4' }, { Name: 'V期', Id: '5' }],
+        CKD: [
+            { Name: 'I期', Id: '1' }, { Name: 'II期', Id: '2' }, { Name: 'III期', Id: '3' }, { Name: 'IV期', Id: '4' },
+            { Name: 'V期', Id: '5' }
+        ],
         CKDIndex: -1
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-        
+    onLoad: function(options) {
+
         var allDiease = this.data.disease;
         var appData = getApp().globalData;
         var disease = appData.user.Disease;
@@ -73,14 +75,13 @@ Page({
         var ckd = appData.user.Patient.CKDLeave;
 
         //设置选中的疾病
-        if ((!!!disease || disease.length==0 )&& !!!selectedDisease) {
+        if ((!!!disease || disease.length == 0) && !!!selectedDisease) {
             return;
         }
         if (selectedDisease) {
             disease = selectedDisease.Disease;
             ckd = selectedDisease.CDKLeave;
         }
-        
 
 
         for (var dataItem of allDiease) {
@@ -118,7 +119,7 @@ Page({
             return;
         }
         var term = Number.parseInt(this.data.CKDIndex) + 1;
-        var showDiseaseInfo = "CKD" + term+"期;";
+        var showDiseaseInfo = util.getLeave(term);
         
         for (var code of wx.getStorageSync("diseaseCheckedList")) {
             for (var dataItem of this.data.disease) {

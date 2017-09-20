@@ -15,6 +15,8 @@ Page({
      */
     data: {
         windowWidthdata: 320,
+        res:"",
+
     },
 
     /**
@@ -55,148 +57,186 @@ Page({
                 //    result: res.Result.ReportHistory,
                 //    report: res.Result.ReportItem
                 //});
-                lineChart = new wxCharts({
-                    canvasId: 'lineCanvas',
-                    type: 'line',
-                    categories: res.Result.Date,
-                    series: [
-                        {
-                            name: '收缩压',
-                            data: res.Result.SystolicPressure,
-                            format: function(val) {
-                                return val; //return val.toFixed(2);
+                this.setData({ res: res });
+                if (res.Result.SystolicPressure.length > 0) {
+                    lineChart = new wxCharts({
+                        canvasId: 'lineCanvas',
+                        type: 'line',
+                        categories: res.Result.Date,
+                        series: [
+                            {
+                                name: '收缩压',
+                                data: res.Result.SystolicPressure,
+                                format: function (val) {
+                                    return val; //return val.toFixed(2);
+                                }
+                            }, {
+                                name: '舒张压',
+                                data: res.Result.DiastolicPressure,
+                                format: function (val) {
+                                    return val; //return val.toFixed(2);
+                                }
                             }
-                        }, {
-                            name: '舒张压',
-                            data: res.Result.DiastolicPressure,
-                            format: function(val) {
-                                return val; //return val.toFixed(2);
-                            }
-                        }
-                    ],
-                    yAxis: {
-                        title: '血压mmhg',
-                        format: function(val) {
-                            return val; //return val.toFixed(2);
-                        },
-                        min: 0
-                    },
-                    width: this.data.windowWidthdata,
-                    height: 150
-                });
-
-                heartRateChart = new wxCharts({
-                    canvasId: 'heartRateCanvas',
-                    type: 'line',
-                    categories: res.Result.Date,
-                    series: [{
-                        name: '心率',
-                        data: res.Result.HeartRate,
-                        format: function (val) {
-                            return val;//return val.toFixed(2);
-                        }
-                    }],
-                    yAxis: {
-                        title: '次数',
-                        format: function (val) {
-                            return val;//return val.toFixed(2);
-                        },
-                        min: 0
-                    },
-                    width: this.data.windowWidthdata,
-                    height: 150
-                });
-
-                bloodSugarLineChart = new wxCharts({
-                    canvasId: 'bloodSugarLineCanvas',
-                    type: 'line',
-                    categories: res.Result.Date,
-                    series: [
-                        {
-                            name: '空腹血糖',
-                            data: res.Result.FastingBloodGlucose,
+                        ],
+                        yAxis: {
+                            title: '血压mmhg',
                             format: function (val) {
-                                return val;//return val.toFixed(2);
-                            }
-                        },{
-                        name: '早餐后',
-                        data: res.Result.BreakfastBloodGlucose,
-                        format: function (val) {
-                            return val;//return val.toFixed(2);
-                        }
-                    }, {
-                        name: '午餐后',
-                        data: res.Result.LunchBloodGlucose,
-                        format: function (val) {
-                            return val;//return val.toFixed(2);
-                        }
-                    }, {
-                        name: '晚餐后',
-                        data: res.Result.DinnerBloodGlucose,
-                        format: function (val) {
-                            return val;//return val.toFixed(2);
-                        }
-                    }, {
-                            name: '随机',
-                            data: res.Result.RandomBloodGlucose,
+                                return val; //return val.toFixed(2);
+                            },
+                            min: 0
+                        },
+                        width: this.data.windowWidthdata,
+                        height: 150
+                    });
+                }
+
+                if (res.Result.HeartRate.length > 0) {
+                    heartRateChart = new wxCharts({
+                        canvasId: 'heartRateCanvas',
+                        type: 'line',
+                        categories: res.Result.Date,
+                        series: [{
+                            name: '心率',
+                            data: res.Result.HeartRate,
                             format: function (val) {
                                 return val;//return val.toFixed(2);
                             }
                         }],
-                    yAxis: {
-                        title: 'mol',
-                        format: function (val) {
-                            return val;//return val.toFixed(2);
+                        yAxis: {
+                            title: '次数',
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            },
+                            min: 0
                         },
-                        min: 0
-                    },
-                    width: this.data.windowWidthdata,
-                    height: 150
-                });
+                        width: this.data.windowWidthdata,
+                        height: 150
+                    });
+                }
 
-                urineChart = new wxCharts({
-                    canvasId: 'urineVolumeCanvas',
-                    type: 'line',
-                    categories: res.Result.Date,
-                    series: [{
-                        name: '尿量',
-                        data: res.Result.UrineVolume,
-                        format: function (val) {
-                            return val;//return val.toFixed(2);
-                        }
-                    }],
-                    yAxis: {
-                        title: 'ml/24h',
-                        format: function (val) {
-                            return val;//return val.toFixed(2);
+                if (res.Result.FastingBloodGlucose.length > 0) {
+                    bloodSugarLineChart = new wxCharts({
+                        canvasId: 'bloodSugarLineCanvas',
+                        type: 'line',
+                        categories: res.Result.Date,
+                        series: [
+                            {
+                                name: '空腹血糖',
+                                data: res.Result.FastingBloodGlucose,
+                                format: function (val) {
+                                    return val;//return val.toFixed(2);
+                                }
+                            }, {
+                                name: '早餐后',
+                                data: res.Result.BreakfastBloodGlucose,
+                                format: function (val) {
+                                    return val;//return val.toFixed(2);
+                                }
+                            }, {
+                                name: '午餐后',
+                                data: res.Result.LunchBloodGlucose,
+                                format: function (val) {
+                                    return val;//return val.toFixed(2);
+                                }
+                            }, {
+                                name: '晚餐后',
+                                data: res.Result.DinnerBloodGlucose,
+                                format: function (val) {
+                                    return val;//return val.toFixed(2);
+                                }
+                            }, {
+                                name: '随机',
+                                data: res.Result.RandomBloodGlucose,
+                                format: function (val) {
+                                    return val;//return val.toFixed(2);
+                                }
+                            }],
+                        yAxis: {
+                            title: 'mol',
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            },
+                            min: 0
                         },
-                        min: 0
-                    },
-                    width: this.data.windowWidthdata,
-                    height: 150
-                });
+                        width: this.data.windowWidthdata,
+                        height: 150
+                    });
+                }
 
-                weightChart = new wxCharts({
-                    canvasId: 'weightCanvas',
-                    type: 'line',
-                    categories: res.Result.Date,
-                    series: [{
-                        name: '体重',
-                        data: res.Result.Weight,
-                        format: function (val) {
-                            return val;//return val.toFixed(2);
-                        }
-                    }],
-                    yAxis: {
-                        title: 'kg',
-                        format: function (val) {
-                            return val;//return val.toFixed(2);
+                if (res.Result.UrineVolume.length > 0) {
+                    urineChart = new wxCharts({
+                        canvasId: 'urineVolumeCanvas',
+                        type: 'line',
+                        categories: res.Result.Date,
+                        series: [{
+                            name: '尿量',
+                            data: res.Result.UrineVolume,
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            }
+                        }],
+                        yAxis: {
+                            title: 'ml/24h',
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            },
+                            min: 0
                         },
-                        min: 0
-                    },
-                    width: this.data.windowWidthdata,
-                    height: 150
-                });
+                        width: this.data.windowWidthdata,
+                        height: 150
+                    });
+                }
+
+                if (res.Result.Weight.length > 0) {
+                    weightChart = new wxCharts({
+                        canvasId: 'weightCanvas',
+                        type: 'line',
+                        categories: res.Result.Date,
+                        series: [{
+                            name: '体重',
+                            data: res.Result.Weight,
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            }
+                        }],
+                        yAxis: {
+                            title: 'kg',
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            },
+                            min: 0
+                        },
+                        width: this.data.windowWidthdata,
+                        height: 150
+                    });
+                }
+
+                if (res.Result.BMI.length > 0) {
+                    new wxCharts({
+                        canvasId: 'bmiCanvas',
+                        type: 'line',
+                        categories: res.Result.Date,
+                        series: [{
+                            name: 'BMI',
+                            data: res.Result.BMI,
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            }
+                        }],
+                        yAxis: {
+                            title: 'kg/m2',
+                            format: function (val) {
+                                return val;//return val.toFixed(2);
+                            },
+                            min: 0
+                        },
+                        width: this.data.windowWidthdata,
+                        height: 150
+                    });
+                }
+
+                
+                
             });
 
        

@@ -69,7 +69,7 @@
         <text>尿红细胞</text>
       </view>
       <view class="form-item-input">
-        <input name="ERY" placeholder-class="form-input-placeholder" type="text" maxlength="5" placeholder="请填写报告结果" auto-focus=""/>
+        <input name="ERY" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
       <view class="unit"></view>
     </view>
@@ -78,7 +78,7 @@
         <text>尿白细胞</text>
       </view>
       <view class="form-item-input">
-        <input name="LEU" placeholder-class="form-input-placeholder" type="text" maxlength="5" placeholder="请填写报告结果" auto-focus=""/>
+        <input name="LEU" placeholder-class="form-input-placeholder" type="digit" maxlength="5" placeholder="请填写数值" auto-focus=""/>
       </view>
       <view class="unit"></view>
     </view>

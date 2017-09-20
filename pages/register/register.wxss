@@ -9,3 +9,7 @@ form {
 .disease {
     font-size: 32rpx;
 }
+.unit {
+    flex: 30;
+    text-align: right
+}

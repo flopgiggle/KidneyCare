@@ -38,6 +38,15 @@
       </view>
       <view class="form-item">
         <view class="form-item-label">
+          <text>身高</text>
+        </view>
+        <view class="form-item-input">
+          <input name="height" value="{{userInfo.Height}}" type="digit" maxlength="11" placeholder-class="form-input-placeholder" placeholder="请填写身高(CM厘米)" auto-focus=""/>
+        </view>
+        <view class="unit">CM</view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
           <text>手机号</text>
         </view>
         <view class="form-item-input">

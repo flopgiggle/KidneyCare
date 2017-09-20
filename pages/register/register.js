@@ -22,7 +22,7 @@ Page({
         nurseIndex: -1,
         CKDIndex: -1,
         diseaseIndex: -1,
-        birthday: '2017-01-01',
+        birthday: '1970-01-01',
         multiArray: [['四川省', '云南省'], ['成都市', '绵阳市', '德阳市', '攀枝花市', '宜宾市'], ['四川大学华西医院', '省医院']],
         multiIndex: [0, 0, 0],
         userInfo: {},
@@ -215,6 +215,22 @@ Page({
             return;
         }
 
+
+        if (e.detail.value.height.length <= 0) {
+            wx.showModal({
+                title: '提示',
+                content: '请选填写身高(CM厘米)',
+                success: function (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定');
+                    } else if (res.cancel) {
+                        console.log('用户点击取消');
+                    }
+                }
+            });
+            return;
+        }
+
         if (e.detail.value.phoneNum.length !== 11) {
             wx.showModal({
                 title: '提示',
@@ -275,9 +291,12 @@ Page({
             return;
         }
 
-
-
-
+        var postCDK = app.globalData.showDiseaseInfo.CDKLeave
+            ? app.globalData.showDiseaseInfo.CDKLeave
+            : app.globalData.user.Patient.CKDLeave;
+        var postDisease = app.globalData.showDiseaseInfo.Disease
+            ? app.globalData.showDiseaseInfo.Disease
+            : app.globalData.user.Disease;
         var postData = {
             UserName: e.detail.value.name,
             MobilePhone: e.detail.value.phoneNum,
@@ -289,9 +308,10 @@ Page({
             BelongToDoctor: this.data.docter[this.data.docterIndex].Id,
             IdCard: e.detail.value.idCard,
             OpenId: app.globalData.openId,
-            CKDLeave: app.globalData.showDiseaseInfo.CDKLeave,
-            Disease: app.globalData.showDiseaseInfo.Disease,
+            CKDLeave: postCDK,
+            Disease: postDisease,
             WxAvatarUrl: app.globalData.wxUserInfo.avatarUrl,
+            Height: e.detail.value.height,
             //DiseaseType: this.data.disease[this.data.diseaseIndex].Id,
             //:,
             //BelongToDoctor:,

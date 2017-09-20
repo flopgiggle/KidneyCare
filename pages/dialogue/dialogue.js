@@ -51,7 +51,6 @@ Page({
               user: app.globalData.user,
               wxUserInfo: app.globalData.wxUserInfo,
           });
-          debugger;
           app.globalData.user.IsRead = true;
       });
   },

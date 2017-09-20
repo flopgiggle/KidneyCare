@@ -31,6 +31,10 @@ Page({
    */
   onShow: function () {
       this.loadList();
+      setTimeout(wx.pageScrollTo({
+              scrollTop: 99999999
+          }),
+          3000);
   },
   loadList: function () {
       //if (app.globalData.openId === "") {
@@ -52,6 +56,8 @@ Page({
               wxUserInfo: app.globalData.wxUserInfo,
           });
           app.globalData.user.IsRead = true;
+
+
       });
   },
 

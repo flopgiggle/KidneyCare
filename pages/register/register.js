@@ -359,7 +359,6 @@ Page({
     onShow: function () {
         var showDiseaseInfo = "";
         if (app.globalData.user && app.globalData.user.Disease && app.globalData.user.Disease.length>0) {
-            debugger;
             showDiseaseInfo = util.getLeave(app.globalData.user.Patient.CKDLeave);
             for (var item of app.globalData.user.Disease) {
                 showDiseaseInfo += item.DiseaseName + ";";
@@ -367,7 +366,6 @@ Page({
         }
 
         if (app.globalData.showDiseaseInfo) {
-            debugger;
             showDiseaseInfo = util.getLeave(app.globalData.showDiseaseInfo.CDKLeave);
             for (var item of app.globalData.showDiseaseInfo.Disease) {
                 showDiseaseInfo += item.DiseaseName+";";

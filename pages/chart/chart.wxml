@@ -6,7 +6,7 @@
       <canvas canvas-id="lineCanvas" class="canvas" ></canvas>
     </view>
   </block>
-  <block wx:if='{{res.Result.FastingBloodGlucose.length > 0}}'>
+  <block wx:if='{{res.Result.FastingBloodGlucose.length > 0 || res.Result.BreakfastBloodGlucose.length > 0 || res.Result.LunchBloodGlucose.length > 0 || res.Result.DinnerBloodGlucose.length > 0 || res.Result.RandomBloodGlucose.length > 0}}'>
     <view class='chart-title' >血糖</view>
     <view  class="chartView">
       <canvas canvas-id="bloodSugarLineCanvas" class="canvas" ></canvas>

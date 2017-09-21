@@ -57,8 +57,8 @@ Page({
             { diseaseCode: '36', checked: false, type: 'other', name: '其他' },
         ],
         CKD: [
-            { Name: 'I期', Id: '1' }, { Name: 'II期', Id: '2' }, { Name: 'III期', Id: '3' }, { Name: 'IV期', Id: '4' },
-            { Name: 'V期', Id: '5' }
+            { Name: '1期', Id: '1' }, { Name: '2期', Id: '2' }, { Name: '3期', Id: '3' }, { Name: '4期', Id: '4' },
+            { Name: '5期', Id: '5' }
         ],
         CKDIndex: -1
     },

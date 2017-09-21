@@ -113,8 +113,8 @@ Page({
                         height: 150
                     });
                 }
-
-                if (res.Result.FastingBloodGlucose.length > 0) {
+                debugger;
+                if (res.Result.FastingBloodGlucose.length > 0 || res.Result.BreakfastBloodGlucose.length > 0 || res.Result.LunchBloodGlucose.length > 0 || res.Result.DinnerBloodGlucose.length > 0 || res.Result.RandomBloodGlucose.length > 0) {
                     bloodSugarLineChart = new wxCharts({
                         canvasId: 'bloodSugarLineCanvas',
                         type: 'line',

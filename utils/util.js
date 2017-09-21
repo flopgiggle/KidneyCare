@@ -208,19 +208,19 @@ function getLeave(ckdleave) {
     var message = "";
     switch (leave) {
     case "1":
-        message = "CKD I期;";
+        message = "CKD 1期;";
         break;
     case "2":
-        message = "CKD II期;";
+        message = "CKD 2期;";
         break;
         case "3":
-        message = "CKD III期;";
+        message = "CKD 3期;";
         break;
         case "4":
-        message = "CKD IV期;";
+        message = "CKD 4期;";
         break;
         case "5":
-        message = "CKD V期;";
+        message = "CKD 5期;";
         break;
     default:
         message = "";

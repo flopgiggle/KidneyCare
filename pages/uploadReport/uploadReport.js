@@ -28,7 +28,7 @@ Page({
         wx.chooseImage({
             sourceType: sourceType[this.data.sourceTypeIndex],
             sizeType: sizeType[this.data.sizeTypeIndex],
-            count: 2,
+            count: 5,
             success: function (res) {
                 console.log(res);
                 that.setData({

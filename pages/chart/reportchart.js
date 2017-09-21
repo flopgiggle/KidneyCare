@@ -89,7 +89,6 @@ Page({
         for (var item of src) {
             picList.push(this.data.picurl + item);
         }
-        debugger;
         wx.previewImage({
             current: picList[0], // 当前显示图片的http链接
             urls: picList // 需要预览的图片http链接列表

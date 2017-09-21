@@ -4,12 +4,19 @@
 }
 
 .upload-Item {
-    height: 150rpx;
+    min-height: 150rpx;
+    height:auto;
+}
+
+.uploadLeft {
+    flex:1 !important;
 }
 
 .upload-container {
+    flex: 3 !important;
     justify-content: flex-start;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .upload-preview {

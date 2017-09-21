@@ -36,11 +36,9 @@
       </view>
     </view>
     <view class="form-item upload-Item">
-      <view class="form-item-label">
+      <view class="form-item-label uploadLeft">
         <text>报告图片</text>
       </view>
-
-
       <view class="form-item-input upload-container" bindtap="chooseImage">
         <block wx:for="{{imageList}}" wx:for-item="image">
           <view class="upload-preview">

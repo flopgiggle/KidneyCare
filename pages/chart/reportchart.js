@@ -85,9 +85,14 @@ Page({
     /*查看图片*/
     viewMoviePostImg: function (e) {
         var src = e.currentTarget.dataset.src;
+        var picList = [];
+        for (var item of src) {
+            picList.push(this.data.picurl + item);
+        }
+        debugger;
         wx.previewImage({
-            current: src, // 当前显示图片的http链接
-            urls: [src] // 需要预览的图片http链接列表
+            current: picList[0], // 当前显示图片的http链接
+            urls: picList // 需要预览的图片http链接列表
         });
     },
     /**

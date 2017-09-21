@@ -20,8 +20,8 @@
           <text class='text-type'>{{item.ReportType}}</text>
         </view>
         <view class="list-item-info image">
-          <text wx:if="{{item.ImageUrl}}" catchtap='viewMoviePostImg' data-src="{{picurl+item.ImageUrl}}" class='text-type'>点击查看图片</text>
-          <text wx:else="{{item.ImageUrl}}" class='text-type'>无图片信息</text>
+          <text wx:if="{{item.ImageUrls.length>0}}" catchtap='viewMoviePostImg' data-src="{{item.ImageUrls}}" class='text-type'>点击查看图片</text>
+          <text wx:else="{{item.ImageUrls.length>0}}" class='text-type'>无图片信息</text>
         </view>
       </view>
     </block>

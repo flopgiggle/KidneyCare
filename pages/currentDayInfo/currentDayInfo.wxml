@@ -1,5 +1,5 @@
 <view class="container padding-list">
-  <view class="form-group">
+  <view class="form-group  fix-top">
 
     <view class="form-item form-item-picker">
       <view class="form-item-label">

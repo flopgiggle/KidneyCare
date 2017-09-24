@@ -101,6 +101,12 @@ input{
     min-height: 90rpx;
 }
 
+.fix-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 
 
 

@@ -1,5 +1,6 @@
 .padding-list {
-    padding-bottom:100rpx;
+    padding-bottom: 70rpx;
+    padding-top: 70rpx;
 }
 
 .list-group {
@@ -77,12 +78,14 @@
     text-align: right;
 }
 
+
+
 .add-record {
     display: flex;
     flex-direction: row;
     position: fixed;
-    bottom: -1rpx;
-    right: -1rpx;
+    bottom: 0rpx;
+    right: 0rpx;
     width:100%;
 }
 

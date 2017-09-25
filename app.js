@@ -46,7 +46,7 @@ App({
     },
     isBindInfo: function () {
         var status = this.globalData.user.Patient.BindStatus;
-        //三位绑定关系,111,为医院 医生 护士 都绑定，110 只绑定医院 医生 ，以此类推
+        
         if (status == "110" || status == "111" || status == "101") {
             return true;
         } else {

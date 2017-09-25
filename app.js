@@ -12,7 +12,7 @@ App({
         picUrl: host + "/upload/",
         openId: "",
         //openId: "o8_AP0RGpMa0czU1-gwndOD7H58U",//"1234586888912",
-        patientAlreadyBind:"111",
+        patientAlreadyBind:"true",
         user: "",
         showDiseaseInfo: "",
         wxUserInfo:"",
@@ -44,8 +44,16 @@ App({
 
         }
     },
+    isBindInfo: function () {
+        var status = this.globalData.user.Patient.BindStatus;
+        //三位绑定关系,111,为医院 医生 护士 都绑定，110 只绑定医院 医生 ，以此类推
+        if (status == "110" || status == "111" || status == "101") {
+            return true;
+        } else {
+            return false;
+        }
+    },
     onLaunch: function () {
-        //debugger;
         //var that = this;
 
         //var lines = [];

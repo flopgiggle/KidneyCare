@@ -169,7 +169,7 @@ Page({
         }
 
         util.httpPost(app.globalData.urls.record.add, postData, res => {
-            if (app.globalData.user.Patient.BindStatus !== app.globalData.patientAlreadyBind) {
+            if (!app.isBindInfo()) {
                 wx.showModal({
                     title: '尚未绑定医患关系',
                     content: '您的记录已保存，完善个人档案有助于医护随时了解您的健康状况，马上去完善？',

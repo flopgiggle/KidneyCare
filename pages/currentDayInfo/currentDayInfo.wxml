@@ -16,7 +16,7 @@
   </view>
   <view wx:if="{{ myReport.length==0 && myRecord.length==0}}" class="none-data">
     <view>尚无任何记录信息，您可以点击新增记录</view>
-    <view wx:if="{{app.globalData.user.Patient.BindStatus != app.globalData.patientAlreadyBind}}">
+    <view wx:if="{{!isBindInfo}}">
       <view>绑定医护关系,以获取更多关注</view>
       <view bindtap='onGoToBindTap' class="currentDayInfo-bind">点击去绑定</view>
     </view>

@@ -12,6 +12,7 @@ Page({
         myRecord: [],
         myReport: [],
         app: {},
+        isBindInfo: null
     },
     onGoToBindTap: function(e) {
         wx.navigateTo({
@@ -141,7 +142,8 @@ Page({
                //var recordListGroup = res.Result.MyRecord;
                this.setData({
                    myRecord: res.Result.MyRecord,
-                   myReport: res.Result.MyReport
+                   myReport: res.Result.MyReport,
+                   isBindInfo: app.isBindInfo()
                });
            });
    },

@@ -24,7 +24,7 @@ Page({
         })
     },
     formSubmit: function (e) {
-        if (app.globalData.user.Patient.BindStatus !== app.globalData.patientAlreadyBind) {
+        if (!app.isBindInfo()) {
             wx.showModal({
                 title: '尚未绑定医患关系',
                 content: '您目前还未关联医护，请先完善您的个人档案',
@@ -42,14 +42,58 @@ Page({
                     }
                 }
             });
+            return;
         }
 
         //根据选择的类型，获取发送消息的医生或护士的Id
         var touser = "";
         if (this.data.consultingTypeIndex == 0) {
+            //判断是否已绑定医生
+            if (app.globalData.user.Patient.BindStatus=="101") {
+                wx.showModal({
+                    title: '尚未绑定医生',
+                    content: '您目前还未关联医生，请先完善您的个人档案',
+                    confirmText: '马上完善',
+                    cancelText: '暂不处理',
+                    success: function (res) {
+                        if (res.confirm) {
+                            wx.navigateTo({
+                                url: "/pages/register/register"
+                            });
+                        } else if (res.cancel) {
+                            wx.switchTab({
+                                url: "/pages/currentDayInfo/currentDayInfo"
+                            });
+                        }
+                    }
+                });
+                return;
+            }
+
             touser = app.globalData.user.BelongToDoctorId;
         }
         if (this.data.consultingTypeIndex == 1) {
+            //判断是否已绑定护士
+            if (app.globalData.user.Patient.BindStatus == "110") {
+                wx.showModal({
+                    title: '尚未绑定护士',
+                    content: '您目前还未关联护士，请先完善您的个人档案',
+                    confirmText: '马上完善',
+                    cancelText: '暂不处理',
+                    success: function (res) {
+                        if (res.confirm) {
+                            wx.navigateTo({
+                                url: "/pages/register/register"
+                            });
+                        } else if (res.cancel) {
+                            wx.switchTab({
+                                url: "/pages/currentDayInfo/currentDayInfo"
+                            });
+                        }
+                    }
+                });
+                return;
+            }
             touser = app.globalData.user.BelongToNurseId;
         }
 

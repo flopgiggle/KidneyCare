@@ -100,7 +100,6 @@ Page({
     util.http(url,
       res => {
         var result = JSON.parse(res.Result);
-        debugger;
         result.allDoctors.push({ UserName: '未收录', Id: '-100' });
         result.allNurses.push({ UserName: '未收录', Id: '-100' });
         if (app.globalData.user) {
@@ -120,7 +119,6 @@ Page({
         var result = JSON.parse(res.Result);
         //result.allDoctors.push({ UserName: '未收录', Id: '-100' });
         //result.allNurses.push({ UserName: '未收录', Id: '-100' });
-        debugger;
         var hospital = this.getIndexValue(app.globalData.user.BelongToHospital, result.hospital);
         if (hospital == -1 || !this.data.isFirstIn) {
           hospital = this.data.multiIndex[2];
@@ -196,7 +194,6 @@ Page({
     this.getHospitalSelectInfo(provinceCode, cityCode);
     //默认查询华西的医生
     var hospital = app.globalData.user.BelongToHospital;
-    debugger;
     if (!!!hospital) {
         hospital = "1";
     }
@@ -299,10 +296,10 @@ Page({
       return;
     }
 
-    if (this.data.docterIndex < 0) {
+    if (this.data.docterIndex < 0 && this.data.nurseIndex < 0) {
       wx.showModal({
         title: '提示',
-        content: '请选择医生',
+        content: '至少选择一位医生或护士',
         success: function (res) {
           if (res.confirm) {
             console.log('用户点击确定');
@@ -314,27 +311,29 @@ Page({
       return;
     }
 
-    if (this.data.nurseIndex < 0) {
-      wx.showModal({
-        title: '提示',
-        content: '请选择护士',
-        success: function (res) {
-          if (res.confirm) {
-            console.log('用户点击确定');
-          } else if (res.cancel) {
-            console.log('用户点击取消');
-          }
-        }
-      });
-      return;
-    }
 
     var postCDK = app.globalData.showDiseaseInfo.CDKLeave
       ? app.globalData.showDiseaseInfo.CDKLeave
       : app.globalData.user.Patient.CKDLeave;
     var postDisease = app.globalData.showDiseaseInfo.Disease
       ? app.globalData.showDiseaseInfo.Disease
-      : app.globalData.user.Disease;
+        : app.globalData.user.Disease;
+
+    if (!!!postCDK) {
+          wx.showModal({
+              title: '提示',
+              content: '请选择临床诊断',
+              success: function (res) {
+                  if (res.confirm) {
+                      console.log('用户点击确定');
+                  } else if (res.cancel) {
+                      console.log('用户点击取消');
+                  }
+              }
+          });
+          return;
+      }
+
     var postData = {
       UserName: e.detail.value.name,
       MobilePhone: e.detail.value.phoneNum,
@@ -342,8 +341,8 @@ Page({
       BelongToHospital: this.data.multiArray[2][this.data.multiIndex[2]].Id,
       Sex: this.data.sex[this.data.sexIndex].Id,
       UserType: 1,
-      BelongToNurse: this.data.nurse[this.data.nurseIndex].Id,
-      BelongToDoctor: this.data.docter[this.data.docterIndex].Id,
+      BelongToNurse: this.data.nurseIndex!=-1?this.data.nurse[this.data.nurseIndex].Id:-1,
+      BelongToDoctor: this.data.docterIndex!=-1?this.data.docter[this.data.docterIndex].Id:-1,
       IdCard: e.detail.value.idCard,
       OpenId: app.globalData.openId,
       CKDLeave: postCDK,
@@ -358,14 +357,6 @@ Page({
     if (postData.BelongToNurse == -100 || postData.BelongToDoctor == -100) {
       this.gotoContact();
     }
-
-
-
-
-
-
-
-
 
 
     util.httpPost(app.globalData.urls.user.update, postData, res => {

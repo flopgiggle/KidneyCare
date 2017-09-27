@@ -1,17 +1,29 @@
+//program run mode
+//1.product for onlie product environment 
+//2.test for onlie test environment
+//3.local for local debug enviromnet
+var runMode = "test";
 var util = require('utils/util.js');
 var _ = require('utils/undercore.js');
-var host = "https://30861365.qcloud.la";
-//var host = "http://localhost:11662";
-var baseUri = host+"/api/";
+var host = {
+    product:"https://30861365.qcloud.la",
+    test:"https://77964003.qcloud.la",
+    local:"http://localhost:11662"
+}
+var openId = {
+    product:"",
+    test:"",
+    local: "oSqUB0XRxeZzn-iTpaXkenjXV0hE"
+}
+var baseUri = host[runMode] + "/api/";
 App({
     globalData: {
         g_isPlayingMusic: false,
         g_currentMusicPostId: null,
         doubanBase: "https://api.douban.com",
-        host: host,
+        host: host[runMode],
         picUrl: host + "/upload/",
-        openId: "",
-        //openId: "o8_AP0RGpMa0czU1-gwndOD7H58U",//"1234586888912",
+        openId: openId[runMode],
         patientAlreadyBind:"true",
         user: "",
         showDiseaseInfo: "",

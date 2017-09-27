@@ -311,7 +311,7 @@ Page({
       return;
     }
 
-
+      debugger;
     var postCDK = app.globalData.showDiseaseInfo.CDKLeave
       ? app.globalData.showDiseaseInfo.CDKLeave
       : app.globalData.user.Patient.CKDLeave;
@@ -386,14 +386,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+     
     var showDiseaseInfo = "";
+    showDiseaseInfo = util.getLeave(app.globalData.user.Patient.CKDLeave);
     if (app.globalData.user && app.globalData.user.Disease && app.globalData.user.Disease.length > 0) {
-      showDiseaseInfo = util.getLeave(app.globalData.user.Patient.CKDLeave);
+      
       for (var item of app.globalData.user.Disease) {
         showDiseaseInfo += item.DiseaseName + ";";
       };
     }
 
+    //app.globalData.showDiseaseInfo 不为空,则为疾病选择页面跳转来，需要清空showDiseaseInfo
     if (app.globalData.showDiseaseInfo) {
       showDiseaseInfo = util.getLeave(app.globalData.showDiseaseInfo.CDKLeave);
       for (var item of app.globalData.showDiseaseInfo.Disease) {
@@ -426,7 +429,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+      app.globalData.showDiseaseInfo = "";
   },
 
   /**

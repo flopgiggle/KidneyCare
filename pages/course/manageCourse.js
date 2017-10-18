@@ -15,7 +15,9 @@ Page({
         items: [
             { name: 'USA', value: '美国' },
             { name: 'CHN', value: '中国', checked: 'true' },
-        ]
+        ],
+        isCheckedNew: true,
+        checkedClass:"selected"
     },
     /**
      * 生命周期函数--监听页面加载
@@ -36,19 +38,38 @@ Page({
             url: "/pages/course/courseDetail?courseId=" + e.currentTarget.dataset.course.Id
         });
     },
+    onNewCourseTap: function () {
+        this.setData({ isCheckedNew: true });
+        loadAllCourse();
+    },
+    onJoinCourseTap: function () {
+        this.setData({ isCheckedNew: false });
+        loadMyCourse();
+    },
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        loadAllCourse();
+    },
+    loadAllCourse: function () {
         var url = app.globalData.urls.course.getCourseListForDisease;
         util.http(url,
             res => {
-            debugger;
-            var patientInfo = JSON.parse(res.Result);
-            this.setData({ patientInfo: patientInfo });
-        });
+                debugger;
+                var patientInfo = JSON.parse(res.Result);
+                this.setData({ patientInfo: patientInfo });
+            });
     },
-
+    loadMyCourse: function () {
+        var url = app.globalData.urls.course.getCourseListForDisease;
+        util.http(url,
+            res => {
+                debugger;
+                var patientInfo = JSON.parse(res.Result);
+                this.setData({ patientInfo: patientInfo });
+            });
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */

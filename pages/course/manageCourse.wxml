@@ -1,9 +1,9 @@
 <view class="container">
-  <view class="add-record fix-top">
-    <view class="record-button right-button" bindtap="onMyselfRecordTap">
+  <view class="add-record fix-top" >
+    <view class="record-button right-button {{(isCheckedNew?checkedClass:'')}}" bindtap="onNewCourseTap">
       <text>最新课程</text>
     </view>
-    <view class="record-button left-button" bindtap="onAddHospitalRecordTap">
+    <view class="record-button left-button {{(!isCheckedNew?checkedClass:'')}}" bindtap="onJoinCourseTap">
       <text>参与课程</text>
     </view>
   </view>

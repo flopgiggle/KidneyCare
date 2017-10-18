@@ -1,7 +1,7 @@
 /* pages/uploadReport/uploadReport.wxss */
 .container {
     align-items: center;
-	padding-top: 75rpx;
+	padding-top: 110rpx;
 }
 
 .upload-Item {
@@ -78,12 +78,13 @@ checkbox-group {
 .add-record {
     display: flex;
     flex-direction: row;
-    width:100%;
+    width: 100%;
+    border-top: 7rpx solid #6ccfee;
 }
 
 .record-button{
   height:80rpx;
-  background: #FFBB00;
+  background: #4fc1e9;
   flex:1;
   display: flex;
   align-items:center;
@@ -99,4 +100,9 @@ checkbox-group {
   border-style:solid;
 	border-width:0 2px 0px 0px;
   border-color: #3cb0db;
+}
+
+.selected {
+    background-color:#3bafda;
+ 
 }

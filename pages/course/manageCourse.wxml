@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="add-record fix-top">
+    <view class="record-button right-button" bindtap="onMyselfRecordTap">
+      <text>最新课程</text>
+    </view>
+    <view class="record-button left-button" bindtap="onAddHospitalRecordTap">
+      <text>参与课程</text>
+    </view>
+  </view>
+  <block wx:for="{{patientInfo}}" wx:for-item="item" wx:for-index="idx">
+    <view class="form-group" data-course="{{item}}" bindtap="onCourseTap">
+      <view class="form-item"  >
+        <view class="form-item-label">
+          <text>课程状态</text>
+        </view>
+        <view class="form-item-input">
+          {{item.StatusName}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>课程日期</text>
+        </view>
+        <view class="form-item-input">
+          {{item.Date}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>课程概要</text>
+        </view>
+        <view class="form-item-input">
+          {{item.Speaker}} {{item.CourseName}}
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

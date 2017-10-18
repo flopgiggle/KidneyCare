@@ -1,0 +1,72 @@
+/* pages/uploadReport/uploadReport.wxss */
+.container {
+    align-items: center;
+}
+
+.upload-Item {
+    min-height: 150rpx;
+    height:auto;
+}
+
+.uploadLeft {
+    flex:1 !important;
+}
+
+.upload-container {
+    flex: 3 !important;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.upload-preview {
+    border: solid;
+    width: 130rpx;
+    height: 130rpx;
+    border-width: 1px;
+    border-color: darkgray;
+    text-align: center;
+    vertical-align: central;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right:5rpx;
+}
+
+.form-item image {
+    width: 130rpx;
+    height: 130rpx;
+}
+
+.add-icon {
+    font-size:50rpx;
+    font-weight:100;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+}
+
+.form-item-label {
+    width:160rpx;
+}
+
+.form-item-label {
+    flex: 25
+}
+
+.form-item-input {
+    flex: 65
+}
+
+.unit {
+    flex: 30;
+    text-align: right
+}
+
+.unit {
+    font-size: 30rpx;
+    color: #666;
+    vertical-align: central;
+}

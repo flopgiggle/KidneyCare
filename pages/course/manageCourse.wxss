@@ -1,0 +1,102 @@
+/* pages/uploadReport/uploadReport.wxss */
+.container {
+    align-items: center;
+	padding-top: 75rpx;
+}
+
+.upload-Item {
+    height: 150rpx;
+}
+
+.upload-container {
+    justify-content: flex-start;
+    display: flex;
+}
+
+
+
+.form-item image {
+    width: 130rpx;
+    height: 130rpx;
+}
+
+.add-icon {
+    font-size: 50rpx;
+    font-weight: 100;
+}
+
+.form-item-label {
+    width:200rpx;
+}
+
+.my-avatar {
+    width: 30%;
+}
+
+.my-name text {
+    color: #666;
+    font-size: 40rpx;
+}
+
+.form-item {
+    height:50rpx;
+}
+
+    .form-item.ckd {
+        flex-direction: row;
+    }
+
+checkbox {
+    margin: 10rpx 0 20rpx 0;
+}
+
+.form-item-input {
+    width: 100% !important;
+    font-size: 30rpx;
+}
+
+.form-item-input {
+    width: 100%;
+}
+
+.disease-item {
+    flex-direction: row;
+    display: flex;
+}
+
+.left-disease {
+    flex: 1
+}
+
+.right-disease {
+    flex: 1
+}
+
+checkbox-group {
+    width: 100%
+}
+.add-record {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+}
+
+.record-button{
+  height:80rpx;
+  background: #FFBB00;
+  flex:1;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.record-button text{
+  color:#ffffff;
+  font-size: 35rpx;
+}
+
+.right-button{
+  border-style:solid;
+	border-width:0 2px 0px 0px;
+  border-color: #3cb0db;
+}

@@ -1,0 +1,120 @@
+<view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="form-group">
+    <view class="form-item" >
+      <view class="form-item-label">
+        <text>课程名称</text>
+      </view>
+      <view class="form-item-input">
+        <input name="CourseName" value="{{orgCourseDetail.CourseName}}" type="text" maxlength="5"  placeholder-class="form-input-placeholder" placeholder="(必填)" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>课程日期</text>
+      </view>
+      <view class="form-item-input">
+        <picker mode="date" value="{{date}}" start="1900-01-01" end="2099-08-30" bindchange="bindDateChange">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>开始时间</text>
+      </view>
+      <view class="form-item-input">
+        <picker mode="time" value="{{startTime}}" bindchange="bindStartTimeChange">
+          <view class="picker">
+            {{startTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>结束时间</text>
+      </view>
+      <view class="form-item-input">
+        <picker mode="time" value="{{endTime}}" bindchange="bindEndTimeChange">
+          <view class="picker">
+            {{endTime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-item" >
+      <view class="form-item-label">
+        <text>课程地点</text>
+      </view>
+      <view class="form-item-input">
+        <input name="Address" value="{{orgCourseDetail.Address}}" type="text" maxlength="5"  placeholder-class="form-input-placeholder" placeholder="(必填)" auto-focus=""/>
+      </view>
+    </view>
+
+    <view class="form-item" >
+      <view class="form-item-label">
+        <text>主讲人</text>
+      </view>
+      <view class="form-item-input">
+        <input name="Speaker" value="{{orgCourseDetail.Speaker}}" type="text" maxlength="5"  placeholder-class="form-input-placeholder" placeholder="(必填)" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item" >
+      <view class="form-item-label">
+        <text>主讲人简介</text>
+      </view>
+      <view class="form-item-input">
+        <input name="SpeakerInfo" value="{{orgCourseDetail.SpeakerInfo}}" type="text" maxlength="5"  placeholder-class="form-input-placeholder" placeholder="" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item" >
+      <view class="form-item-label">
+        <text>课程简介</text>
+      </view>
+      <view class="form-item-input">
+        <input name="CourseContent" value="{{orgCourseDetail.CourseContent}}" type="digit" maxlength="5"  placeholder-class="form-input-placeholder" placeholder="" auto-focus=""/>
+      </view>
+    </view>
+    <view class="form-item upload-Item">
+      <view class="form-item-label uploadLeft">
+        <text>课程图片</text>
+      </view>
+      <view class="form-item-input upload-container" bindtap="choosePic">
+        <block wx:for="{{picList}}" wx:for-item="image">
+          <view class="upload-preview">
+            <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+          </view>
+        </block>
+        <view class="upload-preview">
+          <view class="add-icon">+</view>
+        </view>
+      </view>
+    </view>
+    <view class="form-item upload-Item">
+      <view class="form-item-label uploadLeft">
+        <text>课程PPT</text>
+      </view>
+      <view class="form-item-input upload-container" bindtap="choosePPT">
+        <block wx:for="{{pptList}}" wx:for-item="image">
+          <view class="upload-preview">
+            <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+          </view>
+        </block>
+        <view class="upload-preview">
+          <view class="add-icon">+</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="form-group">
+    <view class="form-row-button">
+      <button class="form-row-button" formType="submit">
+        <text>保存</text>
+      </button>
+    </view>
+  </view>
+  </form>
+</view>

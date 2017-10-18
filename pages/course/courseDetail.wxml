@@ -1,0 +1,89 @@
+<view class="container">
+    <view class="form-group">
+      <view class="form-item upload-Item autoHeight">
+        <view class="form-item-input upload-container my-avatar">
+          <image class="avatar" src="{{picUrl}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>课程名称</text>
+        </view>
+        <view class="form-item-input">
+          {{courseDetail.CourseName}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>课程日期</text>
+        </view>
+        <view class="form-item-input">
+          {{courseDetail.Date}} {{courseDetail.StartTimeString+" - "+courseDetail.EndTimeString}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>课程地点</text>
+        </view>
+        <view class="form-item-input">
+          {{courseDetail.Address}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>主讲人</text>
+        </view>
+        <view class="form-item-input">
+          {{courseDetail.Speaker}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>主讲人简介</text>
+        </view>
+        <view class="form-item-input">
+          {{courseDetail.SpeakerInfo}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>课程简介</text>
+        </view>
+        <view class="form-item-input">
+          {{courseDetail.CourseContent}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>预约人数</text>
+        </view>
+        <view class="form-item-input">
+          {{courseDetail.CourseContent}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>签到人数</text>
+        </view>
+        <view class="form-item-input">
+          {{courseDetail.CourseContent}}
+        </view>
+      </view>    
+    </view>
+
+  <view class="add-record" wx:if="{{courseDetail.Status == 10}}">
+    <view class="record-button right-button" bindtap="onDeleteTap">
+      <text>删除课程</text>
+    </view>
+    <view class="record-button left-button" bindtap="onModifyTap">
+      <text>修改课程</text>
+    </view>
+  </view>
+  <view class="add-record" wx:if="{{courseDetail.Status == 11}}">
+    <view class="record-button right-button" bindtap="onFinishTap">
+      <text>结束课程</text>
+    </view>
+  </view>
+</view>

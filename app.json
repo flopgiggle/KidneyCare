@@ -12,7 +12,8 @@
     "pages/dialogue/dialogue",
     "pages/contactUs/contactUs",
     "pages/diseaseDiagnosis/diseaseDiagnosis",
-    "pages/exceptInfo/exceptInfo"
+    "pages/exceptInfo/exceptInfo",
+    "pages/course/manageCourse"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4fc1e9"

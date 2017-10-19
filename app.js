@@ -41,6 +41,7 @@ App({
                 getStaffsByHosptalId: baseUri + "user/getStaffsByHosptalId/",
                 getHospitalSelectInfo: baseUri + "user/getHospitalSelectInfo/",
                 getExcpetRecordInfoList: baseUri + "user/getExcpetRecordInfoList/", 
+                addPatientCourseEvaluate: baseUri + "user/addPatientCourseEvaluate/",
             },
             record: {
                 add: baseUri + "record/add",
@@ -58,9 +59,12 @@ App({
                 uploadPic: baseUri + "course/uploadPic",
                 uploadPPT: baseUri + "course/uploadPPT",
                 getCourseListForDisease: baseUri + "course/getCourseListForDisease/",
+                getTakePartInCourseListForDisease: baseUri + "course/getTakePartInCourseListForDisease/",
                 getCourseDetailById: baseUri + "course/getCourseDetailById/",
-                deleteCorese: baseUri + "course/deleteCorese/",
-                finishCourse: baseUri + "course/finishCourse/",
+                appointmentCourse: baseUri + "course/appointmentCourse/",
+                signInCourse: baseUri + "course/signInCourse/",
+                getCourseTakeInStatus: baseUri + "course/getCourseTakeInStatus/",
+                getCourseTakeInData: baseUri + "course/getCourseTakeInData/",
             }
 
         }

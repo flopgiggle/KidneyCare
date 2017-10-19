@@ -1,0 +1,80 @@
+<view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="form-group">
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>患教日期</text>
+        </view>
+        <view class="form-item-input">
+          <picker mode="date" value="{{date}}" start="1900-01-01" end="2019-08-30" bindchange="bindDateChange">
+            <view class="picker">
+              {{date}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="form-item form-item-picker">
+        <view class="form-item-label">
+          <text>患教对象</text>
+        </view>
+        <view class="form-item-input">
+          <picker bindchange="bindObjectChange" value="{{objectIndex}}" range="{{object}}" range-key="{{'name'}}">
+            <view class="picker">
+              <text class="form-input-placeholder" wx:if="{{objectIndex==-1}}">
+                请选择患教对象
+              </text> {{objectIndex==-1?"":object[objectIndex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="form-item form-item-picker">
+        <view class="form-item-label">
+          <text>认知评估</text>
+        </view>
+        <view class="form-item-input">
+          <picker bindchange="bindCognitionChange" value="{{cognitionIndex}}" range="{{cognition}}" range-key="{{'name'}}">
+            <view class="picker">
+              <text class="form-input-placeholder" wx:if="{{cognitionIndex==-1}}">
+                请选择患教对象
+              </text> {{cognitionIndex==-1?"":cognition[cognitionIndex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="form-item form-item-picker">
+        <view class="form-item-label">
+          <text>行为评估</text>
+        </view>
+        <view class="form-item-input">
+          <picker bindchange="bindBehaviorChange" value="{{behaviorIndex}}" range="{{behavior}}" range-key="{{'name'}}">
+            <view class="picker">
+              <text class="form-input-placeholder" wx:if="{{behaviorIndex==-1}}">
+                请选择患教对象
+              </text> {{behaviorIndex==-1?"":behavior[behaviorIndex].name}}
+            </view>
+          </picker>
+        </view>
+
+      </view>
+
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>备注</text>
+        </view>
+        <view class="form-item-input">
+          <input name="mark" value="{{userInfo.MobilePhone}}" type="text" maxlength="11" placeholder-class="form-input-placeholder" placeholder="请填写备注" auto-focus=""/>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <view class="form-row-button">
+        <button class="form-row-button" formType="submit">
+          <text>保存</text>
+        </button>
+      </view>
+    </view>
+  </form>
+</view>

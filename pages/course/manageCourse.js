@@ -40,17 +40,17 @@ Page({
     },
     onNewCourseTap: function () {
         this.setData({ isCheckedNew: true });
-        loadAllCourse();
+        this.loadAllCourse();
     },
     onJoinCourseTap: function () {
         this.setData({ isCheckedNew: false });
-        loadMyCourse();
+        this.loadMyCourse();
     },
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        loadAllCourse();
+        this.loadAllCourse();
     },
     loadAllCourse: function () {
         var url = app.globalData.urls.course.getCourseListForDisease;
@@ -62,7 +62,7 @@ Page({
             });
     },
     loadMyCourse: function () {
-        var url = app.globalData.urls.course.getCourseListForDisease;
+        var url = app.globalData.urls.course.getTakePartInCourseListForDisease;
         util.http(url,
             res => {
                 debugger;

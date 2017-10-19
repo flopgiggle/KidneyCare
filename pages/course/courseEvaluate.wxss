@@ -1,0 +1,14 @@
+/* pages/register/register.wxss */
+.container {
+    align-items: center;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+}
+
+.form-item {
+    height:auto;
+    min-height:90rpx;
+}

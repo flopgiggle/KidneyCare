@@ -1,4 +1,5 @@
 <view class="container">
+ 
   <view class="add-record fix-top" >
     <view class="record-button right-button {{(isCheckedNew?checkedClass:'')}}" bindtap="onNewCourseTap">
       <text>最新课程</text>
@@ -6,6 +7,9 @@
     <view class="record-button left-button {{(!isCheckedNew?checkedClass:'')}}" bindtap="onJoinCourseTap">
       <text>参与课程</text>
     </view>
+  </view>
+  <view wx:if="{{ patientInfo.length==0}}" class="none-data">
+    <view>暂无任何数据</view>
   </view>
   <block wx:for="{{patientInfo}}" wx:for-item="item" wx:for-index="idx">
     <view class="form-group" data-course="{{item}}" bindtap="onCourseTap">

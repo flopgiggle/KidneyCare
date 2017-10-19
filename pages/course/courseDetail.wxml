@@ -9,6 +9,22 @@
     <view class="form-group">
       <view class="form-item">
         <view class="form-item-label">
+          <text>参与进度</text>
+        </view>
+        <view class="form-item-input">
+          {{takeInStatus.TakeInName}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>课程状态</text>
+        </view>
+        <view class="form-item-input">
+          {{courseDetail.StatusName}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
           <text>课程名称</text>
         </view>
         <view class="form-item-input">
@@ -60,7 +76,7 @@
           <text>预约人数</text>
         </view>
         <view class="form-item-input">
-          {{courseDetail.CourseContent}}
+          {{takeInData.AppointmentPersonNum}}
         </view>
       </view>
       <view class="form-item">
@@ -68,22 +84,24 @@
           <text>签到人数</text>
         </view>
         <view class="form-item-input">
-          {{courseDetail.CourseContent}}
+          {{takeInData.SignInPersonNum}}
         </view>
       </view>    
     </view>
 
-  <view class="add-record" wx:if="{{courseDetail.Status == 10}}">
-    <view class="record-button right-button" bindtap="onDeleteTap">
-      <text>删除课程</text>
-    </view>
-    <view class="record-button left-button" bindtap="onModifyTap">
-      <text>修改课程</text>
+  <view class="add-record" wx:if="{{courseDetail.Status == 10 && !takeInStatus.IsAppointment}}">
+    <view class="record-button right-button" bindtap="onAppointmentTap">
+      <text>课程预约</text>
     </view>
   </view>
-  <view class="add-record" wx:if="{{courseDetail.Status == 11}}">
-    <view class="record-button right-button" bindtap="onFinishTap">
-      <text>结束课程</text>
+  <view class="add-record" wx:if="{{courseDetail.Status == 20 && !takeInStatus.IsSignIn}}">
+    <view class="record-button right-button" bindtap="onSignInTap">
+      <text>课程签到</text>
+    </view>
+  </view>
+  <view class="add-record" wx:if="{{courseDetail.Status == 30 && !takeInStatus.IsEvaluate}}">
+    <view class="record-button right-button" bindtap="onEvaluateTap">
+      <text>课程评估</text>
     </view>
   </view>
 </view>

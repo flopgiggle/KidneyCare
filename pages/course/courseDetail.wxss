@@ -1,15 +1,21 @@
 /* pages/uploadReport/uploadReport.wxss */
 .container {
     align-items: center;
+    padding-bottom: 75rpx;
 }
 
 .upload-Item {
-    height: 150rpx;
+    height: 400rpx;
 }
 
 .upload-container {
-    justify-content: flex-start;
+    justify-content: center;
     display: flex;
+    height: 90%;
+}
+
+.avatar {
+    max-height: 400rpx;
 }
 
 
@@ -30,6 +36,7 @@
 
 .my-avatar {
     width: 30%;
+
 }
 
 .my-name text {

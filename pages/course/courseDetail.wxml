@@ -1,15 +1,11 @@
 <view class="container">
-    <view class="form-group">
-      <view class="form-item upload-Item autoHeight">
-        <view class="form-item-input upload-container my-avatar">
-          <image class="avatar" src="{{picUrl}}"></image>
-        </view>
-      </view>
+    <view class="form-group" wx:if="{{isShowPic}}">
+      <image class="avatar" src="{{picUrl}}"></image>
     </view>
     <view class="form-group">
       <view class="form-item">
         <view class="form-item-label">
-          <text>参与进度</text>
+          <text>参与状态</text>
         </view>
         <view class="form-item-input">
           {{takeInStatus.TakeInName}}

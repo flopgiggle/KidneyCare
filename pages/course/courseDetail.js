@@ -10,7 +10,8 @@ Page({
         courseId: "",
         courseDetail: {},
         picUrl: "",
-        pptUrl:"",
+        pptUrl: "",
+        isShowPic: false,
         checkedList: [],
         patientInfo: {},
         CKD: [{ Name: '1期', Id: '1' }, { Name: '2期', Id: '2' }, { Name: '3期', Id: '3' }, { Name: '4期', Id: '4' }, { Name: '5期', Id: '5' }],
@@ -53,10 +54,15 @@ Page({
                 var courseDetail = JSON.parse(res.Result);
                 courseDetail.StartTimeString = util.formatDate("hh:mm", new Date(courseDetail.StartTime));
                 courseDetail.EndTimeString = util.formatDate("hh:mm", new Date(courseDetail.EndTime));
+                var isShowPic = false;
+                if (courseDetail.PicUrl) {
+                    isShowPic = true;
+                }
                 this.setData({
                     courseDetail: courseDetail,
                     picUrl: app.globalData.courseFileUrl + courseDetail.PicUrl,
-                    pptUrl: app.globalData.courseFileUrl + courseDetail.PPTUrl
+                    pptUrl: app.globalData.courseFileUrl + courseDetail.PPTUrl,
+                    isShowPic: isShowPic,
                 });
                 
             });

@@ -2,7 +2,7 @@
 //1.product for onlie product environment 
 //2.test for onlie test environment
 //3.local for local debug enviromnet
-var runMode = "test";
+var runMode = "local";
 var util = require('utils/util.js');
 var _ = require('utils/undercore.js');
 var host = {
@@ -54,6 +54,8 @@ App({
                 sendMessage: baseUri + "message/sendMessage",
                 getMessage: baseUri + "message/getMessage",
                 sendfeedback: baseUri + "message/sendfeedback",
+                getPushMessage: baseUri + "message/getPushMessage/",
+                readPushMessage: baseUri + "message/readPushMessage/",
             },
             course: {
                 createCourse: baseUri + "course/createCourse",

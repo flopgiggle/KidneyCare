@@ -21,7 +21,7 @@
       </view>
     </view>
     <view class="form-item form-item-picker" bindtap='onCourseTap'>
-      <view class="form-item-label">
+      <view class="form-item-label row {{hasNewCourse?'red-point':''}}">
         <text>我的课程</text>
       </view>
       <view class="form-item-input ">

@@ -12,12 +12,17 @@ function convertToStarsArray(stars) {
   return array;
 }
 
-function http(url, callBack) {
-    wx.showToast({
-        title: '',
-        icon: 'loading',
-        duration: 100000
-    });
+// option={isShowMask:true}
+//
+//
+function http(url, callBack,option) {
+    if (!!!option || option.isShowMask) {
+        wx.showToast({
+            title: '',
+            icon: 'loading',
+            duration: 100000
+        });
+    }
     wx.request({
         url: url,
         method: 'GET',
@@ -254,6 +259,16 @@ function getLeave(ckdleave) {
     return message;
 }
 
+function hasPushMessage(type,callBack) {
+    var url = getApp().globalData.urls.message.getPushMessage + type;
+    http(url, res => { callBack(res) }, { isShowMask:false});
+}
+
+function readPushMessage(type, callBack) {
+    var url = getApp().globalData.urls.message.readPushMessage + type;
+    http(url, res => { callBack(res) }, { isShowMask:false });
+}
+
 module.exports = {
   convertToStarsArray: convertToStarsArray,
   http: http,
@@ -266,5 +281,7 @@ module.exports = {
   getPreMonth: getPreMonth,
   getNowFormatTime: getNowFormatTime,
   getLeave: getLeave,
-  formatDate: formatDate
+  formatDate: formatDate,
+  hasPushMessage: hasPushMessage,
+  readPushMessage: readPushMessage,
 }

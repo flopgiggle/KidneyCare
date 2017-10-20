@@ -17,6 +17,7 @@ Page({
         result: [],
         report: [],
         picurl: app.globalData.picUrl,
+
     },
 
     /**

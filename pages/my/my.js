@@ -9,7 +9,8 @@ Page({
   data: {
       userInfo: {},
       age: "",
-      wxUserInfo:"",
+      wxUserInfo: "",
+      hasNewCourse: false,
   },
 
   /**
@@ -44,6 +45,8 @@ Page({
       })
   },
   onCourseTap: function (e) {
+      util.readPushMessage(10, res => {
+      });
       wx.navigateTo({
           url: "/pages/course/manageCourse"
       })
@@ -64,6 +67,21 @@ Page({
           userInfo: app.globalData.user,
           age: this.jsGetAge(app.globalData.user.Birthday),
           wxUserInfo: app.globalData.wxUserInfo,
+      });
+      this.loadPushMessage();
+  },
+
+  loadPushMessage: function () {
+      util.hasPushMessage(10, res => {
+          if (res.Result) {
+              this.setData({
+                  hasNewCourse: true
+              })
+          } else {
+              this.setData({
+                  hasNewCourse: false
+              })
+          }
       });
   },
 

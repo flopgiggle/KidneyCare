@@ -5,18 +5,10 @@
     <view class="form-group">
       <view class="form-item">
         <view class="form-item-label">
-          <text>参与状态</text>
-        </view>
-        <view class="form-item-input">
-          {{takeInStatus.TakeInName}}
-        </view>
-      </view>
-      <view class="form-item">
-        <view class="form-item-label">
           <text>课程状态</text>
         </view>
         <view class="form-item-input">
-          {{courseDetail.StatusName}}
+          {{courseDetail.StatusName}} {{"("+takeInStatus.TakeInName+")"}}
         </view>
       </view>
       <view class="form-item">
@@ -31,7 +23,7 @@
         <view class="form-item-label">
           <text>课程日期</text>
         </view>
-        <view class="form-item-input">
+        <view class="form-item-input" wx:if="{{courseDetail}}">
           {{courseDetail.Date}} {{courseDetail.StartTimeString+" - "+courseDetail.EndTimeString}}
         </view>
       </view>
@@ -55,7 +47,7 @@
         <view class="form-item-label">
           <text>主讲人简介</text>
         </view>
-        <view class="form-item-input">
+        <view class="form-item-input" wx:if="{{courseDetail}}">
           {{courseDetail.SpeakerInfo}}
         </view>
       </view>
@@ -63,7 +55,7 @@
         <view class="form-item-label">
           <text>课程简介</text>
         </view>
-        <view class="form-item-input">
+        <view class="form-item-input" wx:if="{{courseDetail}}">
           {{courseDetail.CourseContent}}
         </view>
       </view>

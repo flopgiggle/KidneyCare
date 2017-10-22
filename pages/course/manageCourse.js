@@ -9,7 +9,7 @@ Page({
     data: {
         patientId: "",
         checkedList: [],
-        patientInfo: {},
+        courseList: {},
         CKD: [{ Name: '1期', Id: '1' }, { Name: '2期', Id: '2' }, { Name: '3期', Id: '3' }, { Name: '4期', Id: '4' }, { Name: '5期', Id: '5' }],
         CKDIndex: -1,
         items: [
@@ -57,8 +57,12 @@ Page({
         util.http(url,
             res => {
                 debugger;
-                var patientInfo = JSON.parse(res.Result);
-                this.setData({ patientInfo: patientInfo });
+                var courseList = JSON.parse(res.Result);
+                courseList.forEach(a => {
+                    a.StartTimeString = util.formatDate("hh:mm", new Date(a.StartTime));
+                    a.EndTimeString = util.formatDate("hh:mm", new Date(a.EndTime));
+                });
+                this.setData({ courseList: courseList, isCheckedNew:true });
             });
     },
     loadMyCourse: function () {
@@ -66,8 +70,12 @@ Page({
         util.http(url,
             res => {
                 debugger;
-                var patientInfo = JSON.parse(res.Result);
-                this.setData({ patientInfo: patientInfo });
+                var courseList = JSON.parse(res.Result);
+                courseList.forEach(a => {
+                    a.StartTimeString = util.formatDate("hh:mm", new Date(a.StartTime));
+                    a.EndTimeString = util.formatDate("hh:mm", new Date(a.EndTime));
+                });
+                this.setData({ courseList: courseList });
             });
     },
     /**

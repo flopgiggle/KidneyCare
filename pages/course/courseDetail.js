@@ -8,7 +8,7 @@ Page({
      */
     data: {
         courseId: "",
-        courseDetail: {},
+        courseDetail: null,
         picUrl: "",
         pptUrl: "",
         isShowPic: false,

@@ -38,14 +38,14 @@
       <view class="form-item-input">
       </view>
     </view>
-    <view class="form-item form-item-picker" >
+    <view class="form-item form-item-picker" bindtap='onHistoryRecordTap'>
       <view class="form-item-label">
         <text>历史记录</text>
       </view>
       <view class="form-item-input">
       </view>
     </view>
-    <view class="form-item form-item-picker" >
+    <view class="form-item form-item-picker" bindtap='onHistoryReportTap'>
       <view class="form-item-label">
         <text>历史报告</text>
       </view>

@@ -46,6 +46,7 @@
 
 .form-item {
     min-height:80rpx;
+	height:auto;
 }
 
     .form-item.ckd {
@@ -63,6 +64,8 @@ checkbox {
 
 .form-item-input {
     width: 100%;
+	overflow:scroll;
+
 }
 
 .disease-item {

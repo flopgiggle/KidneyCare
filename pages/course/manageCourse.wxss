@@ -39,12 +39,12 @@
 }
 
 .form-item {
-    height:50rpx;
+    height:auto;
 }
 
-    .form-item.ckd {
-        flex-direction: row;
-    }
+.form-item.ckd {
+    flex-direction: row;
+}
 
 checkbox {
     margin: 10rpx 0 20rpx 0;
@@ -53,6 +53,7 @@ checkbox {
 .form-item-input {
     width: 100% !important;
     font-size: 30rpx;
+	overflow:scroll;
 }
 
 .form-item-input {

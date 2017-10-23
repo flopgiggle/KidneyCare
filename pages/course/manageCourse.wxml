@@ -31,10 +31,18 @@
       </view>
       <view class="form-item">
         <view class="form-item-label">
-          <text>课程概要</text>
+          <text>主讲人</text>
         </view>
         <view class="form-item-input">
-          {{item.Speaker}} {{item.CourseName}}
+          {{item.Speaker}}
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-label">
+          <text>课程名称</text>
+        </view>
+        <view class="form-item-input">
+          {{item.CourseName}}
         </view>
       </view>
     </view>

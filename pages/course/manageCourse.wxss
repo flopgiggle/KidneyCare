@@ -106,3 +106,7 @@ checkbox-group {
     background-color:#3bafda;
  
 }
+
+.autoHeight {
+    height:auto !important;
+}

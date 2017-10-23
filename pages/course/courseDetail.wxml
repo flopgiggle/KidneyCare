@@ -82,7 +82,7 @@
       <text>课程预约</text>
     </view>
   </view>
-  <view class="add-record" wx:if="{{courseDetail.Status == 20 && !takeInStatus.IsSignIn}}">
+  <view class="add-record" wx:if="{{(courseDetail.Status == 20 || courseDetail.Status == 21) && !takeInStatus.IsSignIn}}">
     <view class="record-button right-button" bindtap="onSignInTap">
       <text>课程签到</text>
     </view>

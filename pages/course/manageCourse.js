@@ -56,10 +56,8 @@ Page({
         var url = app.globalData.urls.course.getCourseListForDisease;
         util.http(url,
             res => {
-                debugger;
                 var courseList = JSON.parse(res.Result);
                 courseList.forEach(a => {
-                    debugger;
                     a.StartTimeString = util.formatDate("hh:mm", new Date(a.StartTime.replace("T", " ")));
                     a.EndTimeString = util.formatDate("hh:mm", new Date(a.EndTime.replace("T", " ")));
                 });
@@ -70,7 +68,6 @@ Page({
         var url = app.globalData.urls.course.getTakePartInCourseListForDisease;
         util.http(url,
             res => {
-                debugger;
                 var courseList = JSON.parse(res.Result);
                 courseList.forEach(a => {
                     a.StartTimeString = util.formatDate("hh:mm", new Date(a.StartTime.replace("T", " ")));

@@ -147,7 +147,6 @@ Page({
       console.log('picker发送选择改变，携带值为', e.detail.value);
       var provice = this.data.multiIndex[0];
       var city = this.data.multiIndex[1];
-      debugger;
       var hospitalId = this.data.multiArray[2][e.detail.value].Id;
       
       this.getStaffsByHosptalId(hospitalId);
@@ -330,7 +329,6 @@ Page({
       return;
     }
 
-      debugger;
     var postCDK = app.globalData.showDiseaseInfo.CDKLeave
       ? app.globalData.showDiseaseInfo.CDKLeave
       : app.globalData.user.Patient.CKDLeave;

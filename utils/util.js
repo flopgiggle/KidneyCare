@@ -12,10 +12,42 @@ function convertToStarsArray(stars) {
   return array;
 }
 
-// option={isShowMask:true}
-//
-//
+function getUserInfo(url) {
+    if (url.indexOf("getUserInfo") != -1) {
+        return { userId: "", openId: "" };
+    }
+    var userId = wx.getStorageSync("userId");
+    var openId = wx.getStorageSync("userOpenId");
+    if (!!!userId) {
+        wx.showModal({
+            title: '提示',
+            content: '未获取到用户信息,请稍后重试',
+            success: function (res) {
+                if (res.confirm) {
+                    console.log('用户点击确定');
+                    wx.switchTab({
+                        url: "/pages/currentDayInfo/currentDayInfo"
+                    });
+                } else if (res.cancel) {
+                    console.log('用户点击取消');
+                }
+            }
+        });
+        
+        return false;
+    }
+
+    return { userId, openId };
+
+}
+
 function http(url, callBack,option) {
+
+    var userInfo = getUserInfo(url);
+    if (userInfo === false) {
+        return;
+    }
+
     if (!!!option || option.isShowMask) {
         wx.showToast({
             title: '',
@@ -23,13 +55,14 @@ function http(url, callBack,option) {
             duration: 100000
         });
     }
+
     wx.request({
         url: url,
         method: 'GET',
         header: {
             "Content-Type": "json",
-            'openId': '',
-            'userId': getApp().globalData.user ? getApp().globalData.user.Id : "",
+            'openId': userInfo.openId,
+            'userId': userInfo.userId,
         },
         success: function(res) {
             callBack(res.data);
@@ -51,19 +84,26 @@ function app() {
 }
 
 function httpPost(url,data,callBack) {
+    var userInfo = getUserInfo(url);
+    if (userInfo === false) {
+        return;
+    }
+
     wx.showToast({
         title: '',
         icon: 'loading',
         duration: 10000
-});
+    });
+
+
     wx.request({
         url: url,
         method: 'POST',
         data:data,
         header: {
             'content-type': 'application/json',
-            'openId': '',
-            'userId': getApp().globalData.user ? getApp().globalData.user.Id : "",
+            'openId': userInfo.openId,
+            'userId': userInfo.userId,
         },
         success: function (res) {
             callBack(res.data);

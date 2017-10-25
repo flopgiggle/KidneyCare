@@ -112,6 +112,14 @@ Page({
             res => {
                 app.globalData.user = res.Result;
                 app.globalData.openId = res.Result.OpenId;
+                wx.setStorage({
+                    key: "userId",
+                    data: res.Result.Id
+                });
+                wx.setStorage({
+                    key: "userOpenId",
+                    data: res.Result.OpenId
+                });
                 this.setData({
                     app: app,
                 });

@@ -1,0 +1,5 @@
+<view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    
+  </form>
+</view>

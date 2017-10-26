@@ -2,7 +2,7 @@
 //1.product for onlie product environment 
 //2.test for onlie test environment
 //3.local for local debug enviromnet
-var runMode = "test";
+var runMode = "local";
 var util = require('utils/util.js');
 var _ = require('utils/undercore.js');
 var host = {
@@ -82,28 +82,38 @@ App({
         }
     },
     onLaunch: function () {
-        //var that = this;
+        wx.login({
+            success: this.wxLoginProcess
+        });
+    },
+    wxLoginProcess: function (res) {
+        var url = this.globalData.urls.user.getUserInfo;
+        var postData = {
+            Code: res.code,
+            OpenId: this.globalData.openId
+        }
+        util.httpPost(url, postData,
+            res => {
+                this.globalData.user = res.Result;
+                this.globalData.openId = res.Result.OpenId;
+                wx.setStorage({
+                    key: "userId",
+                    data: res.Result.Id
+                });
+                wx.setStorage({
+                    key: "userOpenId",
+                    data: res.Result.OpenId
+                });
 
-        //var lines = [];
-
-        //lines.push("_.map([1, 2, 3], function(num){ return num * 3; });");
-        //lines.push(_.map([1, 2, 3], function (num) { return num * 3; }));
-
-        //lines.push("var sum = _.reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0);");
-        //lines.push(_.reduce([1, 2, 3], function (memo, num) { return memo + num; }, 0));
-
-        //lines.push("var even = _.find([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });");
-        //lines.push(_.find([1, 2, 3, 4, 5, 6], function (num) { return num % 2 == 0; }));
-
-        //lines.push("_.sortBy([1, 2, 3, 4, 5, 6], function(num){ return Math.sin(num); });");
-        //lines.push(_.sortBy([1, 2, 3, 4, 5, 6], function (num) { return Math.sin(num); }));
-
-        //lines.push("_.indexOf([1, 2, 3], 2);");
-        //lines.push(_.indexOf([1, 2, 3], 2));
-
-        //this.setData({
-        //    text: lines.join('\n')
-        //})
+                wx.setStorage({
+                    key: "userToken",
+                    data: res.Result.Token
+                });
+                debugger;
+                wx.switchTab({
+                    url: "/pages/currentDayInfo/currentDayInfo"
+                });
+            });
     }
 });
 

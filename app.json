@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/currentDayInfo/currentDayInfo",
+    "pages/index/index",
     "pages/register/register",
+    "pages/currentDayInfo/currentDayInfo",
     "pages/chart/chart",
     "pages/chart/reportchart",
     "pages/uploadReport/uploadReport",

@@ -61,6 +61,7 @@ Page({
      */
     onLoad: function (options) {
         //this.wxLoginProcess.bind(this);
+        //this.loadList();
     },
 
     /**
@@ -69,28 +70,26 @@ Page({
     onReady: function () {
         //this.loadPage();
     },
-    loadPage: function() {
+    loadPage: function () {
+        debugger;
         this.setData({
             searchDate: util.getNowFormatDate(),
         });
-        var theApp = app;
+        //var theApp = app;
 
-        wx.login({
-            success: this.wxLoginProcess
-        });
 
-        wx.getUserInfo({
-            success: res => {
-                // 可以将 res 发送给后台解码出 unionId
-                theApp.globalData.wxUserInfo = res.userInfo;
+        //wx.getUserInfo({
+        //    success: res => {
+        //        // 可以将 res 发送给后台解码出 unionId
+        //        theApp.globalData.wxUserInfo = res.userInfo;
 
-                // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                // 所以此处加入 callback 以防止这种情况
-                if (this.userInfoReadyCallback) {
-                    this.userInfoReadyCallback(res);
-                }
-            }
-        });
+        //        // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+        //        // 所以此处加入 callback 以防止这种情况
+        //        if (this.userInfoReadyCallback) {
+        //            this.userInfoReadyCallback(res);
+        //        }
+        //    }
+        //});
 
         //this.loadList();
     },
@@ -98,64 +97,42 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.loadPage();
+        debugger;
+        //this.loadPage();
+        this.loadList();
     },
-
-    wxLoginProcess: function(res) {
-        //var url = baseUri + "user/getUserInfo/" +res.code; 
-        var url = app.globalData.urls.user.getUserInfo;
-        var postData= {
-            Code: res.code,
-            OpenId: app.globalData.openId
-        }
-        util.httpPost(url,postData,
-            res => {
-                app.globalData.user = res.Result;
-                app.globalData.openId = res.Result.OpenId;
-                wx.setStorage({
-                    key: "userId",
-                    data: res.Result.Id
-                });
-                wx.setStorage({
-                    key: "userOpenId",
-                    data: res.Result.OpenId
-                });
-                this.setData({
-                    app: app,
-                });
-                //判定用户是否已注册,未注册则不能使用该app，需要跳转到注册页面
-                if (app.globalData.user.Status === 0 || app.globalData.user.Status == null) {
-                    //wx.navigateTo({
-                    //    url: "/pages/register/register"
-                    //});
-                    alert("应用程序异常");
-                } else {
-                    //wx.switchTab({
-                    //    url: "/pages/currentDayInfo/currentDayInfo"
-                    //});
-                    this.loadList();
-                }
-            });
-    },
-
     loadList: function () {
-        if (app.globalData.openId==="") {
+        var start = new Date();
+        //while (new Date() - start < 10000) { // 延迟一秒
+        //    debugger;
+        //    if (app.globalData.openId && app.globalData.user && app.globalData.user.Patient) {
+        //        break;
+        //    }
+        //}
+        debugger;
+        if (app.globalData.openId === "") {
             console.log("openId获取失败");
             return;
         }
-        var url = app.globalData.urls.user.getCurrentDayInfoList + this.data.searchDate + "/" + app.globalData.openId;
+       var url = app.globalData.urls.user.getCurrentDayInfoList + this.data.searchDate + "/" + app.globalData.openId;
        util.http(url,
            res => {
                //合并收缩压舒张压数据
                //var recordListGroup = res.Result.MyRecord;
+               debugger;
                this.setData({
                    myRecord: res.Result.MyRecord,
                    myReport: res.Result.MyReport,
                    isBindInfo: app.isBindInfo()
                });
            });
-   },
-
+    },
+    checkOpenId: function() {
+        if (app.globalData.openId === "") {
+            console.log("openId获取失败");
+            return;
+        }
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */

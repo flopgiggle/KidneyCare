@@ -12,12 +12,10 @@ function convertToStarsArray(stars) {
   return array;
 }
 
-function getUserInfo(url) {
-    if (url.indexOf("getUserInfo") != -1) {
-        return { userId: "", openId: "" };
-    }
+function getUserInfo() {
     var userId = wx.getStorageSync("userId");
     var openId = wx.getStorageSync("userOpenId");
+    var userToken = wx.getStorageSync("userToken");
     if (!!!userId) {
         wx.showModal({
             title: '提示',
@@ -37,13 +35,20 @@ function getUserInfo(url) {
         return false;
     }
 
-    return { userId, openId };
+    return { userId, openId, userToken };
 
+}
+
+function getUserInfoforUtil(url) {
+    if (url.indexOf("getUserInfo") != -1) {
+        return { userId: "", openId: "", userToken: wx.getStorageSync("userToken") };
+    }
+    return getUserInfo();
 }
 
 function http(url, callBack,option) {
 
-    var userInfo = getUserInfo(url);
+    var userInfo = getUserInfoforUtil(url);
     if (userInfo === false) {
         return;
     }
@@ -55,7 +60,6 @@ function http(url, callBack,option) {
             duration: 100000
         });
     }
-
     wx.request({
         url: url,
         method: 'GET',
@@ -63,6 +67,7 @@ function http(url, callBack,option) {
             "Content-Type": "json",
             'openId': userInfo.openId,
             'userId': userInfo.userId,
+            "Token": userInfo.userToken,
         },
         success: function(res) {
             callBack(res.data);
@@ -84,7 +89,7 @@ function app() {
 }
 
 function httpPost(url,data,callBack) {
-    var userInfo = getUserInfo(url);
+    var userInfo = getUserInfoforUtil(url);
     if (userInfo === false) {
         return;
     }
@@ -95,7 +100,6 @@ function httpPost(url,data,callBack) {
         duration: 10000
     });
 
-
     wx.request({
         url: url,
         method: 'POST',
@@ -104,6 +108,7 @@ function httpPost(url,data,callBack) {
             'content-type': 'application/json',
             'openId': userInfo.openId,
             'userId': userInfo.userId,
+            "Token": userInfo.userToken,
         },
         success: function (res) {
             callBack(res.data);
@@ -324,4 +329,5 @@ module.exports = {
   formatDate: formatDate,
   hasPushMessage: hasPushMessage,
   readPushMessage: readPushMessage,
+  getUserInfo: getUserInfo,
 }

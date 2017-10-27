@@ -71,7 +71,6 @@ Page({
         //this.loadPage();
     },
     loadPage: function () {
-        debugger;
         this.setData({
             searchDate: util.getNowFormatDate(),
         });
@@ -97,19 +96,16 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        debugger;
         //this.loadPage();
         this.loadList();
     },
     loadList: function () {
         var start = new Date();
         //while (new Date() - start < 10000) { // 延迟一秒
-        //    debugger;
         //    if (app.globalData.openId && app.globalData.user && app.globalData.user.Patient) {
         //        break;
         //    }
         //}
-        debugger;
         if (app.globalData.openId === "") {
             console.log("openId获取失败");
             return;
@@ -119,7 +115,6 @@ Page({
            res => {
                //合并收缩压舒张压数据
                //var recordListGroup = res.Result.MyRecord;
-               debugger;
                this.setData({
                    myRecord: res.Result.MyRecord,
                    myReport: res.Result.MyReport,

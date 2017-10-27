@@ -183,18 +183,25 @@ function getNowFormatDate() {
 }
 
 function getNowFormatTime() {
+    debugger;
     var date = new Date();
     var seperator1 = "-";
     var seperator2 = ":";
     var month = date.getMonth() + 1;
     var strDate = date.getDate();
+    var hours = date.getHours();
+    var min = date.getMinutes();
     if (month >= 1 && month <= 9) {
         month = "0" + month;
     }
-    if (strDate >= 0 && strDate <= 9) {
-        strDate = "0" + strDate;
+
+    if (min >= 0 && min <= 9) {
+        min = "0" + min;
     }
-    var currentdate = date.getHours() + seperator2 + date.getMinutes();
+    if (hours >= 0 && hours <= 9) {
+        hours = "0" + hours;
+    }
+    var currentdate = hours + seperator2 + min;
         
     return currentdate;
 }

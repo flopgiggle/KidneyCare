@@ -141,17 +141,7 @@ Page({
         });
       });
   },
-  bindMultiPickerChange: function (e) {
-      console.log('picker发送选择改变，携带值为', e.detail.value);
-      var provice = this.data.multiIndex[0];
-      var city = this.data.multiIndex[1];
-      var hospitalId = this.data.multiArray[2][e.detail.value].Id;
-      
-      this.getStaffsByHosptalId(hospitalId);
-      this.setData({
-          multiIndex: [provice, city, e.detail.value]
-      });
-  },
+
   bindAcreColumnPickerChange: function (e) {
       console.log('picker发送选择改变，携带值为', e.detail.value);
 
@@ -164,6 +154,7 @@ Page({
       this.setData({
           multiIndex: [e.detail.value[0], e.detail.value[1], hospital]
       });
+      this.getStaffsByHosptalId(hospitalId);
   },
   bindAcreColumnChange: function (e) {
       var provice = this.data.multiIndex[0];
@@ -188,11 +179,24 @@ Page({
       var provice = this.data.multiIndex[0];
       var city = this.data.multiIndex[1];
       var hospital = e.detail.value;
+      var hospitalId = this.data.multiArray[2][e.detail.value].Id;
       console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
       var data = {
           multiIndex: [provice, city, hospital]
       };
+      this.getStaffsByHosptalId(hospitalId);
       this.setData(data);
+  },
+  bindMultiPickerChange: function (e) {
+      console.log('picker发送选择改变，携带值为', e.detail.value);
+      var provice = this.data.multiIndex[0];
+      var city = this.data.multiIndex[1];
+      var hospitalId = this.data.multiArray[2][e.detail.value].Id;
+
+      this.getStaffsByHosptalId(hospitalId);
+      this.setData({
+          multiIndex: [provice, city, e.detail.value]
+      });
   },
   /**
    * 生命周期函数--监听页面加载

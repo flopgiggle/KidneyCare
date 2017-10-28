@@ -43,10 +43,6 @@ Page({
         }
         index++;
       }
-
-      //var index = lodash.findIndex(collect, [id = orgValue]);
-
-      //return index;
     } else {
       return -1;
     }
@@ -102,12 +98,15 @@ Page({
         var result = JSON.parse(res.Result);
         result.allDoctors.push({ UserName: '未收录', Id: '-100' });
         result.allNurses.push({ UserName: '未收录', Id: '-100' });
+          debugger;
+        var docterIndex = this.getIndexValue(app.globalData.user.Patient.BelongToDoctor, result.allDoctors);
+          var nurseIndex = this.getIndexValue(app.globalData.user.Patient.BelongToNurse, result.allNurses);
         if (app.globalData.user) {
           this.setData({
             docter: result.allDoctors,
             nurse: result.allNurses,
-            docterIndex: this.getIndexValue(app.globalData.user.Patient.BelongToDoctor, result.allDoctors),
-            nurseIndex: this.getIndexValue(app.globalData.user.Patient.BelongToNurse, result.allNurses),
+            docterIndex: docterIndex!=undefined ? docterIndex:-1,
+            nurseIndex: nurseIndex!=undefined ? nurseIndex : -1,
           });
         }
       });
@@ -201,6 +200,7 @@ Page({
    */
   onLoad: function (options) {
     //默认查询四川成都地区的医院
+      debugger;
     var cityCode = app.globalData.user.CityCode;
     if (!!!cityCode) {
       cityCode = "510100";
@@ -314,7 +314,7 @@ Page({
       return;
     }
 
-    if (this.data.docterIndex < 0 && this.data.nurseIndex < 0) {
+    if ((this.data.docterIndex == undefined || this.data.docterIndex < 0) && (this.data.nurseIndex == undefined || this.data.nurseIndex < 0)) {
       wx.showModal({
         title: '提示',
         content: '至少选择一位医生或护士',
@@ -377,9 +377,11 @@ Page({
 
 
     util.httpPost(app.globalData.urls.user.update, postData, res => {
-      wx.switchTab({
-        url: "/pages/currentDayInfo/currentDayInfo"
-      });
+        app.wxLoginProcess();
+
+        wx.switchTab({
+            url: "/pages/currentDayInfo/currentDayInfo"
+        });
     });
 
 

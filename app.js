@@ -2,7 +2,7 @@
 //1.product for onlie product environment 
 //2.test for onlie test environment
 //3.local for local debug enviromnet
-var runMode = "local";
+var runMode = "test";
 var util = require('utils/util.js');
 var _ = require('utils/undercore.js');
 var host = {
@@ -89,7 +89,7 @@ App({
     wxLoginProcess: function (res) {
         var url = this.globalData.urls.user.getUserInfo;
         var postData = {
-            Code: res.code,
+            Code: res?res.code:"",
             OpenId: this.globalData.openId
         }
         util.httpPost(url, postData,
@@ -109,7 +109,6 @@ App({
                     key: "userToken",
                     data: res.Result.Token
                 });
-                debugger;
                 wx.switchTab({
                     url: "/pages/currentDayInfo/currentDayInfo"
                 });

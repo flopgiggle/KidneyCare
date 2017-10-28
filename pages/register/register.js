@@ -98,7 +98,6 @@ Page({
         var result = JSON.parse(res.Result);
         result.allDoctors.push({ UserName: '未收录', Id: '-100' });
         result.allNurses.push({ UserName: '未收录', Id: '-100' });
-          debugger;
         var docterIndex = this.getIndexValue(app.globalData.user.Patient.BelongToDoctor, result.allDoctors);
           var nurseIndex = this.getIndexValue(app.globalData.user.Patient.BelongToNurse, result.allNurses);
         if (app.globalData.user) {
@@ -200,7 +199,6 @@ Page({
    */
   onLoad: function (options) {
     //默认查询四川成都地区的医院
-      debugger;
     var cityCode = app.globalData.user.CityCode;
     if (!!!cityCode) {
       cityCode = "510100";

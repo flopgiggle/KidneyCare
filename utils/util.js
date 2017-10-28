@@ -183,7 +183,6 @@ function getNowFormatDate() {
 }
 
 function getNowFormatTime() {
-    debugger;
     var date = new Date();
     var seperator1 = "-";
     var seperator2 = ":";

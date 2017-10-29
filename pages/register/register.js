@@ -118,18 +118,18 @@ Page({
         //result.allDoctors.push({ UserName: '未收录', Id: '-100' });
         //result.allNurses.push({ UserName: '未收录', Id: '-100' });
         var hospital = this.getIndexValue(app.globalData.user.BelongToHospital, result.hospital);
-        if (hospital == -1 || !this.data.isFirstIn) {
+        if (hospital == -1 || !this.data.isNotFirstIn) {
           hospital = this.data.multiIndex[2];
         }
-
+          debugger;
         var city = this.getIndexValue(app.globalData.user.CityCode, result.citys);
-        if (city == -1 || !this.data.isFirstIn) {
+        if (city == -1 || !this.data.isNotFirstIn) {
           city = this.data.multiIndex[1];
         }
 
 
         var provinces = this.getIndexValue(app.globalData.user.ProvinceCode, result.provinces);
-        if (provinces == -1 || !this.data.isFirstIn) {
+        if (provinces == -1 || !this.data.isNotFirstIn) {
           provinces = this.data.multiIndex[0];
         }
 
@@ -137,7 +137,7 @@ Page({
         this.setData({
           multiArray: [result.provinces, result.citys, result.hospital],
           multiIndex: [provinces, city, hospital],
-          isFirstIn:false
+          isNotFirstIn:false
         });
       });
   },
@@ -148,6 +148,9 @@ Page({
       var provice = this.data.multiIndex[0];
       var city = this.data.multiIndex[1];
       var hospital = this.data.multiIndex[2];
+      if (hospital > this.data.multiArray[2].length - 1) {
+          hospital = 0;
+      }
       var hospitalId = this.data.multiArray[2][hospital].Id;
 
       this.getStaffsByHosptalId(hospitalId);

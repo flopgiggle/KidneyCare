@@ -85,6 +85,11 @@ App({
         wx.login({
             success: this.wxLoginProcess
         });
+        wx.getUserInfo({
+            success: res => {
+                this.globalData.wxUserInfo = res.userInfo;
+            }
+        });
     },
     wxLoginProcess: function (res) {
         var url = this.globalData.urls.user.getUserInfo;

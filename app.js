@@ -2,7 +2,7 @@
 //1.product for onlie product environment 
 //2.test for onlie test environment
 //3.local for local debug enviromnet
-var runMode = "test";
+var runMode = "local";
 var util = require('utils/util.js');
 var _ = require('utils/undercore.js');
 var host = {
@@ -22,7 +22,7 @@ App({
         g_currentMusicPostId: null,
         doubanBase: "https://api.douban.com",
         host: host[runMode],
-        picUrl: host + "/upload/",
+        picUrl: host[runMode] + "/upload/",
         courseFileUrl: host[runMode] + "/uploadcoursefile/",
         openId: openId[runMode],
         patientAlreadyBind:"true",

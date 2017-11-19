@@ -74,7 +74,7 @@
               <text class='text-info'>{{item.DataName}}</text>
             </view>
             <view class="list-item-info value">
-              <text class='text-type'>{{item.DataValue}} {{item.Unit}}</text>
+              <text class='text-type'>{{item.DataValue}} {{item.DataValue!="阴性"?item.Unit:""}}</text>
             </view>
             <view class="list-item-info result">
               <text wx:if="{{item.IsNomoal}}" class='text-type'>正常</text>

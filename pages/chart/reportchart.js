@@ -85,6 +85,7 @@ Page({
 
     /*查看图片*/
     viewMoviePostImg: function (e) {
+        debugger;
         var src = e.currentTarget.dataset.src;
         var picList = [];
         for (var item of src) {

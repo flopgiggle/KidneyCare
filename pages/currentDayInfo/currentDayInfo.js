@@ -162,5 +162,24 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    onDelete: function (e) {
+        debugger;
+        wx.showModal({
+            title: '提示',
+            content: '是否要删除该组记录',
+            success: res=> {
+                if (res.confirm) {
+                    debugger;
+                    var url = app.globalData.urls.record.delete + "/" + e.currentTarget.dataset.itemid;
+                    util.http(url, res => {
+                        debugger;
+                        this.loadList();
+                    });
+                } else if (res.cancel) {
+                    console.log('用户点击取消');
+                }
+            }
+        });
     }
 })

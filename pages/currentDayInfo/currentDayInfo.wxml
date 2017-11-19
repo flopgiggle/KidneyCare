@@ -36,7 +36,7 @@
     <block wx:for="{{allData}}" wx:for-item="item">
       <view class="list-group" bindtap='onRecordTap'>
 
-        <view class="list-item" >
+        <view class="list-item" data-itemid='{{item.Id}}' bindlongpress='onDelete'>
           <view class="list-item-info name">
             <text class='text-info'>{{item.DataName}}</text>
           </view>
@@ -56,7 +56,7 @@
       
     </view>
     <block wx:for="{{allData}}" wx:for-item="item">
-      <view class="list-group" bindtap='onReportTap'>
+      <view class="list-group" bindtap='onReportTap' >
 
         <block wx:if="{{item.ReportName}}">
           <view class="list-item report" >
@@ -69,7 +69,7 @@
           </view>
         </block>
         <block wx:else="{{item.ReportName}}">
-          <view class="list-item" >
+          <view class="list-item" data-itemid='{{item.Id}}' bindlongpress='onDelete'>
             <view class="list-item-info name">
               <text class='text-info'>{{item.DataName}}</text>
             </view>

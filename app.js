@@ -46,6 +46,7 @@ App({
             },
             record: {
                 add: baseUri + "record/add",
+                delete: baseUri + "record/delete"
             },
             addReport: {
                 add: baseUri + "record/addReport",

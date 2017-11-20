@@ -2,12 +2,12 @@
 //1.product for onlie product environment 
 //2.test for onlie test environment
 //3.local for local debug enviromnet
-var runMode = "local";
+var runMode = "test";
 var util = require('utils/util.js');
 var _ = require('utils/undercore.js');
 var host = {
-    product:"https://30861365.qcloud.la",
-    test:"https://77964003.qcloud.la",
+    product:"https://api.intellimedcare.com/",
+    test:"https://apitemp.intellimedcare.com/",
     local:"http://localhost:11662"
 }
 var openId = {

@@ -24,23 +24,21 @@ Page({
         });
     },
     chooseImage: function () {
+        console.log(1);
         var that = this;
+        console.log(2);
         wx.chooseImage({
-            sourceType: sourceType[this.data.sourceTypeIndex],
-            sizeType: sizeType[this.data.sizeTypeIndex],
-            count: 5,
-            success: function (res) {
-                console.log(res);
-                that.setData({
-                    imageList: res.tempFilePaths
-                });
-
-
-
-            }
-        })
+          count: 5, // 默认9
+          sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+          sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+          success: function (res) {
+            console.log(res);
+            that.setData({
+              imageList: res.tempFilePaths
+            });
+          },
+        });
     },
-
     /**
      * 生命周期函数--监听页面加载
      */

@@ -1,4 +1,18 @@
 <view class="container" style="background-color: #ffffff">
+  <view class="form-group  fix-top">
+    <view class="form-item form-item-picker">
+      <view class="form-item-label">
+        <text>查询年份</text>
+      </view>
+      <view class="form-item-input">
+        <picker value="{{searchDate}}"  bindchange="bindDateChange" range="{{array}}">
+          <view class="picker">
+            {{array[searchDate]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
   <view class="list-group">
     <view class="list-item title" >
       <view class="list-item-info">

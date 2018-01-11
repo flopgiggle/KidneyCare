@@ -17,8 +17,8 @@ Page({
     result: [],
     report: [],
     picurl: app.globalData.picUrl,
-    array: ['2014','2015', '2016', '2017', '2018'],
-    searchDate: 4,
+    array: ['2012','2013','2014','2015', '2016', '2017', '2018'],
+    searchDate: 6,
   },
 
   /**

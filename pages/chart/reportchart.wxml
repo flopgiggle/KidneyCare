@@ -31,7 +31,7 @@
           <text class='text-info'>{{item.ReportDate}}</text>
         </view>
         <view class="list-item-info">
-          <text class='text-type'>{{item.ReportType}}</text>
+          <text class='text-type'>{{item.ReportTypeName}}</text>
         </view>
         <view class="list-item-info image">
           <text wx:if="{{item.ImageUrls.length>0}}" catchtap='viewMoviePostImg' data-src="{{item.ImageUrls}}" class='text-type'>点击查看图片</text>
